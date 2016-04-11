@@ -1,6 +1,6 @@
-CREATE DATABASE MITOTILI;
+CREATE DATABASE TRAJIN;
 
-USE MITOTILI;
+USE TRAJIN;
 
 CREATE TABLE inventarios(idinventario int PRIMARY KEY auto_increment,
 						 tipo char(1),
@@ -96,9 +96,9 @@ CREATE TABLE bailes(idbaile int PRIMARY KEY auto_increment,
 
 CREATE TABLE cuadrosevento(idcuadroevento int PRIMARY KEY auto_increment,
 						   idevento int,
-						   idbaile int,
+						   idcuadro int,
 						   FOREIGN KEY(idevento) REFERENCES eventos (idevento),
-						   FOREIGN KEY(idbaile) REFERENCES bailes (idbaile));
+						   FOREIGN KEY(idcuadro) REFERENCES cuadros (idcuadro));
 
 					  
 CREATE TABLE regionesevento(idregionesevento int PRIMARY KEY auto_increment,
@@ -121,9 +121,9 @@ CREATE TABLE bailarinesevento(idbailarinesevento int PRIMARY KEY auto_increment,
 							  FOREIGN KEY(idusuario) REFERENCES usuarios(idusuario));
 
 CREATE TABLE asignaciones(idasignacion int PRIMARY KEY auto_increment,
-						  idpiezasasignadas int,
-						  idbailesevento int,
-						  status int);
+						  idbailarinesevento int,
+						  status int,
+                                                  FOREIGN KEY(idbailarinesevento) REFERENCES bailarinesevento(idbailarinesevento));
 						
 CREATE TABLE piezasasignadas(idregistropiezasa int PRIMARY KEY auto_increment,
 							 idinventario int,
