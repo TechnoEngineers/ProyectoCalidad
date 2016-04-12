@@ -14,10 +14,10 @@ import java.sql.*;
  * @author Techno Engineers
  */
 
-public class UsuariosDAO {
+public class UsuariosModelo {
     Conexion conexion;
     
-    public UsuariosDAO() 
+    public UsuariosModelo() 
     {
         conexion = new Conexion();
     

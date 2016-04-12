@@ -14,31 +14,34 @@ package Modelo;
  * @author Techno Engineers
  */
 
-public class Usuarios
+public class UsuariosDatosEncapsulados
 {
     String nombreUsuario;
-    String contraseña;
+    String contrasena;
 
-    public Usuarios()
+    public UsuariosDatosEncapsulados()
     {
         nombreUsuario="";
-        contraseña="";
+        contrasena="";
     }
     //Esto es para encapsular los atributos de Usuarios para usarlos como objetos en el sistema
-    public String getNombreUsuario() {
+    public String getNombreUsuario() 
+    {
         return nombreUsuario;
     }
 
-    public void setNombreUsuario(String nombreUsuario) {
+    public void setNombreUsuario(String nombreUsuario) 
+    {
         this.nombreUsuario = nombreUsuario;
     }
 
     public String getContraseña() {
-        return contraseña;
+        return contrasena;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setContraseña(String contrasena) 
+    {
+        this.contrasena = contrasena;
     }
     
     
