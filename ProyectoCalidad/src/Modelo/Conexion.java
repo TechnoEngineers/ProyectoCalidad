@@ -7,7 +7,7 @@
  * Numero de metodos en el codigo: 2
  * Interfaces: 
  */
-package SQL;
+package Modelo;
 
 import java.sql.*;
 

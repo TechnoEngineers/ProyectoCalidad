@@ -8,7 +8,6 @@
  * Interfaces: 
  */
 package Modelo;
-import SQL.Conexion;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -32,7 +31,7 @@ public class UsuariosModelo {
         Conexion x = new Conexion();
         try
         {
-            return x.Conecta("localhost:3306", "sld", "root", "101125", 2);
+            return x.Conecta("localhost", "trajin", "root", "101125");
         } catch (SQLException ex)
         {
             return null;
