@@ -103,9 +103,6 @@
         <Component class="javax.swing.JTextField" name="jTFNombre">
         </Component>
         <Component class="javax.swing.JPasswordField" name="jPFContrasena">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jPasswordField1"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="jBAcceder">
           <Properties>

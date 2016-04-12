@@ -49,35 +49,31 @@ public class UsuariosModelo {
         conect = null;
     }
 
-    public static int consultarUsuarios(String usuario, String password)
+     public static int consultarUsuarios(UsuariosDatosEncapsulados objUsuarios)       
     {
         try 
         {
             Connection con = UsuariosModelo.conectaDB();
             Statement stmt = con.createStatement();
-            ResultSet rset = stmt.executeQuery("select nombre,apellidopaterno from usuarios where nombre='"+usuario+"' and contrasenia='"+password+"'");
+            ResultSet rset = stmt.executeQuery("SELECT nombre,contrasenia FROM usuarios WHERE nombre='"+objUsuarios.getNombreUsuario()+"' AND contrasenia='"+objUsuarios.getContrasena()+"'");
+            
             ArrayList<UsuariosDatosEncapsulados> listaArreglos = new ArrayList<UsuariosDatosEncapsulados>();
            
             while (rset.next()) 
             {
-                UsuariosDatosEncapsulados objPersona = new UsuariosDatosEncapsulados();
-                objPersona.setNombreUsuario(rset.getString("nombre"));
-                objPersona.setContrasena(rset.getString("ap"));
-                listaArreglos.add(objPersona);
+                objUsuarios.setNombreUsuario(rset.getString("nombre"));
+                objUsuarios.setContrasena(rset.getString("contrasenia"));
+                listaArreglos.add(objUsuarios);
             }
-
             if (listaArreglos.size() > 0) 
             {
                 return 0;
             }
-            
             stmt.close();
             UsuariosModelo.desconectaDB(con);
-
         } catch (SQLException ex) {
             Logger.getLogger(UsuariosModelo.class.getName()).log(Level.SEVERE, null, ex);
         }
         return 1;
     }
-  
 }
