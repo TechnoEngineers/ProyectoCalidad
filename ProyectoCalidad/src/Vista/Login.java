@@ -10,7 +10,10 @@
 package Vista;
 
 import Modelo.UsuariosDatosEncapsulados;
+import Modelo.UsuariosModelo;
 import java.sql.Connection;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -118,16 +121,21 @@ public class Login extends javax.swing.JFrame {
 
     private void jBAccederActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jBAccederActionPerformed
     {//GEN-HEADEREND:event_jBAccederActionPerformed
-        try
-        {
-            UsuariosDatosEncapsulados objUsuariosDatosEncapsulados=new UsuariosDatosEncapsulados();
-            Connection con = Manipula.conectaDB();
-            
-        } catch (Exception e)
-        {
-        }
+        final JPanel jPanel = new JPanel();
         
-       
+        UsuariosDatosEncapsulados objUsuariosDatosEncapsulados=new UsuariosDatosEncapsulados();
+        objUsuariosDatosEncapsulados.setNombreUsuario(jTFNombre.getText());
+        objUsuariosDatosEncapsulados.setContrasena(jPFContrasena.getText());
+        int n = UsuariosModelo.consultarUsuarios(objUsuariosDatosEncapsulados.getNombreUsuario(), objUsuariosDatosEncapsulados.getContrasena());
+            
+        if (n == 0) {
+            JOptionPane.showMessageDialog(jPanel, "Bienvenido", "Mensaje", JOptionPane.ERROR_MESSAGE);
+
+        } else {
+            JOptionPane.showMessageDialog(jPanel, "Acceso denegado.", "Mensaje", JOptionPane.ERROR_MESSAGE);
+
+        }
+            
     }//GEN-LAST:event_jBAccederActionPerformed
 
     /**

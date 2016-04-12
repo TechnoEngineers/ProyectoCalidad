@@ -16,32 +16,36 @@ package Modelo;
 
 public class UsuariosDatosEncapsulados
 {
-    String nombreUsuario;
-    String contrasena;
+    String sNombreUsuario;
+    String sContrasena;
 
     public UsuariosDatosEncapsulados()
     {
-        nombreUsuario="";
-        contrasena="";
+        sNombreUsuario="";
+        sContrasena="";
+    }
+    public UsuariosDatosEncapsulados(String sNombreUsuario, String sContrasena){
+        this.sNombreUsuario=sNombreUsuario;
+        this.sContrasena=sContrasena;
     }
     //Esto es para encapsular los atributos de Usuarios para usarlos como objetos en el sistema
     public String getNombreUsuario() 
     {
-        return nombreUsuario;
+        return sNombreUsuario;
     }
 
-    public void setNombreUsuario(String nombreUsuario) 
+    public void setNombreUsuario(String sNombreUsuario) 
     {
-        this.nombreUsuario = nombreUsuario;
+        this.sNombreUsuario = sNombreUsuario;
     }
 
-    public String getContraseña() {
-        return contrasena;
+    public String getContrasena() {
+        return sContrasena;
     }
 
-    public void setContraseña(String contrasena) 
+    public void setContrasena(String sContrasena) 
     {
-        this.contrasena = contrasena;
+        this.sContrasena = sContrasena;
     }
     
     

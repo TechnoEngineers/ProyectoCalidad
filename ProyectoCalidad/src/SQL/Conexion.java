@@ -7,7 +7,7 @@
  * Numero de metodos en el codigo: 0
  * Interfaces: 
  */
-package Modelo;
+package SQL;
 
 import java.sql.Connection;
 import java.sql.Driver;
