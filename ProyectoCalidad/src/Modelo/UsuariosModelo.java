@@ -55,14 +55,22 @@ public class UsuariosModelo {
         {
             Connection con = UsuariosModelo.conectaDB();
             Statement stmt = con.createStatement();
-            ResultSet rset = stmt.executeQuery("SELECT nombre,contrasenia FROM usuarios WHERE nombre='"+objUsuarios.getNombreUsuario()+"' AND contrasenia='"+objUsuarios.getContrasena()+"'");
+            ResultSet rset;
+            
+            if(objUsuarios.getContrasena().length()==0)
+            {
+               rset = stmt.executeQuery("SELECT nombre FROM usuarios WHERE nombre='"+objUsuarios.getNombreUsuario()+"'");
+            }else
+            {
+               rset = stmt.executeQuery("SELECT nombre FROM usuarios WHERE nombre='"+objUsuarios.getNombreUsuario()+"' AND contrasenia='"+objUsuarios.getContrasena()+"'");
+            }
+           
             
             ArrayList<UsuariosDatosEncapsulados> listaArreglos = new ArrayList<UsuariosDatosEncapsulados>();
            
             while (rset.next()) 
             {
                 objUsuarios.setNombreUsuario(rset.getString("nombre"));
-                objUsuarios.setContrasena(rset.getString("contrasenia"));
                 listaArreglos.add(objUsuarios);
             }
             if (listaArreglos.size() > 0) 

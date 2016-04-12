@@ -11,11 +11,13 @@ package Vista;
 
 import Modelo.UsuariosDatosEncapsulados;
 import Modelo.UsuariosModelo;
+import Vista.mensajes.Mensajes;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.font.TextAttribute;
 import java.sql.Connection;
 import java.util.Map;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -134,8 +136,7 @@ public class Login extends javax.swing.JFrame
 
     private void jBAccederActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jBAccederActionPerformed
     {//GEN-HEADEREND:event_jBAccederActionPerformed
-        final JPanel jPanel = new JPanel();
-
+        JFrame objFrame = new JFrame("Dialogo de mensajes");
         UsuariosDatosEncapsulados objUsuariosDatosEncapsulados = new UsuariosDatosEncapsulados();
         objUsuariosDatosEncapsulados.setNombreUsuario(jTFNombre.getText());
         objUsuariosDatosEncapsulados.setContrasena(jPFContrasena.getText());
@@ -143,11 +144,11 @@ public class Login extends javax.swing.JFrame
         int n = UsuariosModelo.consultarUsuarios(objUsuariosDatosEncapsulados);
         if (n == 0)
         {
-            JOptionPane.showMessageDialog(jPanel, "Bienvenido", "Mensaje", JOptionPane.ERROR_MESSAGE);
+            Mensajes.exito(objFrame);
 
         } else
         {
-            JOptionPane.showMessageDialog(jPanel, "Acceso denegado.", "Mensaje", JOptionPane.ERROR_MESSAGE);
+            Mensajes.falla(objFrame,"Acceso denegado.");
 
         }
 

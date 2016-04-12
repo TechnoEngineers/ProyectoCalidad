@@ -5,6 +5,13 @@
  */
 package Vista;
 
+import Modelo.UsuariosDatosEncapsulados;
+import Modelo.UsuariosModelo;
+import Vista.mensajes.Mensajes;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
 /**
  *
  * @author mgool
@@ -32,19 +39,19 @@ public class VerificarUsuario extends javax.swing.JFrame
 
         jLFUsuario = new javax.swing.JLabel();
         jTFUsuario = new javax.swing.JTextField();
-        jBPreguntasSeguras = new javax.swing.JButton();
+        jBComprobarPreguntas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLFUsuario.setText("Usuario: ");
 
-        jBPreguntasSeguras.setText("Comprobar");
-        jBPreguntasSeguras.setPreferredSize(new java.awt.Dimension(120, 50));
-        jBPreguntasSeguras.addActionListener(new java.awt.event.ActionListener()
+        jBComprobarPreguntas.setText("Comprobar");
+        jBComprobarPreguntas.setPreferredSize(new java.awt.Dimension(120, 50));
+        jBComprobarPreguntas.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                jBPreguntasSegurasActionPerformed(evt);
+                jBComprobarPreguntasActionPerformed(evt);
             }
         });
 
@@ -57,7 +64,7 @@ public class VerificarUsuario extends javax.swing.JFrame
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLFUsuario)
                     .addComponent(jTFUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBPreguntasSeguras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jBComprobarPreguntas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(135, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -68,17 +75,30 @@ public class VerificarUsuario extends javax.swing.JFrame
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTFUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jBPreguntasSeguras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jBComprobarPreguntas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(148, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jBPreguntasSegurasActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jBPreguntasSegurasActionPerformed
-    {//GEN-HEADEREND:event_jBPreguntasSegurasActionPerformed
+    private void jBComprobarPreguntasActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jBComprobarPreguntasActionPerformed
+    {//GEN-HEADEREND:event_jBComprobarPreguntasActionPerformed
+        JFrame objFrame = new JFrame("Dialogo de mensajes");
+        UsuariosDatosEncapsulados objUsuariosDatosEncapsulados = new UsuariosDatosEncapsulados();
+        objUsuariosDatosEncapsulados.setNombreUsuario(jTFUsuario.getText());
+        int n = UsuariosModelo.consultarUsuarios(objUsuariosDatosEncapsulados);
+         
+        if (n == 0)
+        {
+            VerificarPreguntas objVerificarPreguntas=new VerificarPreguntas();
+            objVerificarPreguntas.setVisible(true);
 
-    }//GEN-LAST:event_jBPreguntasSegurasActionPerformed
+        } else
+        {
+            Mensajes.falla(objFrame,"No se encontró el usuario.");
+        }
+    }//GEN-LAST:event_jBComprobarPreguntasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -127,7 +147,7 @@ public class VerificarUsuario extends javax.swing.JFrame
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBPreguntasSeguras;
+    private javax.swing.JButton jBComprobarPreguntas;
     private javax.swing.JLabel jLFUsuario;
     private javax.swing.JTextField jTFUsuario;
     // End of variables declaration//GEN-END:variables
