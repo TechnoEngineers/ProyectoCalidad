@@ -5,7 +5,11 @@
  */
 package Vista;
 
+import Modelo.UsuariosDatosEncapsulados;
+import Modelo.UsuariosModelo;
+import Vista.mensajes.Mensajes;
 import java.text.SimpleDateFormat;
+import javax.swing.JFrame;
 
 /**
  *
@@ -100,7 +104,26 @@ public class VerificarPreguntas extends javax.swing.JFrame
 
     private void jBPreguntasSegurasActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jBPreguntasSegurasActionPerformed
     {//GEN-HEADEREND:event_jBPreguntasSegurasActionPerformed
-        String fecha = new SimpleDateFormat("yyyy/MM/dd").format(jDCFechaNacimiento.getDate());
+        JFrame objFrame = new JFrame("Dialogo de mensajes");
+        UsuariosDatosEncapsulados objUsuariosDatosEncapsulados = new UsuariosDatosEncapsulados();
+        String sFechaNacimiento = new SimpleDateFormat("yyyy/MM/dd").format(jDCFechaNacimiento.getDate());
+        
+        objUsuariosDatosEncapsulados.setsFechaNacimiento(sFechaNacimiento);
+        objUsuariosDatosEncapsulados.setsLugarNacimiento(jTFLugarNacimiento.getText());
+        objUsuariosDatosEncapsulados.setsEmail(jTFCorreo.getText());
+
+        int iResultado=UsuariosModelo.verificarPreguntas(objUsuariosDatosEncapsulados);
+        
+        if (iResultado==0)
+        {
+            Mensajes.exito(objFrame);
+            RecuperarContrasena objRecuperarContrasena = new RecuperarContrasena();
+            objRecuperarContrasena.setVisible(true);
+            this.dispose();
+        } else
+        {
+            Mensajes.falla(objFrame);
+        }
         
     }//GEN-LAST:event_jBPreguntasSegurasActionPerformed
 

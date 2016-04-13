@@ -31,7 +31,7 @@ public class UsuariosModelo {
         Conexion x = new Conexion();
         try
         {
-            return x.Conecta("localhost", "trajin", "root", "101125");
+            return x.Conecta("localhost", "trajin", "root", "12345");
         } catch (SQLException ex)
         {
             return null;
@@ -82,6 +82,36 @@ public class UsuariosModelo {
         } catch (SQLException ex) {
             Logger.getLogger(UsuariosModelo.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return 1;
+    }
+     
+    public static int verificarPreguntas(UsuariosDatosEncapsulados objUsuarios)
+    {
+        
+        try 
+        {
+            Connection con = UsuariosModelo.conectaDB();
+            Statement stmt = con.createStatement();
+            ResultSet rset = stmt.executeQuery("SELECT fechanacimiento,lugarnacimiento,email FROM usuarios WHERE fechanacimiento='"+objUsuarios.getsFechaNacimiento()+"' AND lugarnacimiento='"+objUsuarios.getsLugarNacimiento()+"' AND email='"+objUsuarios.getsEmail()+"'");
+            ArrayList<UsuariosDatosEncapsulados> listaArreglos = new ArrayList<UsuariosDatosEncapsulados>();
+           
+            while (rset.next()) 
+            {
+                objUsuarios.setsFechaNacimiento(rset.getString("fechanacimiento"));
+                objUsuarios.setsLugarNacimiento(rset.getString("lugarnacimiento"));
+                objUsuarios.setsEmail(rset.getString("email"));
+                listaArreglos.add(objUsuarios);
+            }
+            if (listaArreglos.size() > 0) 
+            {
+                return 0;
+            }
+            stmt.close();
+            UsuariosModelo.desconectaDB(con);
+        } catch (SQLException ex) {
+            Logger.getLogger(UsuariosModelo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         return 1;
     }
 }
