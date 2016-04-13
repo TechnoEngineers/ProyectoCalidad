@@ -38,4 +38,9 @@ public class Mensajes
     {
         return JOptionPane.showConfirmDialog(jf, s);
     }
+    
+    public static void errorContrasenia(JFrame jf)
+    {
+        JOptionPane.showMessageDialog(jf, "La contraseña no coincide, verifique porfavor");
+    }
 }

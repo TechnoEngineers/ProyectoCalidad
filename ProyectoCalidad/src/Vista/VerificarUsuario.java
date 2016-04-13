@@ -34,8 +34,7 @@ public class VerificarUsuario extends javax.swing.JFrame
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         jLFUsuario = new javax.swing.JLabel();
         jTFUsuario = new javax.swing.JTextField();
@@ -47,10 +46,8 @@ public class VerificarUsuario extends javax.swing.JFrame
 
         jBComprobarPreguntas.setText("Comprobar");
         jBComprobarPreguntas.setPreferredSize(new java.awt.Dimension(120, 50));
-        jBComprobarPreguntas.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        jBComprobarPreguntas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBComprobarPreguntasActionPerformed(evt);
             }
         });
@@ -84,11 +81,12 @@ public class VerificarUsuario extends javax.swing.JFrame
 
     private void jBComprobarPreguntasActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jBComprobarPreguntasActionPerformed
     {//GEN-HEADEREND:event_jBComprobarPreguntasActionPerformed
+
         JFrame objFrame = new JFrame("Dialogo de mensajes");
         UsuariosDatosEncapsulados objUsuariosDatosEncapsulados = new UsuariosDatosEncapsulados();
         objUsuariosDatosEncapsulados.setNombreUsuario(jTFUsuario.getText());
         int n = UsuariosModelo.consultarUsuarios(objUsuariosDatosEncapsulados);
-         
+       
         if (n == 0)
         {
             VerificarPreguntas objVerificarPreguntas=new VerificarPreguntas();
@@ -149,6 +147,6 @@ public class VerificarUsuario extends javax.swing.JFrame
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBComprobarPreguntas;
     private javax.swing.JLabel jLFUsuario;
-    private javax.swing.JTextField jTFUsuario;
+    public javax.swing.JTextField jTFUsuario;
     // End of variables declaration//GEN-END:variables
 }

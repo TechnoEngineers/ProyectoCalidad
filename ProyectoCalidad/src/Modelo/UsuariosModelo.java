@@ -8,10 +8,12 @@
  * Interfaces: 
  */
 package Modelo;
+import java.awt.HeadlessException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Techno Engineers
@@ -19,7 +21,7 @@ import java.util.logging.Logger;
 
 public class UsuariosModelo {
     Conexion conexion;
-    
+   
     public UsuariosModelo() 
     {
         conexion = new Conexion();
@@ -31,7 +33,7 @@ public class UsuariosModelo {
         Conexion x = new Conexion();
         try
         {
-            return x.Conecta("localhost", "trajin", "root", "12345");
+            return x.Conecta("localhost", "trajin", "root", "diego");
         } catch (SQLException ex)
         {
             return null;
@@ -113,5 +115,31 @@ public class UsuariosModelo {
         }
         
         return 1;
+    }
+    
+  
+   
+     public static int recuperarContrasenia(UsuariosDatosEncapsulados objUsuarios)
+    {
+        Connection con = UsuariosModelo.conectaDB();
+        String sSQL = "UPDATE usuarios SET contrasenia=? WHERE nombre=?";
+        try {
+            PreparedStatement pst=con.prepareStatement(sSQL);
+            pst.setString(1,objUsuarios.getContrasena());
+            pst.setString(2,objUsuarios.getNombreUsuario());
+            int n=pst.executeUpdate();
+            if (n!=0) {
+                JOptionPane.showMessageDialog(null, "Modificacion exitosa ");
+                return 0;
+            }else{
+                return 1;
+            }
+            
+         } catch (SQLException | NullPointerException | HeadlessException e) {
+            
+            JOptionPane.showMessageDialog(null, "Error al actualizar el registro...\nCodigo error:\n"+e);
+            return 1;
+            
+        }
     }
 }
