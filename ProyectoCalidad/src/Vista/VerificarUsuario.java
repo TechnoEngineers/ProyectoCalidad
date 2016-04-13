@@ -1,10 +1,15 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Techno Engineers
+ * VerificarUsuario
+ * 12/04/2016 -- Autorizo: Marvin Atzael Hernández Benítez // Lider de proyecto
+ * Modificaciones: 
+ * Sirve para verificar usuario que cambuará la contraseña
+ * Numero de métodos en el codigo: 0
+ * VerificarPreguntas: 
  */
 package Vista;
 
+import Controlador.Manipular;
 import Modelo.UsuariosDatosEncapsulados;
 import Modelo.UsuariosModelo;
 import Vista.mensajes.Mensajes;
@@ -12,16 +17,10 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-/**
- *
- * @author mgool
- */
+
 public class VerificarUsuario extends javax.swing.JFrame
 {
 
-    /**
-     * Creates new form VerificarUsuario1
-     */
     public VerificarUsuario()
     {
         initComponents();
@@ -44,6 +43,14 @@ public class VerificarUsuario extends javax.swing.JFrame
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLFUsuario.setText("Usuario: ");
+
+        jTFUsuario.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
+                jTFUsuarioKeyPressed(evt);
+            }
+        });
 
         jBComprobarPreguntas.setText("Comprobar");
         jBComprobarPreguntas.setPreferredSize(new java.awt.Dimension(120, 50));
@@ -98,7 +105,16 @@ public class VerificarUsuario extends javax.swing.JFrame
         {
             Mensajes.falla(objFrame,"No se encontró el usuario.");
         }
+        Manipular.limpiaCajas(jTFUsuario);
     }//GEN-LAST:event_jBComprobarPreguntasActionPerformed
+
+    private void jTFUsuarioKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFUsuarioKeyPressed
+    {//GEN-HEADEREND:event_jTFUsuarioKeyPressed
+        if(evt.getKeyChar() == '\n')
+        {
+             Manipular.cambioObj(jBComprobarPreguntas);
+        }
+    }//GEN-LAST:event_jTFUsuarioKeyPressed
 
     /**
      * @param args the command line arguments

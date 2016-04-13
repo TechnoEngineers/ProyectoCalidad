@@ -31,7 +31,7 @@ public class UsuariosModelo {
         Conexion x = new Conexion();
         try
         {
-            return x.Conecta("localhost", "trajin", "root", "12345");
+            return x.Conecta("localhost", "trajin", "root", "101125");
         } catch (SQLException ex)
         {
             return null;

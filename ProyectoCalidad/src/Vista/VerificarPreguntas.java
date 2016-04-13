@@ -1,26 +1,24 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Techno Engineers
+ * VerificarUsuario
+ * 12/04/2016 -- Autorizo: Marvin Atzael Hernández Benítez // Lider de proyecto
+ * Modificaciones: 
+ * Sirve para recuperar contraseña me diante preguntas
+ * Numero de métodos en el codigo: 0
+ * RecuperarContrasena: 
  */
 package Vista;
 
+import Controlador.Manipular;
 import Modelo.UsuariosDatosEncapsulados;
 import Modelo.UsuariosModelo;
 import Vista.mensajes.Mensajes;
 import java.text.SimpleDateFormat;
 import javax.swing.JFrame;
 
-/**
- *
- * @author mgool
- */
 public class VerificarPreguntas extends javax.swing.JFrame
 {
 
-    /**
-     * Creates new form VerificarPreguntas
-     */
     public VerificarPreguntas()
     {
         initComponents();
@@ -59,6 +57,30 @@ public class VerificarPreguntas extends javax.swing.JFrame
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
                 jBPreguntasSegurasActionPerformed(evt);
+            }
+        });
+
+        jDCFechaNacimiento.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
+                jDCFechaNacimientoKeyPressed(evt);
+            }
+        });
+
+        jTFLugarNacimiento.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
+                jTFLugarNacimientoKeyPressed(evt);
+            }
+        });
+
+        jTFCorreo.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
+                jTFCorreoKeyPressed(evt);
             }
         });
 
@@ -124,8 +146,32 @@ public class VerificarPreguntas extends javax.swing.JFrame
         {
             Mensajes.falla(objFrame);
         }
-        
+                Manipular.limpiaCajas(jTFLugarNacimiento,jTFCorreo);
     }//GEN-LAST:event_jBPreguntasSegurasActionPerformed
+
+    private void jDCFechaNacimientoKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jDCFechaNacimientoKeyPressed
+    {//GEN-HEADEREND:event_jDCFechaNacimientoKeyPressed
+         if(evt.getKeyChar() == '\n')
+        {
+             Manipular.cambioObj(jTFLugarNacimiento);
+        }
+    }//GEN-LAST:event_jDCFechaNacimientoKeyPressed
+
+    private void jTFCorreoKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFCorreoKeyPressed
+    {//GEN-HEADEREND:event_jTFCorreoKeyPressed
+        if(evt.getKeyChar() == '\n')
+        {
+             Manipular.cambioObj(jBPreguntasSeguras);
+        }
+    }//GEN-LAST:event_jTFCorreoKeyPressed
+
+    private void jTFLugarNacimientoKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFLugarNacimientoKeyPressed
+    {//GEN-HEADEREND:event_jTFLugarNacimientoKeyPressed
+        if(evt.getKeyChar() == '\n')
+        {
+             Manipular.cambioObj(jTFCorreo);
+        }
+    }//GEN-LAST:event_jTFLugarNacimientoKeyPressed
 
     /**
      * @param args the command line arguments

@@ -9,6 +9,7 @@
  */
 package Vista;
 
+import Controlador.Manipular;
 import Modelo.UsuariosDatosEncapsulados;
 import Modelo.UsuariosModelo;
 import Vista.mensajes.Mensajes;
@@ -59,6 +60,22 @@ public class Login extends javax.swing.JFrame
         jLNombre.setText("Usuario: ");
 
         jLContrasena.setText("Contraseña: ");
+
+        jTFNombre.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
+                jTFNombreKeyPressed(evt);
+            }
+        });
+
+        jPFContrasena.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
+                jPFContrasenaKeyPressed(evt);
+            }
+        });
 
         jBAcceder.setText("Acceder");
         jBAcceder.setPreferredSize(new java.awt.Dimension(120, 50));
@@ -151,7 +168,7 @@ public class Login extends javax.swing.JFrame
             Mensajes.falla(objFrame,"Acceso denegado.");
 
         }
-
+       Manipular.limpiaCajas(jTFNombre,jPFContrasena);
     }//GEN-LAST:event_jBAccederActionPerformed
 
     private void jLRecuperarContrasenaMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jLRecuperarContrasenaMouseClicked
@@ -161,6 +178,22 @@ public class Login extends javax.swing.JFrame
        
         
     }//GEN-LAST:event_jLRecuperarContrasenaMouseClicked
+
+    private void jTFNombreKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFNombreKeyPressed
+    {//GEN-HEADEREND:event_jTFNombreKeyPressed
+        if(evt.getKeyChar() == '\n')
+        {
+            Manipular.cambioObj(jPFContrasena);
+        }
+    }//GEN-LAST:event_jTFNombreKeyPressed
+
+    private void jPFContrasenaKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jPFContrasenaKeyPressed
+    {//GEN-HEADEREND:event_jPFContrasenaKeyPressed
+        if(evt.getKeyChar() == '\n')
+        {
+            Manipular.cambioObj(jBAcceder);
+        }
+    }//GEN-LAST:event_jPFContrasenaKeyPressed
 
     /**
      * @param args the command line arguments
