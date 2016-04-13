@@ -1,14 +1,22 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Techno Engineers
+ * RecuperarContrasena
+ * 12/04/2016 -- Autorizo: Marvin Atzael Hernández Benítez // Lider de proyecto
+ * Modificaciones: 
+ * Sirve paracambiar o actualizar la contraseña
+ * Numero de métodos en el codigo: 0
+ * Login: 
  */
 package Vista;
 
+<<<<<<< HEAD
 import Modelo.UsuariosDatosEncapsulados;
 import Modelo.UsuariosModelo;
 import Vista.mensajes.Mensajes;
 import javax.swing.JFrame;
+=======
+import Controlador.Manipular;
+>>>>>>> f913162b5f4f2e6196b4115ebb96ef662a379739
 
 /**
  *
@@ -56,7 +64,25 @@ public class RecuperarContrasena extends javax.swing.JFrame
             }
         });
 
+<<<<<<< HEAD
         jLabel1.setText("Usuario:");
+=======
+        jPFNuevaContrasena.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
+                jPFNuevaContrasenaKeyPressed(evt);
+            }
+        });
+
+        jPFRepitaContrasena.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
+                jPFRepitaContrasenaKeyPressed(evt);
+            }
+        });
+>>>>>>> f913162b5f4f2e6196b4115ebb96ef662a379739
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -100,6 +126,7 @@ public class RecuperarContrasena extends javax.swing.JFrame
 
     private void jBPreguntasSegurasActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jBPreguntasSegurasActionPerformed
     {//GEN-HEADEREND:event_jBPreguntasSegurasActionPerformed
+<<<<<<< HEAD
         JFrame objFrame = new JFrame("Dialogo de mensajes");
         UsuariosDatosEncapsulados objUsuariosDatosEncapsulados = new UsuariosDatosEncapsulados();
         //String nombre=objUsuariosDatosEncapsulados.getNombreUsuario();
@@ -125,7 +152,26 @@ public class RecuperarContrasena extends javax.swing.JFrame
             Mensajes.errorContrasenia(objFrame);
             System.out.println("no coinciden las contraseñas");
         }
+=======
+     Manipular.limpiaCajas(jPFNuevaContrasena,jPFRepitaContrasena);
+>>>>>>> f913162b5f4f2e6196b4115ebb96ef662a379739
     }//GEN-LAST:event_jBPreguntasSegurasActionPerformed
+
+    private void jPFNuevaContrasenaKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jPFNuevaContrasenaKeyPressed
+    {//GEN-HEADEREND:event_jPFNuevaContrasenaKeyPressed
+        if(evt.getKeyChar() == '\n')
+        {
+            Manipular.cambioObj(jPFRepitaContrasena);
+        }
+    }//GEN-LAST:event_jPFNuevaContrasenaKeyPressed
+
+    private void jPFRepitaContrasenaKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jPFRepitaContrasenaKeyPressed
+    {//GEN-HEADEREND:event_jPFRepitaContrasenaKeyPressed
+       if(evt.getKeyChar() == '\n')
+        {
+            Manipular.cambioObj(jBPreguntasSeguras);
+        }
+    }//GEN-LAST:event_jPFRepitaContrasenaKeyPressed
 
     /**
      * @param args the command line arguments
