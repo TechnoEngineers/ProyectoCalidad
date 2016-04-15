@@ -23,39 +23,38 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="121" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jTFCorreo" min="-2" pref="130" max="-2" attributes="0"/>
-                  <Component id="jTFLugarNacimiento" min="-2" pref="130" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jLFCorreo" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLFLugarNacimiento" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLNombre" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jBPreguntasSeguras" alignment="0" pref="130" max="32767" attributes="0"/>
-                      <Component id="jDCFechaNacimiento" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="121" max="-2" attributes="0"/>
+                      <Component id="jBPreguntasSeguras" min="-2" pref="140" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jLFCorreo" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLFLugarNacimiento" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTFCorreo" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jTFCiudadNacimiento" alignment="0" min="-2" pref="178" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="149" max="32767" attributes="0"/>
+              <EmptySpace pref="128" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-              <Component id="jLNombre" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jDCFechaNacimiento" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
               <Component id="jLFLugarNacimiento" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-              <Component id="jTFLugarNacimiento" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jTFCiudadNacimiento" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jLFCorreo" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jTFCorreo" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
               <Component id="jBPreguntasSeguras" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="40" max="32767" attributes="0"/>
           </Group>
@@ -63,14 +62,9 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="jLNombre">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Fecha de nacimiento: "/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="jLFLugarNacimiento">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Lugar de nacimiento:"/>
+        <Property name="text" type="java.lang.String" value="Ciudad de nacimiento:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLFCorreo">
@@ -89,18 +83,14 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBPreguntasSegurasActionPerformed"/>
       </Events>
     </Component>
-    <Component class="com.toedter.calendar.JDateChooser" name="jDCFechaNacimiento">
+    <Component class="javax.swing.JTextField" name="jTFCiudadNacimiento">
       <Events>
-        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jDCFechaNacimientoKeyPressed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTFLugarNacimiento">
-      <Events>
-        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTFLugarNacimientoKeyPressed"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTFCiudadNacimientoKeyPressed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jTFCorreo">
       <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTFCorreoActionPerformed"/>
         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTFCorreoKeyPressed"/>
       </Events>
     </Component>

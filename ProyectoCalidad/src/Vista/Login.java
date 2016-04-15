@@ -10,6 +10,7 @@
 package Vista;
 
 import Controlador.Manipular;
+import Controlador.ValidaDatosIngreso;
 import Modelo.UsuariosDatosEncapsulados;
 import Modelo.UsuariosModelo;
 import Vista.mensajes.Mensajes;
@@ -87,7 +88,7 @@ public class Login extends javax.swing.JFrame
             }
         });
 
-        jLRecuperarContrasena.setText("¿Olvideste contraseña?");
+        jLRecuperarContrasena.setText("¿Olvidaste tu contraseña?");
         jLRecuperarContrasena.setToolTipText("");
         jLRecuperarContrasena.addMouseListener(new java.awt.event.MouseAdapter()
         {
@@ -102,16 +103,18 @@ public class Login extends javax.swing.JFrame
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 133, Short.MAX_VALUE)
+                .addGap(0, 116, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLContrasena)
                     .addComponent(jLNombre)
                     .addComponent(jPFContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTFNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLRecuperarContrasena)
-                        .addComponent(jBAcceder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(117, 117, 117))
+                    .addComponent(jBAcceder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(158, 158, 158))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(95, 95, 95)
+                .addComponent(jLRecuperarContrasena)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,11 +127,11 @@ public class Login extends javax.swing.JFrame
                 .addComponent(jLContrasena)
                 .addGap(4, 4, 4)
                 .addComponent(jPFContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jBAcceder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLRecuperarContrasena)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -153,22 +156,40 @@ public class Login extends javax.swing.JFrame
 
     private void jBAccederActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jBAccederActionPerformed
     {//GEN-HEADEREND:event_jBAccederActionPerformed
+        ValidaDatosIngreso nombre = new ValidaDatosIngreso();
         JFrame objFrame = new JFrame("Dialogo de mensajes");
         UsuariosDatosEncapsulados objUsuariosDatosEncapsulados = new UsuariosDatosEncapsulados();
-        objUsuariosDatosEncapsulados.setNombreUsuario(jTFNombre.getText());
-        objUsuariosDatosEncapsulados.setContrasena(jPFContrasena.getText());
 
+        while (ValidaDatosIngreso.usu != 1)
+        {
+            nombre.validaCadenaAlfanumerica(jTFNombre.getText(), "usuario"); //Usuario de 5 digitos o más, pero no más de 100. Y letras con numeros.
+            break;
+        }
+        objUsuariosDatosEncapsulados.setNombreUsuario(ValidaDatosIngreso.sUsuarioSinEspacios); //Se manda el usuario sin espacios al inicio y final.
+        while (ValidaDatosIngreso.iUsuc != 1)
+        {
+            nombre.validaContrasenia(jPFContrasena.getText());
+            break;
+        }
+
+        objUsuariosDatosEncapsulados.setContrasena(jPFContrasena.getText()); //Contraseña de 4 digitos o más, pero no más de 100.
         int n = UsuariosModelo.consultarUsuarios(objUsuariosDatosEncapsulados);
-        if (n == 0)
+        if (n == 0 && ValidaDatosIngreso.iCajaContraseniaVacia != 1) //Verifica si la caja de texto esta vacia.
         {
             Mensajes.exito(objFrame);
-
         } else
         {
-            Mensajes.falla(objFrame,"Acceso denegado.");
-
+            if (ValidaDatosIngreso.iUsuarioValido != 1)  //Si el usuario es invalido no da acceso, de igual forma si no existe.
+            {
+                Mensajes.falla(objFrame, "Acceso denegado.");
+            }
         }
-       Manipular.limpiaCajas(jTFNombre,jPFContrasena);
+
+        if (ValidaDatosIngreso.iNoLimpiarCaja != 1)
+        {
+            Manipular.limpiaCajas(jTFNombre, jPFContrasena);
+            ValidaDatosIngreso.iNoLimpiarCaja = 0;
+        }
     }//GEN-LAST:event_jBAccederActionPerformed
 
     private void jLRecuperarContrasenaMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jLRecuperarContrasenaMouseClicked

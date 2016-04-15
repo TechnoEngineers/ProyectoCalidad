@@ -33,7 +33,7 @@ public class UsuariosModelo {
         Conexion x = new Conexion();
         try
         {
-            return x.Conecta("localhost", "trajin", "root", "diego");
+            return x.Conecta("localhost", "trajin", "root", "123456");
         } catch (SQLException ex)
         {
             return null;
@@ -94,13 +94,12 @@ public class UsuariosModelo {
         {
             Connection con = UsuariosModelo.conectaDB();
             Statement stmt = con.createStatement();
-            ResultSet rset = stmt.executeQuery("SELECT fechanacimiento,lugarnacimiento,email FROM usuarios WHERE fechanacimiento='"+objUsuarios.getsFechaNacimiento()+"' AND lugarnacimiento='"+objUsuarios.getsLugarNacimiento()+"' AND email='"+objUsuarios.getsEmail()+"'");
+            ResultSet rset = stmt.executeQuery("SELECT ciudad,email FROM usuarios WHERE  ciudad='"+objUsuarios.getsCiudad()+"' AND email='"+objUsuarios.getsEmail()+"'");
             ArrayList<UsuariosDatosEncapsulados> listaArreglos = new ArrayList<UsuariosDatosEncapsulados>();
            
             while (rset.next()) 
             {
-                objUsuarios.setsFechaNacimiento(rset.getString("fechanacimiento"));
-                objUsuarios.setsLugarNacimiento(rset.getString("lugarnacimiento"));
+                objUsuarios.setsLugarNacimiento(rset.getString("ciudad"));
                 objUsuarios.setsEmail(rset.getString("email"));
                 listaArreglos.add(objUsuarios);
             }

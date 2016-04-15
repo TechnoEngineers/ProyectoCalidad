@@ -47,18 +47,20 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="0" pref="133" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="116" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLContrasena" min="-2" max="-2" attributes="0"/>
                       <Component id="jLNombre" min="-2" max="-2" attributes="0"/>
                       <Component id="jPFContrasena" min="-2" pref="130" max="-2" attributes="0"/>
                       <Component id="jTFNombre" min="-2" pref="130" max="-2" attributes="0"/>
-                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                          <Component id="jLRecuperarContrasena" min="-2" max="-2" attributes="0"/>
-                          <Component id="jBAcceder" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="jBAcceder" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="158" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
+                  <Component id="jLRecuperarContrasena" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -73,11 +75,11 @@
                   <Component id="jLContrasena" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                   <Component id="jPFContrasena" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jBAcceder" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jLRecuperarContrasena" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="41" max="32767" attributes="0"/>
+                  <EmptySpace pref="47" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -116,7 +118,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLRecuperarContrasena">
           <Properties>
-            <Property name="text" type="java.lang.String" value="&#xbf;Olvideste contrase&#xf1;a?"/>
+            <Property name="text" type="java.lang.String" value="&#xbf;Olvidaste tu contrase&#xf1;a?"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
           <Events>

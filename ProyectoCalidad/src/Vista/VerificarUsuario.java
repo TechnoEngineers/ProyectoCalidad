@@ -10,6 +10,7 @@
 package Vista;
 
 import Controlador.Manipular;
+import Controlador.ValidaDatosIngreso;
 import Modelo.UsuariosDatosEncapsulados;
 import Modelo.UsuariosModelo;
 import Vista.mensajes.Mensajes;
@@ -91,9 +92,18 @@ public class VerificarUsuario extends javax.swing.JFrame
 
     private void jBComprobarPreguntasActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jBComprobarPreguntasActionPerformed
     {//GEN-HEADEREND:event_jBComprobarPreguntasActionPerformed
+        ValidaDatosIngreso nombre = new ValidaDatosIngreso();
         JFrame objFrame = new JFrame("Dialogo de mensajes");
         UsuariosDatosEncapsulados objUsuariosDatosEncapsulados = new UsuariosDatosEncapsulados();
+        
+        while (ValidaDatosIngreso.usu != 1)
+        {
+            nombre.validaCadenaAlfanumerica(jTFUsuario.getText(), "usuario"); //Usuario de 5 digitos o más, pero no más de 100. Y letras con numeros.
+            break;
+        }
         objUsuariosDatosEncapsulados.setNombreUsuario(jTFUsuario.getText());
+        
+        
         int n = UsuariosModelo.consultarUsuarios(objUsuariosDatosEncapsulados);
          
         if (n == 0)
@@ -102,8 +112,12 @@ public class VerificarUsuario extends javax.swing.JFrame
             objVerificarPreguntas.setVisible(true);
 
         } else
-        {
-            Mensajes.falla(objFrame,"No se encontró el usuario.");
+        {   
+            if (ValidaDatosIngreso.iUsuarioValido != 1)  //Si el usuario es invalido no da acceso, de igual forma si no existe.
+            {
+                Mensajes.falla(objFrame,"No se encontró el usuario.");
+            }
+            
         }
         Manipular.limpiaCajas(jTFUsuario);
     }//GEN-LAST:event_jBComprobarPreguntasActionPerformed

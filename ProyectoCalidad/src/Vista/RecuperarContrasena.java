@@ -10,6 +10,7 @@
 package Vista;
 
 import Controlador.Manipular;
+import Controlador.ValidaDatosIngreso;
 import javax.swing.JFrame;
 import Modelo.UsuariosModelo;
 import Modelo.UsuariosDatosEncapsulados;
@@ -62,6 +63,12 @@ public class RecuperarContrasena extends javax.swing.JFrame
 
         jLabel1.setText("Usuario:");
 
+        jPFUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPFUsuarioActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -69,12 +76,12 @@ public class RecuperarContrasena extends javax.swing.JFrame
             .addGroup(layout.createSequentialGroup()
                 .addGap(79, 79, 79)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLFContrasena)
                         .addComponent(jLFRepetirContrasena)
-                        .addComponent(jPFRepitaContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jPFNuevaContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jBPreguntasSeguras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jPFRepitaContrasena, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                        .addComponent(jPFNuevaContrasena, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                        .addComponent(jBPreguntasSeguras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
@@ -106,10 +113,18 @@ public class RecuperarContrasena extends javax.swing.JFrame
 
     private void jBPreguntasSegurasActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jBPreguntasSegurasActionPerformed
     {//GEN-HEADEREND:event_jBPreguntasSegurasActionPerformed
+        ValidaDatosIngreso nombre = new ValidaDatosIngreso();
         JFrame objFrame = new JFrame("Dialogo de mensajes");
         UsuariosDatosEncapsulados objUsuariosDatosEncapsulados = new UsuariosDatosEncapsulados();
         
+        while (ValidaDatosIngreso.usu != 1)
+        {
+            nombre.validaCadenaAlfanumerica(jPFUsuario.getText(), "usuario"); //Usuario de 5 digitos o más, pero no más de 100. Y letras con numeros.
+            break;
+        }
+        
         objUsuariosDatosEncapsulados.setNombreUsuario(jPFUsuario.getText());
+        
         objUsuariosDatosEncapsulados.setContrasena(jPFRepitaContrasena.getText());
         if(jPFNuevaContrasena.getText().equals(jPFRepitaContrasena.getText()))
         {
@@ -148,6 +163,10 @@ public class RecuperarContrasena extends javax.swing.JFrame
             Manipular.cambioObj(jBPreguntasSeguras);
         }
     }//GEN-LAST:event_jPFRepitaContrasenaKeyPressed
+
+    private void jPFUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPFUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPFUsuarioActionPerformed
 
     /**
      * @param args the command line arguments

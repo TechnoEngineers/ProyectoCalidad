@@ -10,6 +10,7 @@
 package Vista;
 
 import Controlador.Manipular;
+import Controlador.ValidaDatosIngreso;
 import Modelo.UsuariosDatosEncapsulados;
 import Modelo.UsuariosModelo;
 import Vista.mensajes.Mensajes;
@@ -31,55 +32,41 @@ public class VerificarPreguntas extends javax.swing.JFrame
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
-        jLNombre = new javax.swing.JLabel();
         jLFLugarNacimiento = new javax.swing.JLabel();
         jLFCorreo = new javax.swing.JLabel();
         jBPreguntasSeguras = new javax.swing.JButton();
-        jDCFechaNacimiento = new com.toedter.calendar.JDateChooser();
-        jTFLugarNacimiento = new javax.swing.JTextField();
+        jTFCiudadNacimiento = new javax.swing.JTextField();
         jTFCorreo = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLNombre.setText("Fecha de nacimiento: ");
-
-        jLFLugarNacimiento.setText("Lugar de nacimiento:");
+        jLFLugarNacimiento.setText("Ciudad de nacimiento:");
 
         jLFCorreo.setText("Correo de registro:");
 
         jBPreguntasSeguras.setText("Verificar");
         jBPreguntasSeguras.setPreferredSize(new java.awt.Dimension(120, 50));
-        jBPreguntasSeguras.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        jBPreguntasSeguras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBPreguntasSegurasActionPerformed(evt);
             }
         });
 
-        jDCFechaNacimiento.addKeyListener(new java.awt.event.KeyAdapter()
-        {
-            public void keyPressed(java.awt.event.KeyEvent evt)
-            {
-                jDCFechaNacimientoKeyPressed(evt);
+        jTFCiudadNacimiento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTFCiudadNacimientoKeyPressed(evt);
             }
         });
 
-        jTFLugarNacimiento.addKeyListener(new java.awt.event.KeyAdapter()
-        {
-            public void keyPressed(java.awt.event.KeyEvent evt)
-            {
-                jTFLugarNacimientoKeyPressed(evt);
+        jTFCorreo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTFCorreoActionPerformed(evt);
             }
         });
-
-        jTFCorreo.addKeyListener(new java.awt.event.KeyAdapter()
-        {
-            public void keyPressed(java.awt.event.KeyEvent evt)
-            {
+        jTFCorreo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTFCorreoKeyPressed(evt);
             }
         });
@@ -89,34 +76,31 @@ public class VerificarPreguntas extends javax.swing.JFrame
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(121, 121, 121)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTFCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTFLugarNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLFCorreo)
-                        .addComponent(jLFLugarNacimiento)
-                        .addComponent(jLNombre)
-                        .addComponent(jBPreguntasSeguras, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
-                        .addComponent(jDCFechaNacimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(149, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(121, 121, 121)
+                        .addComponent(jBPreguntasSeguras, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(101, 101, 101)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLFCorreo)
+                            .addComponent(jLFLugarNacimiento)
+                            .addComponent(jTFCorreo)
+                            .addComponent(jTFCiudadNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(128, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addComponent(jLNombre)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jDCFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(80, 80, 80)
                 .addComponent(jLFLugarNacimiento)
-                .addGap(9, 9, 9)
-                .addComponent(jTFLugarNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jTFCiudadNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLFCorreo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTFCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(42, 42, 42)
                 .addComponent(jBPreguntasSeguras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(40, Short.MAX_VALUE))
         );
@@ -126,12 +110,16 @@ public class VerificarPreguntas extends javax.swing.JFrame
 
     private void jBPreguntasSegurasActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jBPreguntasSegurasActionPerformed
     {//GEN-HEADEREND:event_jBPreguntasSegurasActionPerformed
+        ValidaDatosIngreso recuperarContrasenia = new ValidaDatosIngreso();
         JFrame objFrame = new JFrame("Dialogo de mensajes");
         UsuariosDatosEncapsulados objUsuariosDatosEncapsulados = new UsuariosDatosEncapsulados();
-        String sFechaNacimiento = new SimpleDateFormat("yyyy/MM/dd").format(jDCFechaNacimiento.getDate());
         
-        objUsuariosDatosEncapsulados.setsFechaNacimiento(sFechaNacimiento);
-        objUsuariosDatosEncapsulados.setsLugarNacimiento(jTFLugarNacimiento.getText());
+        while (ValidaDatosIngreso.usu != 1)
+        {
+            recuperarContrasenia.validaCadenaAlfanumerica(jTFCiudadNacimiento.getText(), "ciudad"); //Usuario de 5 digitos o más, pero no más de 100. Y letras con numeros.
+            break;
+        }
+        objUsuariosDatosEncapsulados.setsCiudad(jTFCiudadNacimiento.getText());
         objUsuariosDatosEncapsulados.setsEmail(jTFCorreo.getText());
 
         int iResultado=UsuariosModelo.verificarPreguntas(objUsuariosDatosEncapsulados);
@@ -144,18 +132,14 @@ public class VerificarPreguntas extends javax.swing.JFrame
             this.dispose();
         } else
         {
-            Mensajes.falla(objFrame);
+            if (ValidaDatosIngreso.iUsuarioValido != 1)  //Si el usuario es invalido no da acceso, de igual forma si no existe.
+            {
+                Mensajes.falla(objFrame);
+            }
+            
         }
-                Manipular.limpiaCajas(jTFLugarNacimiento,jTFCorreo);
+        Manipular.limpiaCajas(jTFCiudadNacimiento,jTFCorreo);
     }//GEN-LAST:event_jBPreguntasSegurasActionPerformed
-
-    private void jDCFechaNacimientoKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jDCFechaNacimientoKeyPressed
-    {//GEN-HEADEREND:event_jDCFechaNacimientoKeyPressed
-         if(evt.getKeyChar() == '\n')
-        {
-             Manipular.cambioObj(jTFLugarNacimiento);
-        }
-    }//GEN-LAST:event_jDCFechaNacimientoKeyPressed
 
     private void jTFCorreoKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFCorreoKeyPressed
     {//GEN-HEADEREND:event_jTFCorreoKeyPressed
@@ -165,13 +149,18 @@ public class VerificarPreguntas extends javax.swing.JFrame
         }
     }//GEN-LAST:event_jTFCorreoKeyPressed
 
-    private void jTFLugarNacimientoKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFLugarNacimientoKeyPressed
-    {//GEN-HEADEREND:event_jTFLugarNacimientoKeyPressed
+    private void jTFCiudadNacimientoKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFCiudadNacimientoKeyPressed
+    {//GEN-HEADEREND:event_jTFCiudadNacimientoKeyPressed
         if(evt.getKeyChar() == '\n')
         {
              Manipular.cambioObj(jTFCorreo);
         }
-    }//GEN-LAST:event_jTFLugarNacimientoKeyPressed
+    }//GEN-LAST:event_jTFCiudadNacimientoKeyPressed
+
+    private void jTFCorreoActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jTFCorreoActionPerformed
+    {//GEN-HEADEREND:event_jTFCorreoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFCorreoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -207,6 +196,9 @@ public class VerificarPreguntas extends javax.swing.JFrame
             java.util.logging.Logger.getLogger(VerificarPreguntas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable()
@@ -220,11 +212,9 @@ public class VerificarPreguntas extends javax.swing.JFrame
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBPreguntasSeguras;
-    private com.toedter.calendar.JDateChooser jDCFechaNacimiento;
     private javax.swing.JLabel jLFCorreo;
     private javax.swing.JLabel jLFLugarNacimiento;
-    private javax.swing.JLabel jLNombre;
+    private javax.swing.JTextField jTFCiudadNacimiento;
     private javax.swing.JTextField jTFCorreo;
-    private javax.swing.JTextField jTFLugarNacimiento;
     // End of variables declaration//GEN-END:variables
 }
