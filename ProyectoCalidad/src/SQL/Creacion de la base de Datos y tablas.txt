@@ -1,0 +1,154 @@
+CREATE DATABASE TRAJIN;
+
+USE TRAJIN;
+
+CREATE TABLE inventarios(idinventario int PRIMARY KEY auto_increment,
+						 tipo char(1),
+						 descripcion varchar(200),
+						 color varchar(50),
+						 sexo char(1),
+						 cantidad int,
+						 status int,
+						 clave varchar(10),
+						 medida int);
+
+CREATE TABLE tallasinventarios(idtallainventario int PRIMARY KEY auto_increment,
+							   idinventario int,
+							   tallanumero int,
+							   FOREIGN KEY(idinventario) REFERENCES inventarios(idinventario));
+
+						 					
+CREATE TABLE usuarios(idusuario int PRIMARY KEY auto_increment,
+					  tipousuario int,
+					  contrasenia varchar(100),
+					  status int,
+					  fechaingreso date,
+					  expediente int,
+					  nombre varchar(50),
+					  apellidopaterno varchar(50),
+					  apellidomaterno varchar(50),
+					  edad int,
+					  sexo char(1),
+					  calle varchar(200),
+					  numero int,
+					  colonia varchar(50),
+					  ciudad varchar(50),
+					  estado varchar(50),
+					  cp int,
+					  telcelular int,
+					  telcasa int,
+					  teloficina int,
+					  email varchar(200),
+					  fechanacimiento date,
+					  lugarnacimiento varchar(50),
+					  estadocivil varchar(30),
+					  pasaporteSN int,
+					  vigenciapasaporte date,
+					  nocartillamilitar int,
+					  estatura double,
+					  talla varchar(50),
+					  responsable varchar(100),
+					  tiposanguineo varchar (10),
+					  alergias varchar(200),
+					  enfermedades varchar(200),
+					  nombremedicodecabecera varchar(100),
+					  telmedicodecabecera int,
+					  medicaciondolordecabeza varchar(100),
+					  medicaciondolordeestomago varchar(100),
+					  medicaciondolormuscular varchar(100),
+					  medicaciongripa varchar(100),
+					  medicacionotro varchar(100),
+					  formadeenterarse varchar(100),
+					  baila char(1),
+					  baile varchar(100),
+					  anteriorballet varchar(100),
+					  tiempoquebailo varchar(100),
+					  horariodisponible varchar(100),
+					  comentario varchar(500));
+					  
+CREATE TABLE tallasusuarios(idtallausuario int PRIMARY KEY auto_increment,
+							idusuario int,
+							tallanumero int,
+							FOREIGN KEY (idusuario) REFERENCES usuarios(idusuario));
+
+							
+CREATE TABLE eventos(idevento int PRIMARY KEY auto_increment,
+					 status int,
+					 lugarevento varchar(20),
+					 fecha date);
+
+CREATE TABLE cuadros(idcuadro int PRIMARY KEY auto_increment,
+					 nombre varchar(20),
+					 tiempocambio int);
+					 
+CREATE TABLE regiones(idregion int PRIMARY KEY auto_increment,
+					  nombre varchar(30),
+					  idcuadro int,
+					  vestuario varchar(100),
+					  imagenreferencia varchar(500),
+					  FOREIGN KEY (idcuadro) REFERENCES cuadros (idcuadro));
+
+CREATE TABLE bailes(idbaile int PRIMARY KEY auto_increment,
+					nombre varchar(50),
+					duracion int,
+					idregion int,
+					FOREIGN KEY(idregion) REFERENCES regiones(idregion));
+
+CREATE TABLE cuadrosevento(idcuadroevento int PRIMARY KEY auto_increment,
+						   idevento int,
+						   idcuadro int,
+						   FOREIGN KEY(idevento) REFERENCES eventos (idevento),
+						   FOREIGN KEY(idcuadro) REFERENCES cuadros (idcuadro));
+
+					  
+CREATE TABLE regionesevento(idregionesevento int PRIMARY KEY auto_increment,
+							idcuadroevento int,
+							idregion int,
+							FOREIGN KEY(idcuadroevento) REFERENCES cuadrosevento(idcuadroevento),
+							FOREIGN KEY(idregion) REFERENCES regiones(idregion));
+					  
+
+CREATE TABLE bailesevento(idbailesevento int PRIMARY KEY auto_increment,
+						  idbaile int,
+						  idregionesevento int,
+						  FOREIGN KEY(idbaile) REFERENCES bailes(idbaile),
+						  FOREIGN KEY(idregionesevento) REFERENCES regionesevento(idregionesevento));
+						  
+CREATE TABLE bailarinesevento(idbailarinesevento int PRIMARY KEY auto_increment,
+							  idbailesevento int,
+							  idusuario int,
+							  FOREIGN KEY(idbailesevento) REFERENCES bailesevento(idbailesevento),
+							  FOREIGN KEY(idusuario) REFERENCES usuarios(idusuario));
+
+CREATE TABLE asignaciones(idasignacion int PRIMARY KEY auto_increment,
+						  idbailarinesevento int,
+						  status int,
+                                                  FOREIGN KEY(idbailarinesevento) REFERENCES bailarinesevento(idbailarinesevento));
+						
+CREATE TABLE piezasasignadas(idregistropiezasa int PRIMARY KEY auto_increment,
+							 idinventario int,
+							 idasignacion int,
+							 FOREIGN KEY(idinventario) REFERENCES inventarios(idinventario),
+							 FOREIGN KEY(idasignacion) REFERENCES asignaciones(idasignacion));
+
+CREATE TABLE rentas(idrenta int PRIMARY KEY auto_increment,
+					renta int,
+					cantidadrentas int,
+					monto double);
+
+CREATE TABLE danios(iddanios int PRIMARY KEY auto_increment,
+					idasignacion int,
+					monto int,
+					FOREIGN KEY(idasignacion) REFERENCES asignaciones(idasignacion));
+
+CREATE TABLE adeudos(iddeuda int PRIMARY KEY auto_increment,
+					 idusuario int,
+					 fecha date,
+					 montofinal double,
+					 iddanios int,
+					 idrenta int,
+					 pagoparcial double,
+					 status int,
+					 FOREIGN KEY(idusuario) REFERENCES usuarios(idusuario),
+					 FOREIGN KEY(iddanios) REFERENCES danios(iddanios),
+					 FOREIGN KEY(idrenta) REFERENCES rentas(idrenta));
