@@ -162,13 +162,13 @@ public class Login extends javax.swing.JFrame
 
         while (ValidaDatosIngreso.bUsuarioValido != true)
         {
-            usuario.ValidaCadenaAlfanumerica(jTFNombre.getText(), "usuario", "usuario"); //Usuario de 5 digitos o más, pero no más de 100. Y letras con numeros.
+            usuario.validaCadenaAlfanumerica(jTFNombre.getText(), "usuario", "usuario"); //Usuario de 5 digitos o más, pero no más de 100. Y letras con numeros.
             break;
         }
         objUsuariosDatosEncapsulados.setNombreUsuario(ValidaDatosIngreso.sCadenaSinEspacios); //Se manda el usuario sin espacios al inicio y final.
         while (ValidaDatosIngreso.bContraseniaValida != true)
         {
-            usuario.ValidaContrasenia(jPFContrasena.getText());
+            usuario.validaContrasenia(jPFContrasena.getText());
             break;
         }
 

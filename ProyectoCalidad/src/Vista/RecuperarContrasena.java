@@ -23,6 +23,7 @@ import Vista.mensajes.Mensajes;
 public class RecuperarContrasena extends javax.swing.JFrame
 {
 
+    public static boolean bRecuperarContrasenia=false;
     /**
      * Creates new form RecuperarContrasena
      */
@@ -120,37 +121,44 @@ public class RecuperarContrasena extends javax.swing.JFrame
 
         while (ValidaDatosIngreso.bUsuarioValido != true)
         {
-            nombre.ValidaCadenaAlfanumerica(jPFUsuario.getText(), "usuario", "usuario"); //Usuario de 5 digitos o más, pero no más de 100. Y letras con numeros.
+            nombre.validaCadenaAlfanumerica(jPFUsuario.getText(), "usuario", "usuario"); //Usuario de 5 digitos o más, pero no más de 100. Y letras con numeros.
             break;
         }
 
         objUsuariosDatosEncapsulados.setNombreUsuario(jPFUsuario.getText());
         if (ValidaDatosIngreso.bUsuarioValido == true)
         {
-
+            Login mandaLogin = new Login();
             objUsuariosDatosEncapsulados.setContrasena(jPFRepitaContrasena.getText());
             if (jPFNuevaContrasena.getText().equals(jPFRepitaContrasena.getText()))
             {
                 int n = UsuariosModelo.recuperarContrasenia(objUsuariosDatosEncapsulados);
                 if (n == 0)
                 {
-                    Mensajes.exito(objFrame);
+                    //Mensajes.exito(objFrame);
+                    bRecuperarContrasenia=true;
                     System.out.println("Contraseñas iguales ");
                     System.out.println("" + jPFUsuario);
                 } else
                 {
+                    bRecuperarContrasenia=false;
                     Mensajes.falla(objFrame, "No se pudo realizar la accion solicitada");
                     System.out.println("error");
                 }
 
             } else
             {
+                bRecuperarContrasenia=false;
                 Mensajes.falla(objFrame, "La contraseña no coincide, verifique porfavor!");
                 System.out.println("no coinciden las contraseñas");
             }
             ValidaDatosIngreso.bCorreoValido = false;
             ValidaDatosIngreso.bUsuarioValido = false;
-            
+            if(bRecuperarContrasenia==true)
+            {
+                mandaLogin.setVisible(bRecuperarContrasenia);
+                dispose();
+            }
         }
         Manipular.limpiaCajas(jPFUsuario, jPFNuevaContrasena,jPFRepitaContrasena);
     }//GEN-LAST:event_jBPreguntasSegurasActionPerformed

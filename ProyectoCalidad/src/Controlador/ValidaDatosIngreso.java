@@ -17,7 +17,7 @@ import javax.swing.JPanel;
 public class ValidaDatosIngreso
 {
 
-    private static final String EstructuraValidaEmail = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+    private static final String sEstructuraValidaEmail = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
             + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
     final JPanel jPanel = new JPanel();
     public static int iCadenaInvalida = 0;
@@ -26,7 +26,7 @@ public class ValidaDatosIngreso
             bLimpiarCaja = true, bCorreoValido = false;
     public static String sCadenaSinEspacios;
 
-    public String ValidaCadenaAlfanumerica(String sCadena, String sTipoValidacion, String sOtraValidacion)
+    public String validaCadenaAlfanumerica(String sCadena, String sTipoValidacion, String sOtraValidacion)
     {
         sCadenaSinEspacios = sCadena.trim();
         int iNoAlfanumerico = 0, iAlfanumericoMinuscula = 0,
@@ -142,7 +142,7 @@ public class ValidaDatosIngreso
         return sCadenaSinEspacios;
     }
 
-    public String ValidaContrasenia(String cCadena)
+    public String validaContrasenia(String cCadena)
     {
         if (cCadena.length() >= 4 && cCadena.length() <= 100)
         {
@@ -165,7 +165,7 @@ public class ValidaDatosIngreso
         return cCadena;
     }
 
-    public boolean ValidaCorreo(String sCadena)
+    public boolean validaCorreo(String sCadena)
     {
         sCadenaSinEspacios = sCadena.trim();
 
@@ -180,7 +180,7 @@ public class ValidaDatosIngreso
              * @return regresa true si el correo es valido, de otra forma regresa false.
              */
             // Compiles the given regular expression into a pattern.
-            Pattern pattern = Pattern.compile(EstructuraValidaEmail);
+            Pattern pattern = Pattern.compile(sEstructuraValidaEmail);
             // Match the given input against this pattern
             Matcher matcher = pattern.matcher(sCadena);
             bCorreoValido = matcher.matches();

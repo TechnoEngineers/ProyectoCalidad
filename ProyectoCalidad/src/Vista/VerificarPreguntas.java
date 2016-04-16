@@ -115,13 +115,13 @@ public class VerificarPreguntas extends javax.swing.JFrame
 
         while (ValidaDatosIngreso.bUsuarioValido != true)
         {
-            recuperarContrasenia.ValidaCadenaAlfanumerica(jTFCiudadNacimiento.getText(), "ciudad", "ciudad"); //Usuario de 5 digitos o más, pero no más de 100. Y letras con numeros.
+            recuperarContrasenia.validaCadenaAlfanumerica(jTFCiudadNacimiento.getText(), "ciudad", "ciudad"); //Usuario de 5 digitos o más, pero no más de 100. Y letras con numeros.
             break;
         }
         objUsuariosDatosEncapsulados.setsCiudad(jTFCiudadNacimiento.getText());
         while (ValidaDatosIngreso.bCorreoValido != true)
         {
-            recuperarContrasenia.ValidaCorreo(jTFCorreo.getText());
+            recuperarContrasenia.validaCorreo(jTFCorreo.getText());
             break;
         }
         objUsuariosDatosEncapsulados.setsEmail(jTFCorreo.getText());
@@ -131,7 +131,7 @@ public class VerificarPreguntas extends javax.swing.JFrame
         {
             if (iResultado == 0)
             {
-                Mensajes.exito(objFrame);
+                //Mensajes.exito(objFrame);
                 RecuperarContrasena objRecuperarContrasena = new RecuperarContrasena();
                 objRecuperarContrasena.setVisible(true);
                 this.dispose();

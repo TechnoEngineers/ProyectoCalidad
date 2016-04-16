@@ -97,7 +97,7 @@ public class VerificarUsuario extends javax.swing.JFrame
 
         while (ValidaDatosIngreso.bUsuarioValido == false)
         {
-            nombre.ValidaCadenaAlfanumerica(jTFUsuario.getText(), "usuario", "usuario"); //Usuario de 5 digitos o más, pero no más de 100. Y letras con numeros.
+            nombre.validaCadenaAlfanumerica(jTFUsuario.getText(), "usuario", "usuario"); //Usuario de 5 digitos o más, pero no más de 100. Y letras con numeros.
             break;
         }
         objUsuariosDatosEncapsulados.setNombreUsuario(jTFUsuario.getText());

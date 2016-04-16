@@ -11,7 +11,7 @@ package Vista;
 public class PantallaPrincipal extends javax.swing.JFrame {
 
     /**
-     * Creates new form ventana
+     * Creates new form PantallaPrincipal
      */
     public PantallaPrincipal() {
         initComponents();
