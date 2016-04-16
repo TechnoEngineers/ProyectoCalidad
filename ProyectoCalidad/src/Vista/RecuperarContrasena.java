@@ -15,6 +15,7 @@ import javax.swing.JFrame;
 import Modelo.UsuariosModelo;
 import Modelo.UsuariosDatosEncapsulados;
 import Vista.mensajes.Mensajes;
+
 /**
  *
  * @author mgool
@@ -22,6 +23,7 @@ import Vista.mensajes.Mensajes;
 public class RecuperarContrasena extends javax.swing.JFrame
 {
 
+    public static boolean bRecuperarContrasenia=false;
     /**
      * Creates new form RecuperarContrasena
      */
@@ -116,41 +118,54 @@ public class RecuperarContrasena extends javax.swing.JFrame
         ValidaDatosIngreso nombre = new ValidaDatosIngreso();
         JFrame objFrame = new JFrame("Dialogo de mensajes");
         UsuariosDatosEncapsulados objUsuariosDatosEncapsulados = new UsuariosDatosEncapsulados();
-        
-        while (ValidaDatosIngreso.usu != 1)
+
+        while (ValidaDatosIngreso.bUsuarioValido != true)
         {
-            nombre.validaCadenaAlfanumerica(jPFUsuario.getText(), "usuario"); //Usuario de 5 digitos o más, pero no más de 100. Y letras con numeros.
+            nombre.validaCadenaAlfanumerica(jPFUsuario.getText(), "usuario", "usuario"); //Usuario de 5 digitos o más, pero no más de 100. Y letras con numeros.
             break;
         }
-        
+
         objUsuariosDatosEncapsulados.setNombreUsuario(jPFUsuario.getText());
-        
-        objUsuariosDatosEncapsulados.setContrasena(jPFRepitaContrasena.getText());
-        if(jPFNuevaContrasena.getText().equals(jPFRepitaContrasena.getText()))
+        if (ValidaDatosIngreso.bUsuarioValido == true)
         {
-            int n=UsuariosModelo.recuperarContrasenia(objUsuariosDatosEncapsulados);
-            if(n==0)
+            Login mandaLogin = new Login();
+            objUsuariosDatosEncapsulados.setContrasena(jPFRepitaContrasena.getText());
+            if (jPFNuevaContrasena.getText().equals(jPFRepitaContrasena.getText()))
             {
-               Mensajes.exito(objFrame);
-                System.out.println("Contraseñas iguales ");
-                System.out.println(""+jPFUsuario);
-            }else
+                int n = UsuariosModelo.recuperarContrasenia(objUsuariosDatosEncapsulados);
+                if (n == 0)
+                {
+                    //Mensajes.exito(objFrame);
+                    bRecuperarContrasenia=true;
+                    System.out.println("Contraseñas iguales ");
+                    System.out.println("" + jPFUsuario);
+                } else
+                {
+                    bRecuperarContrasenia=false;
+                    Mensajes.falla(objFrame, "No se pudo realizar la accion solicitada");
+                    System.out.println("error");
+                }
+
+            } else
             {
-                Mensajes.falla(objFrame, "No se pudo realizar la accion solicitada");
-                System.out.println("error");
+                bRecuperarContrasenia=false;
+                Mensajes.falla(objFrame, "La contraseña no coincide, verifique porfavor!");
+                System.out.println("no coinciden las contraseñas");
             }
-           
-        }else
-        {
-            Mensajes.falla(objFrame, "La contraseña no coincidi, verifique porfavor!");
-            System.out.println("no coinciden las contraseñas");
+            ValidaDatosIngreso.bCorreoValido = false;
+            ValidaDatosIngreso.bUsuarioValido = false;
+            if(bRecuperarContrasenia==true)
+            {
+                mandaLogin.setVisible(bRecuperarContrasenia);
+                dispose();
+            }
         }
-        //Manipular.limpiaCajas(jPFNuevaContrasena,jPFRepitaContrasena);
+        Manipular.limpiaCajas(jPFUsuario, jPFNuevaContrasena,jPFRepitaContrasena);
     }//GEN-LAST:event_jBPreguntasSegurasActionPerformed
 
     private void jPFNuevaContrasenaKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jPFNuevaContrasenaKeyPressed
     {//GEN-HEADEREND:event_jPFNuevaContrasenaKeyPressed
-        if(evt.getKeyChar() == '\n')
+        if (evt.getKeyChar() == '\n')
         {
             Manipular.cambioObj(jPFRepitaContrasena);
         }
@@ -158,7 +173,7 @@ public class RecuperarContrasena extends javax.swing.JFrame
 
     private void jPFRepitaContrasenaKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jPFRepitaContrasenaKeyPressed
     {//GEN-HEADEREND:event_jPFRepitaContrasenaKeyPressed
-       if(evt.getKeyChar() == '\n')
+        if (evt.getKeyChar() == '\n')
         {
             Manipular.cambioObj(jBPreguntasSeguras);
         }

@@ -18,7 +18,6 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-
 public class VerificarUsuario extends javax.swing.JFrame
 {
 
@@ -95,38 +94,38 @@ public class VerificarUsuario extends javax.swing.JFrame
         ValidaDatosIngreso nombre = new ValidaDatosIngreso();
         JFrame objFrame = new JFrame("Dialogo de mensajes");
         UsuariosDatosEncapsulados objUsuariosDatosEncapsulados = new UsuariosDatosEncapsulados();
-        
-        while (ValidaDatosIngreso.usu != 1)
+
+        while (ValidaDatosIngreso.bUsuarioValido == false)
         {
-            nombre.validaCadenaAlfanumerica(jTFUsuario.getText(), "usuario"); //Usuario de 5 digitos o más, pero no más de 100. Y letras con numeros.
+            nombre.validaCadenaAlfanumerica(jTFUsuario.getText(), "usuario", "usuario"); //Usuario de 5 digitos o más, pero no más de 100. Y letras con numeros.
             break;
         }
         objUsuariosDatosEncapsulados.setNombreUsuario(jTFUsuario.getText());
-        
-        
-        int n = UsuariosModelo.consultarUsuarios(objUsuariosDatosEncapsulados);
-         
-        if (n == 0)
-        {
-            VerificarPreguntas objVerificarPreguntas=new VerificarPreguntas();
-            objVerificarPreguntas.setVisible(true);
 
-        } else
-        {   
-            if (ValidaDatosIngreso.iUsuarioValido != 1)  //Si el usuario es invalido no da acceso, de igual forma si no existe.
+        if (ValidaDatosIngreso.bUsuarioValido == true)
+        {
+
+            int n = UsuariosModelo.consultarUsuarios(objUsuariosDatosEncapsulados);
+
+            if (n == 0)
             {
-                Mensajes.falla(objFrame,"No se encontró el usuario.");
+                VerificarPreguntas objVerificarPreguntas = new VerificarPreguntas();
+                objVerificarPreguntas.setVisible(true);
+
+            } else
+            {
+                Mensajes.falla(objFrame, "No se encontró el usuario.");
             }
-            
         }
         Manipular.limpiaCajas(jTFUsuario);
+        ValidaDatosIngreso.bUsuarioValido = false;
     }//GEN-LAST:event_jBComprobarPreguntasActionPerformed
 
     private void jTFUsuarioKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFUsuarioKeyPressed
     {//GEN-HEADEREND:event_jTFUsuarioKeyPressed
-        if(evt.getKeyChar() == '\n')
+        if (evt.getKeyChar() == '\n')
         {
-             Manipular.cambioObj(jBComprobarPreguntas);
+            Manipular.cambioObj(jBComprobarPreguntas);
         }
     }//GEN-LAST:event_jTFUsuarioKeyPressed
 
