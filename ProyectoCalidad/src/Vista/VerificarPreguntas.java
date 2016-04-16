@@ -14,7 +14,6 @@ import Controlador.ValidaDatosIngreso;
 import Modelo.UsuariosDatosEncapsulados;
 import Modelo.UsuariosModelo;
 import Vista.mensajes.Mensajes;
-import java.text.SimpleDateFormat;
 import javax.swing.JFrame;
 
 public class VerificarPreguntas extends javax.swing.JFrame

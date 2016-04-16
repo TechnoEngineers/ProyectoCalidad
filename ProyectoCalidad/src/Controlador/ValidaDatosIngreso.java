@@ -176,9 +176,8 @@ public class ValidaDatosIngreso
         {
             /**
              * Valida email con la expresión regular.
-             *
-             * @param email email for validation
-             * @return true valid email, otherwise false
+             * 
+             * @return regresa true si el correo es valido, de otra forma regresa false.
              */
             // Compiles the given regular expression into a pattern.
             Pattern pattern = Pattern.compile(EstructuraValidaEmail);

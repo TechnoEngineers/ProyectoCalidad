@@ -28,7 +28,8 @@ import javax.swing.JOptionPane;
  */
 public class Login extends javax.swing.JFrame
 {
-
+    
+    public static boolean bUsuarioContraseña=false;
     /**
      * Creates new form Login
      */
@@ -155,6 +156,7 @@ public class Login extends javax.swing.JFrame
     private void jBAccederActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jBAccederActionPerformed
     {//GEN-HEADEREND:event_jBAccederActionPerformed
         ValidaDatosIngreso usuario = new ValidaDatosIngreso();
+        PantallaPrincipal mandaInicio = new PantallaPrincipal();
         JFrame objFrame = new JFrame("Dialogo de mensajes");
         UsuariosDatosEncapsulados objUsuariosDatosEncapsulados = new UsuariosDatosEncapsulados();
 
@@ -176,11 +178,14 @@ public class Login extends javax.swing.JFrame
         {
             if (n == 0) //Verifica si la caja de texto esta vacia.
             {
-                Mensajes.exito(objFrame);
+                
+                bUsuarioContraseña=true;
+                //Mensajes.exito(objFrame);
             } else
             {
                 if (ValidaDatosIngreso.bUsuarioValido == true && ValidaDatosIngreso.bContraseniaValida == true)
                 {
+                    bUsuarioContraseña=false;
                     Mensajes.falla(objFrame, "Acceso denegado.");
                 }
             }    
@@ -189,16 +194,20 @@ public class Login extends javax.swing.JFrame
             ValidaDatosIngreso.bContraseniaValida = false;
             objUsuariosDatosEncapsulados.setNombreUsuario(ValidaDatosIngreso.sCadenaSinEspacios); //Se manda el usuario sin espacios al inicio y final.
             objUsuariosDatosEncapsulados.setContrasena(null);
+            if(bUsuarioContraseña==true)
+            {
+                mandaInicio.setVisible(bUsuarioContraseña);
+                dispose();
+            }
+            
         }
         Manipular.limpiaCajas(jTFNombre, jPFContrasena);
     }//GEN-LAST:event_jBAccederActionPerformed
-
+    
     private void jLRecuperarContrasenaMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jLRecuperarContrasenaMouseClicked
     {//GEN-HEADEREND:event_jLRecuperarContrasenaMouseClicked
         VerificarUsuario objVerificarUsuario = new VerificarUsuario();
         objVerificarUsuario.setVisible(true);
-
-
     }//GEN-LAST:event_jLRecuperarContrasenaMouseClicked
 
     private void jTFNombreKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFNombreKeyPressed
