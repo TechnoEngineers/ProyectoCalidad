@@ -16,172 +16,161 @@ public class ValidaDatosIngreso
 {
 
     final JPanel jPanel = new JPanel();
+    public static int iCadenaInvalida=0;
+    public static boolean bUsuarioValido = false,
+            bContraseniaValida = false, bCajaContraseniaVacia = true,
+            bLimpiarCaja = true, bCorreoValido = false;
+    public static String sCadenaSinEspacios;
 
-    public static int usu = 0,
-    iUsuarioValido = 0, 
-    iCajaContraseniaVacia = 1, 
-    iUsuc = 0, 
-    iNoLimpiarCaja = 0, 
-    iCajaUsuarioVacia = 0;
-    public static String sUsuarioSinEspacios = "";
-    public int validaCadenaAlfanumerica(String cad, String sTipoValidacion)
+    public String ValidaCadenaAlfanumerica(String sCadena, String sTipoValidacion, String sOtraValidacion)
     {
-        String cad1 = QuitaEspaciosBlancos(cad);
-        cad1 = sUsuarioSinEspacios;
-        int num = 0, num1 = 0, num2 = 0;
-        char letras[] =
+        sCadenaSinEspacios = sCadena.trim();
+        int iNoAlfanumerico = 0, iAlfanumericoMinuscula = 0,
+                iAlfanumericoMayuscula = 0, iAlfanumericoNumero = 0;
+        char[] cCadenaArreglo = sCadenaSinEspacios.toCharArray();
+        bUsuarioValido = true;
+
+        if (sCadenaSinEspacios.length() <= 0)
         {
-            'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'ñ', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'Ñ', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
-        };
-        char numeros[] =
-        {
-            '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'
-        };
-        boolean bUsuarioCorrecto=true;
-        char[] cadt = cad1.toCharArray();
-        if (cad.length() <= 0)
-        {
-            JOptionPane.showMessageDialog(jPanel, "Falta usuario, intentelo de nuevo.", "Mensaje", JOptionPane.ERROR_MESSAGE);
-            iNoLimpiarCaja = 1;
-            iCajaUsuarioVacia = 1;
+            JOptionPane.showMessageDialog(jPanel, "Falta " + sOtraValidacion + ", intentelo de nuevo.", "Mensaje", JOptionPane.ERROR_MESSAGE);
         } else
         {
-            if (cad.length() >= 6 && cad.length() <= 100)
+            System.out.println(bUsuarioValido);
+            if (sCadenaSinEspacios.length() >= 5 && sCadenaSinEspacios.length() <= 100)
             {
-                iCajaUsuarioVacia = 0;
-                num = 0;
-                for (int i = 0; i < cadt.length; i++)
+                for (int i = 0; i < sCadenaSinEspacios.length(); i++)
                 {
 
-                    for (int j = 0; j < numeros.length; j++)
+                    if (cCadenaArreglo[i] >= 65 && cCadenaArreglo[i] <= 90)
                     {
-                        String temp = Character.toString(cadt[i]);
-                        String temp2 = Character.toString(numeros[j]);
-
-                        if (temp.equals(temp2))
-                        {
-                            num = num + 1;
-                            num1 = 1;
-                        }
-
-                    }
-                }
-
-                for (int i = 0; i < cadt.length; i++)
-                {
-
-                    for (int j = 0; j < letras.length; j++)
-                    {
-                        String temp = Character.toString(cadt[i]);
-                        String temp2 = Character.toString(letras[j]);
-                        if (temp.equals(temp2))
-                        {
-                            num = num + 1;
-                            num2 = 1;
-                        }
-
-                    }
-                }
-                bUsuarioCorrecto=true;
-                for (int i = 0; i < cad1.length(); i++)
-                {
-                    if(cadt[i]>=65 && cadt[i]<=90)
-                    {
-                        bUsuarioCorrecto=true;
-                    }else
-                    {
-                       if(cadt[i]>=97 && cadt[i]<=122)
-                        {
-                            bUsuarioCorrecto=true;
-                        }else
-                        {
-                            if(cadt[i]>=48 && cadt[i]<=59)
-                            {
-                                bUsuarioCorrecto=true;
-                            }else
-                            {
-                                bUsuarioCorrecto=false;
-                                
-                            }
-                        } 
-                    }
-                    
-                }
-
-                iUsuarioValido = 0;
-
-                if (num != cad.length() && cad1.toString() != sUsuarioSinEspacios)
-                {
-                    JOptionPane.showMessageDialog(jPanel, "Nombre de "+sTipoValidacion+" invalido.", "Mensaje", JOptionPane.ERROR_MESSAGE);
-                    iUsuarioValido = 1;
-                } else
-                {
-                    if (sTipoValidacion.equals("usuario"))
-                    {
-                        if (num1 != num2)
-                    {
-                        JOptionPane.showMessageDialog(jPanel, "Nombre de "+sTipoValidacion+" invalido.", "Mensaje", JOptionPane.ERROR_MESSAGE);
-                        iUsuarioValido = 1;
+                        iAlfanumericoMinuscula = 1;
                     } else
                     {
-                        iUsuarioValido = 0;
+                        if (cCadenaArreglo[i] >= 97 && cCadenaArreglo[i] <= 122)
+                        {
+                            iAlfanumericoMayuscula = 1;
+                        } else
+                        {
+                            if (cCadenaArreglo[i] >= 48 && cCadenaArreglo[i] <= 59)
+                            {
+                                iAlfanumericoNumero = 1;
+                            } else
+                            {
+                                System.out.println(cCadenaArreglo[i]);
+                                iNoAlfanumerico = 1;
+                            }
+                        }
                     }
+
+                }
+                if (iNoAlfanumerico == 1)
+                {
+                    iCadenaInvalida = 1;
+                } else
+                {
+                    if (iAlfanumericoMayuscula == 1 && iAlfanumericoNumero == 1)
+                    {
+                        iCadenaInvalida = 0;
+                        bUsuarioValido = true;
+                        System.out.println(sTipoValidacion + " correct@");
+                    } else
+                    {
+                        if (iAlfanumericoMinuscula == 1 && iAlfanumericoNumero == 1)
+                        {
+                            iCadenaInvalida = 0;
+                            bUsuarioValido = true;
+                            System.out.println(sTipoValidacion + " correct@");
+                        } else
+                        {
+                            bUsuarioValido = false;
+                            iCadenaInvalida = 1;
+                        }
                     }
+
+                }
+                System.out.println(sTipoValidacion);
+                if (sTipoValidacion.equals("ciudad"))
+                {
+                    if (iAlfanumericoMayuscula == 1)
+                    {
+                        iCadenaInvalida = 0;
+                        bUsuarioValido = true;
+                    } else
+                    {
+                        if (iAlfanumericoMinuscula == 1)
+                        {
+                            iCadenaInvalida = 0;
+                            bUsuarioValido = true;
+                        } else
+                        {
+                            if (iAlfanumericoMinuscula == 1 && iAlfanumericoNumero == 1)
+                            {
+                                iCadenaInvalida = 0;
+                                bUsuarioValido = true;
+                            } else
+                            {
+                                if (iAlfanumericoMayuscula == 1 && iAlfanumericoNumero == 1)
+                                {
+                                    iCadenaInvalida = 0;
+                                    bUsuarioValido = true;
+                                } else
+                                {
+                                    bUsuarioValido = false;
+                                    iCadenaInvalida = 1;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                if (iCadenaInvalida == 1)
+                {
+                    JOptionPane.showMessageDialog(jPanel, "Nombre de " + sTipoValidacion + " invalido.", "Mensaje", JOptionPane.ERROR_MESSAGE);
+                    bUsuarioValido = false;
                 }
             } else
             {
-                JOptionPane.showMessageDialog(jPanel, "Nombre de "+sTipoValidacion+" invalido.", "Mensaje", JOptionPane.ERROR_MESSAGE);
-                iUsuarioValido = 1;
-            }
-            if (bUsuarioCorrecto==false )
-            {
-                JOptionPane.showMessageDialog(jPanel, "Nombre de "+sTipoValidacion+" invalido.", "Mensaje", JOptionPane.ERROR_MESSAGE);
-                iUsuarioValido = 1;
+                bUsuarioValido = false;
+                JOptionPane.showMessageDialog(jPanel, "Nombre de " + sTipoValidacion + " invalido.", "Mensaje", JOptionPane.ERROR_MESSAGE);
             }
         }
-        return usu;
+        iCadenaInvalida=0;
+        return sCadenaSinEspacios;
     }
 
-    public int validaContrasenia(String cad)
+    public String ValidaContrasenia(String cCadena)
     {
-        iNoLimpiarCaja = 0;
-        iCajaContraseniaVacia = 1;
-        if (cad.length() >= 4 && cad.length() <= 100)
+        if (cCadena.length() >= 4 && cCadena.length() <= 100)
         {
-            iCajaContraseniaVacia = 0;
-            iUsuc = 1;
+            bContraseniaValida = true;
+            bCajaContraseniaVacia = false;
         } else
         {
-            iCajaContraseniaVacia = 0;
-            if (cad.length() <= 0)
+            if (cCadena.length() <= 0)
             {
                 JOptionPane.showMessageDialog(jPanel, "Falta contraseña, intentelo de nuevo.", "Mensaje", JOptionPane.ERROR_MESSAGE);
-                iNoLimpiarCaja = 1;
-                iCajaContraseniaVacia = 1;
+                bCajaContraseniaVacia = true;
+                iCadenaInvalida=1;
+                bUsuarioValido=false;
             } else
             {
                 JOptionPane.showMessageDialog(jPanel, "Contraseña invalida.", "Mensaje", JOptionPane.ERROR_MESSAGE);
-                iCajaContraseniaVacia = 1;
+                bUsuarioValido=false;
             }
-            iUsuarioValido = 1;
-            iUsuc = 0;
-            iCajaContraseniaVacia = 1;
         }
-        return iUsuc;
+        return cCadena;
     }
 
-    public static String QuitaEspaciosBlancos(String cad)
+    public String ValidaCorreo(String sCadena)
     {
+        sCadenaSinEspacios = sCadena.trim();
 
-        String sCadenaSinBlancos = cad.trim();
-        sUsuarioSinEspacios = sCadenaSinBlancos;
-        return sUsuarioSinEspacios;
+        if (sCadenaSinEspacios.length() <= 0)
+        {
+            JOptionPane.showMessageDialog(jPanel, "Falta correo, intentelo de nuevo.", "Mensaje", JOptionPane.ERROR_MESSAGE);
+        }
+
+        return sCadena;
     }
-    
-    public static String ValidaCorreo(String cad)
-    {
-        
-        
-        return cad;
-    }
+
 }

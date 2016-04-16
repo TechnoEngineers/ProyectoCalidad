@@ -11,17 +11,16 @@ package Vista;
 
 import Controlador.Manipular;
 import Controlador.ValidaDatosIngreso;
+import static Controlador.ValidaDatosIngreso.bCajaContraseniaVacia;
 import Modelo.UsuariosDatosEncapsulados;
 import Modelo.UsuariosModelo;
 import Vista.mensajes.Mensajes;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.font.TextAttribute;
-import java.sql.Connection;
 import java.util.Map;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 
 /**
  *
@@ -105,16 +104,15 @@ public class Login extends javax.swing.JFrame
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 116, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLRecuperarContrasena))
                     .addComponent(jLContrasena)
                     .addComponent(jLNombre)
                     .addComponent(jPFContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTFNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBAcceder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(158, 158, 158))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(95, 95, 95)
-                .addComponent(jLRecuperarContrasena)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(153, 153, 153))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,53 +154,56 @@ public class Login extends javax.swing.JFrame
 
     private void jBAccederActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jBAccederActionPerformed
     {//GEN-HEADEREND:event_jBAccederActionPerformed
-        ValidaDatosIngreso nombre = new ValidaDatosIngreso();
+        ValidaDatosIngreso usuario = new ValidaDatosIngreso();
         JFrame objFrame = new JFrame("Dialogo de mensajes");
         UsuariosDatosEncapsulados objUsuariosDatosEncapsulados = new UsuariosDatosEncapsulados();
 
-        while (ValidaDatosIngreso.usu != 1)
+        while (ValidaDatosIngreso.bUsuarioValido != true)
         {
-            nombre.validaCadenaAlfanumerica(jTFNombre.getText(), "usuario"); //Usuario de 5 digitos o más, pero no más de 100. Y letras con numeros.
+            usuario.ValidaCadenaAlfanumerica(jTFNombre.getText(), "usuario", "usuario"); //Usuario de 5 digitos o más, pero no más de 100. Y letras con numeros.
             break;
         }
-        objUsuariosDatosEncapsulados.setNombreUsuario(ValidaDatosIngreso.sUsuarioSinEspacios); //Se manda el usuario sin espacios al inicio y final.
-        while (ValidaDatosIngreso.iUsuc != 1)
+        objUsuariosDatosEncapsulados.setNombreUsuario(ValidaDatosIngreso.sCadenaSinEspacios); //Se manda el usuario sin espacios al inicio y final.
+        while (ValidaDatosIngreso.bContraseniaValida != true)
         {
-            nombre.validaContrasenia(jPFContrasena.getText());
+            usuario.ValidaContrasenia(jPFContrasena.getText());
             break;
         }
 
         objUsuariosDatosEncapsulados.setContrasena(jPFContrasena.getText()); //Contraseña de 4 digitos o más, pero no más de 100.
         int n = UsuariosModelo.consultarUsuarios(objUsuariosDatosEncapsulados);
-        if (n == 0 && ValidaDatosIngreso.iCajaContraseniaVacia != 1) //Verifica si la caja de texto esta vacia.
+        if (ValidaDatosIngreso.bUsuarioValido == true && ValidaDatosIngreso.bContraseniaValida==true)
         {
-            Mensajes.exito(objFrame);
-        } else
-        {
-            if (ValidaDatosIngreso.iUsuarioValido != 1)  //Si el usuario es invalido no da acceso, de igual forma si no existe.
+            if (n == 0) //Verifica si la caja de texto esta vacia.
             {
-                Mensajes.falla(objFrame, "Acceso denegado.");
-            }
+                Mensajes.exito(objFrame);
+            } else
+            {
+                if (ValidaDatosIngreso.bUsuarioValido == true && ValidaDatosIngreso.bContraseniaValida == true)
+                {
+                    Mensajes.falla(objFrame, "Acceso denegado.");
+                }
+            }    
+            ValidaDatosIngreso.bCajaContraseniaVacia = true;
+            ValidaDatosIngreso.bUsuarioValido = false;
+            ValidaDatosIngreso.bContraseniaValida = false;
+            objUsuariosDatosEncapsulados.setNombreUsuario(ValidaDatosIngreso.sCadenaSinEspacios); //Se manda el usuario sin espacios al inicio y final.
+            objUsuariosDatosEncapsulados.setContrasena(null);
         }
-
-        if (ValidaDatosIngreso.iNoLimpiarCaja != 1)
-        {
-            Manipular.limpiaCajas(jTFNombre, jPFContrasena);
-            ValidaDatosIngreso.iNoLimpiarCaja = 0;
-        }
+        Manipular.limpiaCajas(jTFNombre, jPFContrasena);
     }//GEN-LAST:event_jBAccederActionPerformed
 
     private void jLRecuperarContrasenaMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jLRecuperarContrasenaMouseClicked
     {//GEN-HEADEREND:event_jLRecuperarContrasenaMouseClicked
-        VerificarUsuario objVerificarUsuario=new VerificarUsuario();
+        VerificarUsuario objVerificarUsuario = new VerificarUsuario();
         objVerificarUsuario.setVisible(true);
-       
-        
+
+
     }//GEN-LAST:event_jLRecuperarContrasenaMouseClicked
 
     private void jTFNombreKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFNombreKeyPressed
     {//GEN-HEADEREND:event_jTFNombreKeyPressed
-        if(evt.getKeyChar() == '\n')
+        if (evt.getKeyChar() == '\n')
         {
             Manipular.cambioObj(jPFContrasena);
         }
@@ -210,7 +211,7 @@ public class Login extends javax.swing.JFrame
 
     private void jPFContrasenaKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jPFContrasenaKeyPressed
     {//GEN-HEADEREND:event_jPFContrasenaKeyPressed
-        if(evt.getKeyChar() == '\n')
+        if (evt.getKeyChar() == '\n')
         {
             Manipular.cambioObj(jBAcceder);
         }

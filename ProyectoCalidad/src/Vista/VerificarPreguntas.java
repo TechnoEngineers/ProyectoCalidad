@@ -113,47 +113,52 @@ public class VerificarPreguntas extends javax.swing.JFrame
         ValidaDatosIngreso recuperarContrasenia = new ValidaDatosIngreso();
         JFrame objFrame = new JFrame("Dialogo de mensajes");
         UsuariosDatosEncapsulados objUsuariosDatosEncapsulados = new UsuariosDatosEncapsulados();
-        
-        while (ValidaDatosIngreso.usu != 1)
+
+        while (ValidaDatosIngreso.bUsuarioValido != true)
         {
-            recuperarContrasenia.validaCadenaAlfanumerica(jTFCiudadNacimiento.getText(), "ciudad"); //Usuario de 5 digitos o más, pero no más de 100. Y letras con numeros.
+            recuperarContrasenia.ValidaCadenaAlfanumerica(jTFCiudadNacimiento.getText(), "ciudad", "ciudad"); //Usuario de 5 digitos o más, pero no más de 100. Y letras con numeros.
             break;
         }
         objUsuariosDatosEncapsulados.setsCiudad(jTFCiudadNacimiento.getText());
+        while (ValidaDatosIngreso.bCorreoValido != true)
+        {
+            recuperarContrasenia.ValidaCorreo(jTFCorreo.getText());
+            break;
+        }
         objUsuariosDatosEncapsulados.setsEmail(jTFCorreo.getText());
 
-        int iResultado=UsuariosModelo.verificarPreguntas(objUsuariosDatosEncapsulados);
-        
-        if (iResultado==0)
+        int iResultado = UsuariosModelo.verificarPreguntas(objUsuariosDatosEncapsulados);
+        if (ValidaDatosIngreso.iCadenaInvalida == 0)
         {
-            Mensajes.exito(objFrame);
-            RecuperarContrasena objRecuperarContrasena = new RecuperarContrasena();
-            objRecuperarContrasena.setVisible(true);
-            this.dispose();
-        } else
-        {
-            if (ValidaDatosIngreso.iUsuarioValido != 1)  //Si el usuario es invalido no da acceso, de igual forma si no existe.
+            if (iResultado == 0)
+            {
+                Mensajes.exito(objFrame);
+                RecuperarContrasena objRecuperarContrasena = new RecuperarContrasena();
+                objRecuperarContrasena.setVisible(true);
+                this.dispose();
+            } else
             {
                 Mensajes.falla(objFrame);
             }
-            
         }
-        Manipular.limpiaCajas(jTFCiudadNacimiento,jTFCorreo);
+        ValidaDatosIngreso.bCorreoValido = false;
+        ValidaDatosIngreso.bUsuarioValido = false;
+        Manipular.limpiaCajas(jTFCiudadNacimiento, jTFCorreo);
     }//GEN-LAST:event_jBPreguntasSegurasActionPerformed
 
     private void jTFCorreoKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFCorreoKeyPressed
     {//GEN-HEADEREND:event_jTFCorreoKeyPressed
-        if(evt.getKeyChar() == '\n')
+        if (evt.getKeyChar() == '\n')
         {
-             Manipular.cambioObj(jBPreguntasSeguras);
+            Manipular.cambioObj(jBPreguntasSeguras);
         }
     }//GEN-LAST:event_jTFCorreoKeyPressed
 
     private void jTFCiudadNacimientoKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFCiudadNacimientoKeyPressed
     {//GEN-HEADEREND:event_jTFCiudadNacimientoKeyPressed
-        if(evt.getKeyChar() == '\n')
+        if (evt.getKeyChar() == '\n')
         {
-             Manipular.cambioObj(jTFCorreo);
+            Manipular.cambioObj(jTFCorreo);
         }
     }//GEN-LAST:event_jTFCiudadNacimientoKeyPressed
 
