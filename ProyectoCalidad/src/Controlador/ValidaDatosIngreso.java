@@ -9,14 +9,18 @@ package Controlador;
  *
  * @author angelcareaga
  */
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class ValidaDatosIngreso
 {
 
+    private static final String EstructuraValidaEmail = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+            + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
     final JPanel jPanel = new JPanel();
-    public static int iCadenaInvalida=0;
+    public static int iCadenaInvalida = 0;
     public static boolean bUsuarioValido = false,
             bContraseniaValida = false, bCajaContraseniaVacia = true,
             bLimpiarCaja = true, bCorreoValido = false;
@@ -134,7 +138,7 @@ public class ValidaDatosIngreso
                 JOptionPane.showMessageDialog(jPanel, "Nombre de " + sTipoValidacion + " invalido.", "Mensaje", JOptionPane.ERROR_MESSAGE);
             }
         }
-        iCadenaInvalida=0;
+        iCadenaInvalida = 0;
         return sCadenaSinEspacios;
     }
 
@@ -150,27 +154,44 @@ public class ValidaDatosIngreso
             {
                 JOptionPane.showMessageDialog(jPanel, "Falta contraseña, intentelo de nuevo.", "Mensaje", JOptionPane.ERROR_MESSAGE);
                 bCajaContraseniaVacia = true;
-                iCadenaInvalida=1;
-                bUsuarioValido=false;
+                iCadenaInvalida = 1;
+                bUsuarioValido = false;
             } else
             {
                 JOptionPane.showMessageDialog(jPanel, "Contraseña invalida.", "Mensaje", JOptionPane.ERROR_MESSAGE);
-                bUsuarioValido=false;
+                bUsuarioValido = false;
             }
         }
         return cCadena;
     }
 
-    public String ValidaCorreo(String sCadena)
+    public boolean ValidaCorreo(String sCadena)
     {
         sCadenaSinEspacios = sCadena.trim();
 
         if (sCadenaSinEspacios.length() <= 0)
         {
             JOptionPane.showMessageDialog(jPanel, "Falta correo, intentelo de nuevo.", "Mensaje", JOptionPane.ERROR_MESSAGE);
+        } else
+        {
+            /**
+             * Valida email con la expresión regular.
+             *
+             * @param email email for validation
+             * @return true valid email, otherwise false
+             */
+            // Compiles the given regular expression into a pattern.
+            Pattern pattern = Pattern.compile(EstructuraValidaEmail);
+            // Match the given input against this pattern
+            Matcher matcher = pattern.matcher(sCadena);
+            bCorreoValido = matcher.matches();
+            if (bCorreoValido!=true)
+            {
+                JOptionPane.showMessageDialog(jPanel, "Correo invalido, intentelo de nuevo.", "Mensaje", JOptionPane.ERROR_MESSAGE);
+            }
         }
 
-        return sCadena;
+        return bCorreoValido;
     }
 
 }
