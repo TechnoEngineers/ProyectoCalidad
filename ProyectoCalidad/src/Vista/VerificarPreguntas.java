@@ -42,7 +42,6 @@ public class VerificarPreguntas extends javax.swing.JFrame
         jBPreguntasSeguras = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
@@ -94,8 +93,6 @@ public class VerificarPreguntas extends javax.swing.JFrame
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Logo.png"))); // NOI18N
         jLabel1.setText("jLabel1");
 
-        jButton2.setText("Acerca de");
-
         jButton1.setText("Ayuda");
         jButton1.addActionListener(new java.awt.event.ActionListener()
         {
@@ -119,8 +116,6 @@ public class VerificarPreguntas extends javax.swing.JFrame
                         .addComponent(jLabel2)
                         .addGap(135, 135, 135))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton2)
-                        .addGap(18, 18, 18)
                         .addComponent(jButton1)
                         .addContainerGap())))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -147,9 +142,7 @@ public class VerificarPreguntas extends javax.swing.JFrame
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -301,7 +294,6 @@ public class VerificarPreguntas extends javax.swing.JFrame
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBPreguntasSeguras;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLFCorreo;
     private javax.swing.JLabel jLFLugarNacimiento;
     private javax.swing.JLabel jLabel1;

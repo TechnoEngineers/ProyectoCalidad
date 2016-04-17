@@ -52,7 +52,6 @@ public class RecuperarContrasena extends javax.swing.JFrame
         jPFRepitaContrasena = new javax.swing.JPasswordField();
         jBPreguntasSeguras = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -89,8 +88,6 @@ public class RecuperarContrasena extends javax.swing.JFrame
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 8)); // NOI18N
         jLabel2.setText("Copyright 2013 by Techno Engineers. All rights reserved.");
 
-        jButton2.setText("Acerca de");
-
         jButton1.setText("Ayuda");
         jButton1.addActionListener(new java.awt.event.ActionListener()
         {
@@ -114,8 +111,6 @@ public class RecuperarContrasena extends javax.swing.JFrame
                 .addContainerGap(75, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton2)
-                        .addGap(18, 18, 18)
                         .addComponent(jButton1)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -147,9 +142,7 @@ public class RecuperarContrasena extends javax.swing.JFrame
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                .addComponent(jButton1)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -322,7 +315,6 @@ public class RecuperarContrasena extends javax.swing.JFrame
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBPreguntasSeguras;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLFContrasena;
     private javax.swing.JLabel jLFRepetirContrasena;
     private javax.swing.JLabel jLabel1;
