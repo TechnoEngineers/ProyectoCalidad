@@ -2,7 +2,7 @@
  * Techno Engineers
  * Login
  * 10/04/2016 -- Autorizo: Oscar de Paz Feliciano // Lider de proyecto
- * Modificaciones: 
+ * Modificaciones: Miguel Ángel Careaga Gómez // Desarrollo. [17/04/2016]
  * Sirve para controlar la estructura de la interfaz Login
  * Numero de metodos en el codigo: 0
  * Interfaces: 
@@ -11,7 +11,6 @@ package Vista;
 
 import Controlador.Manipular;
 import Controlador.ValidaDatosIngreso;
-import static Controlador.ValidaDatosIngreso.bCajaContraseniaVacia;
 import Modelo.UsuariosDatosEncapsulados;
 import Modelo.UsuariosModelo;
 import Vista.mensajes.Mensajes;
@@ -20,18 +19,20 @@ import java.awt.Font;
 import java.awt.font.TextAttribute;
 import java.util.Map;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 
 /**
- *
+ * Valida el usuario y contraseña, para acceder al sistema.
  * @author Techno Engineers
  */
 public class Login extends javax.swing.JFrame
 {
-    
-    public static boolean bUsuarioContraseña=false;
     /**
-     * Creates new form Login
+     * Guarda si el usuario y contraseña son validos.
+     */
+    public static boolean bUsuarioContraseña=false;
+    
+    /**
+     * Se crea el formulario.
      */
     public Login()
     {
@@ -55,8 +56,15 @@ public class Login extends javax.swing.JFrame
         jPFContrasena = new javax.swing.JPasswordField();
         jBAcceder = new javax.swing.JButton();
         jLRecuperarContrasena = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        AyudaLogin = new javax.swing.JButton();
+        AcercaLogin = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(233, 188, 0));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Inicio de sesión", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
 
         jLNombre.setText("Usuario: ");
 
@@ -98,27 +106,71 @@ public class Login extends javax.swing.JFrame
             }
         });
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Logo.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+
+        AyudaLogin.setText("Ayuda");
+        AyudaLogin.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
+                AyudaLoginMouseClicked(evt);
+            }
+        });
+
+        AcercaLogin.setText("Acerca de");
+        AcercaLogin.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
+                AcercaLoginMouseClicked(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 8)); // NOI18N
+        jLabel2.setText("Copyright 2013 by Techno Engineers. All rights reserved.");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 116, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLRecuperarContrasena))
-                    .addComponent(jLContrasena)
-                    .addComponent(jLNombre)
-                    .addComponent(jPFContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTFNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBAcceder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(153, 153, 153))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(362, 362, 362)
+                                .addComponent(AcercaLogin))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGap(95, 95, 95)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGap(198, 198, 198)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLContrasena)
+                                        .addComponent(jLNombre)
+                                        .addComponent(jTFNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(jBAcceder, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                                            .addComponent(jPFContrasena, javax.swing.GroupLayout.Alignment.LEADING))
+                                        .addComponent(jLRecuperarContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(33, 33, 33)
+                        .addComponent(AyudaLogin))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(170, 170, 170)
+                        .addComponent(jLabel2)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(60, 60, 60)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AyudaLogin)
+                    .addComponent(AcercaLogin))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
                 .addComponent(jLNombre)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTFNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -130,34 +182,34 @@ public class Login extends javax.swing.JFrame
                 .addComponent(jBAcceder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLRecuperarContrasena)
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Se hace la interfaz de validación pata el usuario y contraseña, evalua si son correctos o no.
+     * @param evt 
+     */
     private void jBAccederActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jBAccederActionPerformed
     {//GEN-HEADEREND:event_jBAccederActionPerformed
-        ValidaDatosIngreso usuario = new ValidaDatosIngreso();
+        ValidaDatosIngreso usuario = new ValidaDatosIngreso(); 
         PantallaPrincipal mandaInicio = new PantallaPrincipal();
-        JFrame objFrame = new JFrame("Dialogo de mensajes");
+        JFrame objFrame = new JFrame("Dialogo de mensajes"); //Se crea las ventanas emergentes.
         UsuariosDatosEncapsulados objUsuariosDatosEncapsulados = new UsuariosDatosEncapsulados();
 
         while (ValidaDatosIngreso.bUsuarioValido != true)
@@ -166,13 +218,13 @@ public class Login extends javax.swing.JFrame
             break;
         }
         objUsuariosDatosEncapsulados.setNombreUsuario(ValidaDatosIngreso.sCadenaSinEspacios); //Se manda el usuario sin espacios al inicio y final.
-        while (ValidaDatosIngreso.bContraseniaValida != true)
+        while (ValidaDatosIngreso.bContraseniaValida != true) 
         {
-            usuario.validaContrasenia(jPFContrasena.getText());
+            usuario.validaContrasenia(jPFContrasena.getText()); //Valida que sea mayor o igual a 4 digitos y menor que 101.
             break;
         }
 
-        objUsuariosDatosEncapsulados.setContrasena(jPFContrasena.getText()); //Contraseña de 4 digitos o más, pero no más de 100.
+        objUsuariosDatosEncapsulados.setContrasena(jPFContrasena.getText());
         int n = UsuariosModelo.consultarUsuarios(objUsuariosDatosEncapsulados);
         if (ValidaDatosIngreso.bUsuarioValido == true && ValidaDatosIngreso.bContraseniaValida==true)
         {
@@ -183,33 +235,42 @@ public class Login extends javax.swing.JFrame
                 //Mensajes.exito(objFrame);
             } else
             {
-                if (ValidaDatosIngreso.bUsuarioValido == true && ValidaDatosIngreso.bContraseniaValida == true)
+                if (ValidaDatosIngreso.bUsuarioValido == true && ValidaDatosIngreso.bContraseniaValida == true) //Si contraseña y usuario sonvalidos pero no entontrados, entonces manda mensaje de error.
                 {
                     bUsuarioContraseña=false;
-                    Mensajes.falla(objFrame, "Acceso denegado.");
+                    Mensajes.falla(objFrame, "Acceso denegado, usuario no encontrado.");
                 }
             }    
-            ValidaDatosIngreso.bCajaContraseniaVacia = true;
+            ValidaDatosIngreso.bCajaContraseniaVacia = true; //Se limpian variables.
             ValidaDatosIngreso.bUsuarioValido = false;
             ValidaDatosIngreso.bContraseniaValida = false;
             objUsuariosDatosEncapsulados.setNombreUsuario(ValidaDatosIngreso.sCadenaSinEspacios); //Se manda el usuario sin espacios al inicio y final.
             objUsuariosDatosEncapsulados.setContrasena(null);
             if(bUsuarioContraseña==true)
             {
+                dispose(); //Desaparece la ventana anterior y muestra la de inicio.
                 mandaInicio.setVisible(bUsuarioContraseña);
-                dispose();
             }
             
         }
-        Manipular.limpiaCajas(jTFNombre, jPFContrasena);
+        Manipular.limpiaCajas(jTFNombre, jPFContrasena); //Limpia las cajas de texto.
     }//GEN-LAST:event_jBAccederActionPerformed
     
+    /**
+     * Llama a la interfaz de recuperar contraseña y oculta la anterior.
+     * @param evt recibe la accion del clic.
+     */
     private void jLRecuperarContrasenaMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jLRecuperarContrasenaMouseClicked
     {//GEN-HEADEREND:event_jLRecuperarContrasenaMouseClicked
         VerificarUsuario objVerificarUsuario = new VerificarUsuario();
         objVerificarUsuario.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jLRecuperarContrasenaMouseClicked
-
+    
+    /**
+     * Cambia a la caja nombre.
+     * @param evt recibe la accion del clic.
+     */
     private void jTFNombreKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFNombreKeyPressed
     {//GEN-HEADEREND:event_jTFNombreKeyPressed
         if (evt.getKeyChar() == '\n')
@@ -217,7 +278,11 @@ public class Login extends javax.swing.JFrame
             Manipular.cambioObj(jPFContrasena);
         }
     }//GEN-LAST:event_jTFNombreKeyPressed
-
+    
+    /**
+     * Cambia a la caja contraseña.
+     * @param evt recibe ja accion del clic.
+     */
     private void jPFContrasenaKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jPFContrasenaKeyPressed
     {//GEN-HEADEREND:event_jPFContrasenaKeyPressed
         if (evt.getKeyChar() == '\n')
@@ -225,8 +290,24 @@ public class Login extends javax.swing.JFrame
             Manipular.cambioObj(jBAcceder);
         }
     }//GEN-LAST:event_jPFContrasenaKeyPressed
+    
+    
+    private void AcercaLoginMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_AcercaLoginMouseClicked
+    {//GEN-HEADEREND:event_AcercaLoginMouseClicked
+        AcercaLogin objAcercaLogin = new AcercaLogin();
+        objAcercaLogin.setVisible(true);
+        //dispose();
+    }//GEN-LAST:event_AcercaLoginMouseClicked
+
+    private void AyudaLoginMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_AyudaLoginMouseClicked
+    {//GEN-HEADEREND:event_AyudaLoginMouseClicked
+        AyudaLogin objAyudaLogin = new AyudaLogin();
+        objAyudaLogin.setVisible(true);
+        //dispose();
+    }//GEN-LAST:event_AyudaLoginMouseClicked
 
     /**
+     * Se hace visible la interfaz del login.
      * @param args the command line arguments
      */
     public static void main(String args[])
@@ -272,10 +353,14 @@ public class Login extends javax.swing.JFrame
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AcercaLogin;
+    private javax.swing.JButton AyudaLogin;
     private javax.swing.JButton jBAcceder;
     private javax.swing.JLabel jLContrasena;
     private javax.swing.JLabel jLNombre;
     private javax.swing.JLabel jLRecuperarContrasena;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPasswordField jPFContrasena;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTFNombre;
