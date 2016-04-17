@@ -77,13 +77,13 @@ public class RegistrarVestuarios extends javax.swing.JFrame
         jLClave1.setText("Clave:");
         jLClave1.setPreferredSize(new java.awt.Dimension(61, 30));
 
-        jCTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jCTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Prenda", "Accesorio" }));
         jCTipo.setPreferredSize(new java.awt.Dimension(56, 30));
 
         jLSexo.setText("Sexo:");
         jLSexo.setPreferredSize(new java.awt.Dimension(61, 30));
 
-        jCSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jCSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hombre", "Mujer" }));
         jCSexo.setPreferredSize(new java.awt.Dimension(56, 30));
 
         javax.swing.GroupLayout jPVestuarioLayout = new javax.swing.GroupLayout(jPVestuario);
