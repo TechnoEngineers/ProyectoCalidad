@@ -217,6 +217,7 @@ public class RegistrarVestuarios extends javax.swing.JFrame
         Mensajes objMensajes = new Mensajes();
         JFrame objFrame=new JFrame();
         
+        
         VestuariosDatosEncapsulados objVestuariosDatosEncapsulados=new VestuariosDatosEncapsulados();
         objVestuariosDatosEncapsulados.setcTipo(jCTipo.getSelectedItem().toString().charAt(0));
         objVestuariosDatosEncapsulados.setsDescripcion(jTFDescripcion.getText());
