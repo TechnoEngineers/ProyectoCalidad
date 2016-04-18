@@ -249,23 +249,41 @@ public class RegistrarVestuarios extends javax.swing.JFrame
     private void jTFDescripcionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFDescripcionKeyTyped
         char c;
         c=evt.getKeyChar();
-        if(!Character.isLetter(c)&& !Character.isDigit(c) && c!=KeyEvent.VK_SPACE && c!=KeyEvent.VK_BACK_SPACE)
+        if(jTFDescripcion.getText().length()<=249)
+        {
+            if(!Character.isLetter(c)&& !Character.isDigit(c) && c!=KeyEvent.VK_SPACE && c!=KeyEvent.VK_BACK_SPACE)
+            {
+               evt.consume();
+               getToolkit().beep();
+            }
+        }else
         {
             evt.consume();
-            getToolkit().beep();  
-            
+            getToolkit().beep();
         }
+             
+            
+       
+        
     }//GEN-LAST:event_jTFDescripcionKeyTyped
 
     private void jTFColorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFColorKeyTyped
         char c;
         c=evt.getKeyChar();
-        if(!Character.isLetter(c) && c!=KeyEvent.VK_SPACE && c!=KeyEvent.VK_BACK_SPACE)
+        if(jTFColor.getText().length()<=4)
+        {
+            if(!Character.isLetter(c) && c!=KeyEvent.VK_SPACE && c!=KeyEvent.VK_BACK_SPACE)
+            {
+                evt.consume();
+                getToolkit().beep(); 
+                Mensajes.falla(this, "Error, No puede ingresar numeros y/o caracteres");
+            }
+        }else
         {
             evt.consume();
-            getToolkit().beep(); 
-            Mensajes.falla(this, "Error, No puede ingresar numeros.");
+            getToolkit().beep();   
         }
+        
     }//GEN-LAST:event_jTFColorKeyTyped
 
     public static void main(String args[])

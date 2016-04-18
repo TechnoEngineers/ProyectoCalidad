@@ -164,7 +164,7 @@ public class Vestuarios extends javax.swing.JFrame
 
     private void jTFBuscarVestuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFBuscarVestuarioKeyTyped
         char c;
-        c=evt.getKeyChar();
+        c=evt.getKeyChar();        
         if(!Character.isLetter(c)&& !Character.isDigit(c) && c!=KeyEvent.VK_SPACE && c!=KeyEvent.VK_BACK_SPACE)
         {
             evt.consume();
