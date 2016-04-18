@@ -9,6 +9,12 @@
  */
 package Vista;
 
+import Modelo.VestuariosDatosEncapsulados;
+import Modelo.VestuariosModelo;
+import Vista.mensajes.Mensajes;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 public class RegistrarVestuarios extends javax.swing.JFrame
 {
 
@@ -85,6 +91,13 @@ public class RegistrarVestuarios extends javax.swing.JFrame
         jBGuardar.setMaximumSize(new java.awt.Dimension(120, 50));
         jBGuardar.setMinimumSize(new java.awt.Dimension(120, 50));
         jBGuardar.setPreferredSize(new java.awt.Dimension(120, 50));
+        jBGuardar.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                jBGuardarActionPerformed(evt);
+            }
+        });
 
         jBCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Cancelar.png"))); // NOI18N
         jBCancelar.setText("Cancelar");
@@ -197,6 +210,27 @@ public class RegistrarVestuarios extends javax.swing.JFrame
     {//GEN-HEADEREND:event_jBRegistrarVestuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jBRegistrarVestuarioActionPerformed
+
+    private void jBGuardarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jBGuardarActionPerformed
+    {//GEN-HEADEREND:event_jBGuardarActionPerformed
+        VestuariosModelo objVestuariosModelo = new VestuariosModelo();
+        Mensajes objMensajes = new Mensajes();
+        JFrame objFrame=new JFrame();
+        
+        
+        VestuariosDatosEncapsulados objVestuariosDatosEncapsulados=new VestuariosDatosEncapsulados();
+        objVestuariosDatosEncapsulados.setcTipo(jCTipo.getSelectedItem().toString().charAt(0));
+        objVestuariosDatosEncapsulados.setsDescripcion(jTFDescripcion.getText());
+        objVestuariosDatosEncapsulados.setScolor(jTFColor.getText());
+        objVestuariosDatosEncapsulados.setcSexo(jCSexo.getSelectedItem().toString().charAt(0));
+        if (objVestuariosModelo.registrarVestuarios(objVestuariosDatosEncapsulados)) 
+        {
+                objMensajes.exito(objFrame);
+        }else
+        {
+                objMensajes.falla(objFrame);
+        }   
+    }//GEN-LAST:event_jBGuardarActionPerformed
 
     public static void main(String args[])
     {
