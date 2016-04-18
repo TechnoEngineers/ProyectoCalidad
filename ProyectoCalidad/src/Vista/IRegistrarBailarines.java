@@ -1,7 +1,11 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Techno Engineers
+ * Consulta de Usuarios
+ * 18/04/2016 -- Autorizo: Luis Nava Ramirez //
+ * Modificaciones:
+ * Sirve para controlar la estructura de la interfaz Consultar Usuarios
+ * Numero de metodos en el codigo:0
+ * Interfaces:
  */
 package Vista;
 

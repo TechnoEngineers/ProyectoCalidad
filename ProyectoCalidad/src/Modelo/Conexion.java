@@ -25,7 +25,7 @@ public class Conexion
      * @throws SQLException - Se ejecuta si ocurre un error de conexión a la base de datos
      */
     
-    public Connection Conecta(String host, String NomBD, String usuario, String passw) throws SQLException{
+    public Connection Conecta(String host, String NomBD, String usuario, String passw){
     
         String driver = "com.mysql.jdbc.Driver";
         String error = "No se pudo cargar el driver Mysql";

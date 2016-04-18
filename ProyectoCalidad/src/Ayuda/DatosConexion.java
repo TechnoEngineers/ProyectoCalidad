@@ -20,7 +20,7 @@ public class DatosConexion
         try
         {
             return x.Conecta("localhost", "trajin", "root", "101125");
-        } catch (SQLException ex)
+        } catch (Exception ex)
         {
             return null;
         }   

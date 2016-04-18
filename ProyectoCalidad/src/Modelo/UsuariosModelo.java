@@ -37,7 +37,7 @@ public class UsuariosModelo {
         try
         {
             return x.Conecta("localhost", "trajin", "root", "diego");
-        } catch (SQLException ex)
+        } catch (Exception ex)
         {
             return null;
         }   

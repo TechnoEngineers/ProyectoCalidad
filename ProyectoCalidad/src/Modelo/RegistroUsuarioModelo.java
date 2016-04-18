@@ -1,15 +1,18 @@
 /*
  * Techno Engineers
- * UsuariosDAO
- * 10/04/2016 -- Autorizo: Oscar de Paz Feliciano // Lider de proyecto
- * Modificaciones: Miguel Ángel Careaga Gómez // Desarrollo. [17/04/2016]
+ * Registro Usuarios Modelo
+ * 18/04/2016 -- Autorizo: Luis Nava Ramirez // Rogelio Bernal Escobar
+ * Modificaciones:
  * Sirve para manejar los datos de la tabla "usuarios" de la base de datos como objetos en el sistema
- * Numero de metodos en el codigo: 0
- * Interfaces: 
+ * Numero de metodos en el codigo: 5
+ * Interfaces: 1
  */
 package Modelo;
 import Vista.mensajes.Mensajes;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 /**
  *
@@ -35,7 +38,7 @@ public class RegistroUsuarioModelo {
         try
         {
             return x.Conecta("localhost", "trajin", "root", "123456");
-        } catch (SQLException ex)
+        } catch (Exception ex)
         {
             return null;
         }   
@@ -129,5 +132,44 @@ public class RegistroUsuarioModelo {
             objMensajes.falla(objFrame,"Error en la conexión "+ex.getMessage());
             return false;
         }
+    }
+  
+    public static int consultarUsuarios(RegistroUsuarioDatosEncapsulados objConsultaDatos){
+        
+        JFrame objFrame=new JFrame();
+        Mensajes objMensajes=new Mensajes();
+        
+        try
+        {
+            Connection con = UsuariosModelo.conectaDB();
+            Statement stmt = con.createStatement();
+            ResultSet rset;
+            
+            rset = stmt.executeQuery("SELECT idusuario,nombre,apellidopaterno,apellidomaterno FROM usuarios WHERE nombre='"+objConsultaDatos.getsNombre()+"'");
+            
+            ArrayList<RegistroUsuarioDatosEncapsulados> listaArreglos = new ArrayList<RegistroUsuarioDatosEncapsulados>(); // Se crea una lista de arreglos de usuarios.
+
+            while (rset.next()) 
+            {
+                objConsultaDatos.setiIdUsuario(rset.getInt("idusuario"));
+                objConsultaDatos.setsNombre(rset.getString("nombre"));
+                objConsultaDatos.setsApellidoPaterno(rset.getString("apellidopaterno"));
+                objConsultaDatos.setsApellidoMaterno(rset.getString("apellidomaterno"));
+                listaArreglos.add(objConsultaDatos);
+            }
+            
+            if (listaArreglos.size() > 0) 
+            {
+                return 0;
+            }
+            stmt.close();
+            UsuariosModelo.desconectaDB(con); //Despues de haber hecho la busqueda se desconecta de la base de datos.
+        } catch (SQLException ex)
+        {
+            Logger.getLogger(RegistroUsuarioModelo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return 1;
+    
     }
 }
