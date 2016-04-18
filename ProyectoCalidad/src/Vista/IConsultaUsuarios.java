@@ -1,7 +1,7 @@
 /*
  * Techno Engineers
  * Consulta de Usuarios
- * 17/04/2016 -- Autorizo: Jonathan Rojas Simón // Desarrollo.
+ * 18/04/2016 -- Autorizo: Rogelio Bernal Escobar //
  * Modificaciones:
  * Sirve para controlar la estructura de la interfaz Consultar Usuarios
  * Numero de metodos en el codigo:0

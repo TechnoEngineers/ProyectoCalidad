@@ -1,7 +1,11 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Techno Engineers
+ * Registro Usuarios Datos Encapsulados
+ * 18/04/2016 -- Autorizo: Luis Nava Ramirez //
+ * Modificaciones:
+ * Genera los datos encapsulados de la clase Usuarios
+ * Numero de metodos en el codigo: 0
+ * Interfaces: 
  */
 package Modelo;
 
@@ -11,6 +15,7 @@ package Modelo;
  */
 public class RegistroUsuarioDatosEncapsulados {
     private String sNombreUsuario;
+    private int iIdUsuario;
     private String sContrasena;
     private int iTipoUsuario;
     private int iStatus;
@@ -61,6 +66,15 @@ public class RegistroUsuarioDatosEncapsulados {
     private String sHorarioDisponible;
     private String sComentario;
 
+    
+    public RegistroUsuarioDatosEncapsulados()
+    {
+        iIdUsuario = 0;
+        sNombre="";
+        sApellidoPaterno="";
+        sApellidoMaterno="";
+    }
+    
     /**
      * @return the sNombreUsuario
      */
@@ -766,6 +780,22 @@ public class RegistroUsuarioDatosEncapsulados {
      */
     public void setsMedicacionDiarrea(String sMedicacionDiarrea) {
         this.sMedicacionDiarrea = sMedicacionDiarrea;
+    }
+
+    /**
+     * @return the iIdUsuario
+     */
+    public int getiIdUsuario()
+    {
+        return iIdUsuario;
+    }
+
+    /**
+     * @param iIdUsuario the iIdUsuario to set
+     */
+    public void setiIdUsuario(int iIdUsuario)
+    {
+        this.iIdUsuario = iIdUsuario;
     }
     
 }
