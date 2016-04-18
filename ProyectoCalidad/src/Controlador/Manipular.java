@@ -11,16 +11,28 @@ package Controlador;
 
 import javax.swing.JButton;
 import javax.swing.JTextField;
-
+/**
+ * Realiza la manipulación de las cajas de texto.
+ * @author Anonimus
+ */
 public class Manipular
 {
+    /**
+     * Realiza la limpieza de las cajas de texto.
+     * @param cajas recibe las cajas a limpiar.
+     */
     public static void limpiaCajas(JTextField ... cajas)
     {
-        for (int i = 0; i < cajas.length; i++)
+        for (int i = 0; i < cajas.length; i++) //Recibe las cajas de texto y las limpia hasta que ya no quede ninguna llena.
         {
-            cajas[i].setText("");
+            cajas[i].setText(null); //Les asigna el valor null, para valor nulo.
         }
     }
+    /**
+     * Desabilita los objetos.
+     * @param b recibe un valor falso o verdadero.
+     * @param obj recibe el objeto.
+     */
     public static void deshabilitaObj(boolean b, Object ... obj)
     {
         for (int i = 0; i < obj.length; i++)
@@ -40,12 +52,21 @@ public class Manipular
         }
     }
     
+    /**
+     * Recibe el valor de la caja y la longitud.
+     * @param jt recibe lo que hay en la caja de texto.
+     */
     public static void seleccionaCaja(JTextField jt)
     {
         jt.setSelectionStart(0);
         jt.setSelectionEnd(jt.getText().length());
         jt.requestFocus();
     }
+    
+    /**
+     * Cambia el objeto, selecciona la caja y la desabilita.
+     * @param obj recibe el objeto.
+     */
     public static void cambioObj(Object obj)
     {
         if(obj != null)

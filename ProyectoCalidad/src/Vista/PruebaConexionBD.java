@@ -9,12 +9,12 @@ import java.sql.*;
 import Modelo.Conexion;
 
 /**
- *
+ * La clase principal que hace la conexión.
  * @author Luiz
  */
 public class PruebaConexionBD {
 
-    /**
+    /**En la clase principal se hace la conexión con la base de datos.
      * @param args the command line arguments
      */
     public static void main(String[] args) throws SQLException {

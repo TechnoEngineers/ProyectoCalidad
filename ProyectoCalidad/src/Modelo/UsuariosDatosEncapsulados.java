@@ -2,7 +2,7 @@
  * Techno Engineers
  * Usuarios
  * 10/04/2016 -- Autorizo: Oscar de Paz Feliciano // Lider de proyecto
- * Modificaciones: 
+ * Modificaciones: Miguel Ángel Careaga Gómez // Desarrollo. [17/04/2016]
  * Sirve para encapsular los datos de la tabla "usuarios" en la base de datos
  * Numero de metodos en el codigo: 0
  * Interfaces: 
@@ -10,7 +10,7 @@
 package Modelo;
 
 /**
- *
+ * Datos encapsulados del usuario.
  * @author Techno Engineers
  */
 
@@ -64,16 +64,27 @@ public class UsuariosDatosEncapsulados
     private String sHorarioDisponible;
     private String sComentario;
     
+    /**
+     * Se crea un constructor con valores por defecto de usuario y contraseña.
+     */
     public UsuariosDatosEncapsulados()
     {
         sNombreUsuario="";
         sContrasena="";
     }
+    
+    /**
+     * Recibe valor de usuario y contraseña.
+     * @param sNombreUsuario recibe usuario.
+     * @param sContrasena recibe contraseña.
+     */
     public UsuariosDatosEncapsulados(String sNombreUsuario, String sContrasena){
         this.sNombreUsuario=sNombreUsuario;
         this.sContrasena=sContrasena;
     }
-    //Esto es para encapsular los atributos de Usuarios para usarlos como objetos en el sistema
+    /*
+      Los siguientes con los constructores son del usuario.
+    */
     public String getNombreUsuario() 
     {
         return sNombreUsuario;

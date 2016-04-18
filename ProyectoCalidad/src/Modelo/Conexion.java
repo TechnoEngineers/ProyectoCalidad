@@ -2,7 +2,7 @@
  * Techno Engineers
  * Conexion
  * 12/04/2016 -- Autorizo: Oscar de Paz Feliciano // Lider de proyecto
- * Modificaciones: 
+ * Modificaciones: Miguel Ángel Careaga Gómez // Desarrollo. [17/04/2016]
  * Permite hacer la conexion con la Base de Datos. entre el Sistema y MySQL
  * Numero de metodos en el codigo: 2
  * Interfaces: 

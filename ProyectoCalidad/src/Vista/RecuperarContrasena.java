@@ -2,7 +2,7 @@
  * Techno Engineers
  * RecuperarContrasena
  * 12/04/2016 -- Autorizo: Marvin Atzael Hernández Benítez // Lider de proyecto
- * Modificaciones: 
+ * Modificaciones: Miguel Ángel Careaga Gómez // Desarrollo. [17/04/2016]
  * Sirve paracambiar o actualizar la contraseña
  * Numero de métodos en el codigo: 0
  * Login: 
@@ -17,15 +17,16 @@ import Modelo.UsuariosDatosEncapsulados;
 import Vista.mensajes.Mensajes;
 
 /**
- *
+ * Recupera la contraseña del usuario.
  * @author mgool
  */
 public class RecuperarContrasena extends javax.swing.JFrame
 {
 
-    public static boolean bRecuperarContrasenia=false;
+    public static boolean bRecuperarContrasenia = false;
+
     /**
-     * Creates new form RecuperarContrasena
+     * Crea formulario de recuperar contraseña.
      */
     public RecuperarContrasena()
     {
@@ -39,17 +40,37 @@ public class RecuperarContrasena extends javax.swing.JFrame
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
-        jLFContrasena = new javax.swing.JLabel();
-        jLFRepetirContrasena = new javax.swing.JLabel();
-        jBPreguntasSeguras = new javax.swing.JButton();
-        jPFNuevaContrasena = new javax.swing.JPasswordField();
-        jPFRepitaContrasena = new javax.swing.JPasswordField();
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPFUsuario = new javax.swing.JTextField();
+        jLFContrasena = new javax.swing.JLabel();
+        jPFNuevaContrasena = new javax.swing.JPasswordField();
+        jLFRepetirContrasena = new javax.swing.JLabel();
+        jPFRepitaContrasena = new javax.swing.JPasswordField();
+        jBPreguntasSeguras = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        cancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(233, 188, 0));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Recuperar contraseña", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
+
+        jLabel1.setText("Usuario:");
+
+        jPFUsuario.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                jPFUsuarioActionPerformed(evt);
+            }
+        });
 
         jLFContrasena.setText("Nueva contraseña:");
 
@@ -57,46 +78,95 @@ public class RecuperarContrasena extends javax.swing.JFrame
 
         jBPreguntasSeguras.setText("Cambiar contraseña");
         jBPreguntasSeguras.setPreferredSize(new java.awt.Dimension(120, 50));
-        jBPreguntasSeguras.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jBPreguntasSeguras.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 jBPreguntasSegurasActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Usuario:");
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 8)); // NOI18N
+        jLabel2.setText("Copyright 2013 by Techno Engineers. All rights reserved.");
 
-        jPFUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPFUsuarioActionPerformed(evt);
+        jButton1.setText("Ayuda");
+        jButton1.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                jButton1ActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(79, 79, 79)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLFContrasena)
-                        .addComponent(jLFRepetirContrasena)
-                        .addComponent(jPFRepitaContrasena, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
-                        .addComponent(jPFNuevaContrasena, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
-                        .addComponent(jBPreguntasSeguras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPFUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(134, Short.MAX_VALUE))
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Logo.png"))); // NOI18N
+        jLabel3.setText("jLabel1");
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel4.setText("Ingrese los siguientes datos para el cambio de contraseña:");
+
+        cancelar.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        cancelar.setText("Cancelar");
+        cancelar.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                cancelarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(75, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(98, 98, 98)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jLFContrasena)
+                                        .addComponent(jLFRepetirContrasena)
+                                        .addComponent(jPFRepitaContrasena, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                                        .addComponent(jPFNuevaContrasena))
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel1)
+                                        .addComponent(jPFUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(50, 50, 50)
+                                .addComponent(jLabel2))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel4))
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(60, 60, 60))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(164, 164, 164)
+                        .addComponent(jBPreguntasSeguras, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(203, 203, 203)
+                        .addComponent(cancelar)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(41, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jPFUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addComponent(jButton1)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPFUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLFContrasena)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -105,9 +175,26 @@ public class RecuperarContrasena extends javax.swing.JFrame
                 .addComponent(jLFRepetirContrasena)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPFRepitaContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
                 .addComponent(jBPreguntasSeguras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cancelar)
+                .addGap(24, 24, 24)
+                .addComponent(jLabel2)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -129,38 +216,48 @@ public class RecuperarContrasena extends javax.swing.JFrame
         if (ValidaDatosIngreso.bUsuarioValido == true)
         {
             Login mandaLogin = new Login();
-            objUsuariosDatosEncapsulados.setContrasena(jPFRepitaContrasena.getText());
-            if (jPFNuevaContrasena.getText().equals(jPFRepitaContrasena.getText()))
+
+            while (ValidaDatosIngreso.bContraseniaValida != true)
             {
-                int n = UsuariosModelo.recuperarContrasenia(objUsuariosDatosEncapsulados);
-                if (n == 0)
+                nombre.validaContrasenia(jPFRepitaContrasena.getText());
+                break;
+            }
+            objUsuariosDatosEncapsulados.setContrasena(jPFRepitaContrasena.getText());
+            if (ValidaDatosIngreso.bContraseniaValida != false)
+            {
+
+                if (jPFNuevaContrasena.getText().equals(jPFRepitaContrasena.getText()))
                 {
-                    //Mensajes.exito(objFrame);
-                    bRecuperarContrasenia=true;
-                    System.out.println("Contraseñas iguales ");
-                    System.out.println("" + jPFUsuario);
+                    int n = UsuariosModelo.recuperarContrasenia(objUsuariosDatosEncapsulados);
+                    if (n == 0)
+                    {
+                        //Mensajes.exito(objFrame);
+                        bRecuperarContrasenia = true;
+                        System.out.println("Contraseñas iguales ");
+                        System.out.println("" + jPFUsuario);
+                    } else
+                    {
+                        bRecuperarContrasenia = false;
+                        Mensajes.falla(objFrame, "No se pudo realizar la accion solicitada");
+                        System.out.println("error");
+                    }
+
                 } else
                 {
-                    bRecuperarContrasenia=false;
-                    Mensajes.falla(objFrame, "No se pudo realizar la accion solicitada");
-                    System.out.println("error");
+                    bRecuperarContrasenia = false;
+                    Mensajes.falla(objFrame, "La contraseña no coincide, verifique porfavor!");
+                    System.out.println("no coinciden las contraseñas");
                 }
-
-            } else
-            {
-                bRecuperarContrasenia=false;
-                Mensajes.falla(objFrame, "La contraseña no coincide, verifique porfavor!");
-                System.out.println("no coinciden las contraseñas");
             }
             ValidaDatosIngreso.bCorreoValido = false;
             ValidaDatosIngreso.bUsuarioValido = false;
-            if(bRecuperarContrasenia==true)
+            if (bRecuperarContrasenia == true)
             {
                 mandaLogin.setVisible(bRecuperarContrasenia);
                 dispose();
             }
         }
-        Manipular.limpiaCajas(jPFUsuario, jPFNuevaContrasena,jPFRepitaContrasena);
+        Manipular.limpiaCajas(jPFUsuario, jPFNuevaContrasena, jPFRepitaContrasena);
     }//GEN-LAST:event_jBPreguntasSegurasActionPerformed
 
     private void jPFNuevaContrasenaKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jPFNuevaContrasenaKeyPressed
@@ -182,6 +279,18 @@ public class RecuperarContrasena extends javax.swing.JFrame
     private void jPFUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPFUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jPFUsuarioActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton1ActionPerformed
+    {//GEN-HEADEREND:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void cancelarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_cancelarActionPerformed
+    {//GEN-HEADEREND:event_cancelarActionPerformed
+        Login mandaLogin = new Login();
+        mandaLogin.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_cancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -229,12 +338,18 @@ public class RecuperarContrasena extends javax.swing.JFrame
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cancelar;
     private javax.swing.JButton jBPreguntasSeguras;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLFContrasena;
     private javax.swing.JLabel jLFRepetirContrasena;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPasswordField jPFNuevaContrasena;
     private javax.swing.JPasswordField jPFRepitaContrasena;
     private javax.swing.JTextField jPFUsuario;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
