@@ -25,6 +25,11 @@ public class Vestuarios extends javax.swing.JFrame
     {
         initComponents();
         this.mostrar("");
+        Color colorBoton=new Color(244, 208, 60);
+        Color colorBarra=new Color (255,188,1);
+        jBConsultarVestuario.setBackground(colorBoton);
+        jMBarraHerramientas.setOpaque(true);
+        jMBarraHerramientas.setBackground(colorBarra);
     }
     
     private void mostrar(String sBuscar)
@@ -58,8 +63,7 @@ public class Vestuarios extends javax.swing.JFrame
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         jBConsultarVestuario = new javax.swing.JButton();
         jBRegistrarVestuario = new javax.swing.JButton();
@@ -82,35 +86,28 @@ public class Vestuarios extends javax.swing.JFrame
         jBRegistrarVestuario.setPreferredSize(new java.awt.Dimension(120, 50));
 
         jPVestuario.setBackground(new java.awt.Color(255, 255, 255));
-        jPVestuario.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Consultar datos del vestuario", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
+        jPVestuario.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createMatteBorder(20, 1, 1, 1, new java.awt.Color(255, 188, 1)), "Consultar datos del vestuario", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
 
         jTFBuscarVestuario.setPreferredSize(new java.awt.Dimension(59, 30));
-        jTFBuscarVestuario.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        jTFBuscarVestuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTFBuscarVestuarioActionPerformed(evt);
             }
         });
-        jTFBuscarVestuario.addKeyListener(new java.awt.event.KeyAdapter()
-        {
-            public void keyPressed(java.awt.event.KeyEvent evt)
-            {
+        jTFBuscarVestuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTFBuscarVestuarioKeyPressed(evt);
             }
-            public void keyTyped(java.awt.event.KeyEvent evt)
-            {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTFBuscarVestuarioKeyTyped(evt);
             }
         });
 
         jTVestuario.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][]
-            {
+            new Object [][] {
 
             },
-            new String []
-            {
+            new String [] {
 
             }
         ));
@@ -174,7 +171,7 @@ public class Vestuarios extends javax.swing.JFrame
                     .addGroup(layout.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addComponent(jPVestuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -185,7 +182,7 @@ public class Vestuarios extends javax.swing.JFrame
                     .addComponent(jBRegistrarVestuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPVestuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         pack();
