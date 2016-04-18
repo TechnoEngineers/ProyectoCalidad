@@ -12,6 +12,7 @@ package Vista;
 import Modelo.VestuariosDatosEncapsulados;
 import Modelo.VestuariosModelo;
 import Vista.mensajes.Mensajes;
+import java.awt.event.KeyEvent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -25,8 +26,7 @@ public class RegistrarVestuarios extends javax.swing.JFrame
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         jBConsultarVestuario = new javax.swing.JButton();
         jBRegistrarVestuario = new javax.swing.JButton();
@@ -36,9 +36,9 @@ public class RegistrarVestuarios extends javax.swing.JFrame
         jLColor = new javax.swing.JLabel();
         jTFColor = new javax.swing.JTextField();
         jLClave = new javax.swing.JLabel();
-        jCTipo = new javax.swing.JComboBox<>();
+        jCTipo = new javax.swing.JComboBox<String>();
         jLSexo = new javax.swing.JLabel();
-        jCSexo = new javax.swing.JComboBox<>();
+        jCSexo = new javax.swing.JComboBox<String>();
         jBGuardar = new javax.swing.JButton();
         jBCancelar = new javax.swing.JButton();
         jMBarraHerramientas = new javax.swing.JMenuBar();
@@ -53,10 +53,8 @@ public class RegistrarVestuarios extends javax.swing.JFrame
 
         jBRegistrarVestuario.setText("Registrar Vestuario");
         jBRegistrarVestuario.setPreferredSize(new java.awt.Dimension(120, 50));
-        jBRegistrarVestuario.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        jBRegistrarVestuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBRegistrarVestuarioActionPerformed(evt);
             }
         });
@@ -68,22 +66,32 @@ public class RegistrarVestuarios extends javax.swing.JFrame
         jLDescripcion.setPreferredSize(new java.awt.Dimension(61, 30));
 
         jTFDescripcion.setPreferredSize(new java.awt.Dimension(59, 30));
+        jTFDescripcion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFDescripcionKeyTyped(evt);
+            }
+        });
 
         jLColor.setText("Color:");
         jLColor.setPreferredSize(new java.awt.Dimension(29, 30));
 
         jTFColor.setPreferredSize(new java.awt.Dimension(59, 30));
+        jTFColor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFColorKeyTyped(evt);
+            }
+        });
 
         jLClave.setText("Tipo:");
         jLClave.setPreferredSize(new java.awt.Dimension(61, 30));
 
-        jCTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Prenda", "Accesorio" }));
+        jCTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Prenda", "Accesorio" }));
         jCTipo.setPreferredSize(new java.awt.Dimension(56, 30));
 
         jLSexo.setText("Sexo:");
         jLSexo.setPreferredSize(new java.awt.Dimension(61, 30));
 
-        jCSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hombre", "Mujer" }));
+        jCSexo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Hombre", "Mujer" }));
         jCSexo.setPreferredSize(new java.awt.Dimension(56, 30));
 
         jBGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Guardar.png"))); // NOI18N
@@ -91,10 +99,8 @@ public class RegistrarVestuarios extends javax.swing.JFrame
         jBGuardar.setMaximumSize(new java.awt.Dimension(120, 50));
         jBGuardar.setMinimumSize(new java.awt.Dimension(120, 50));
         jBGuardar.setPreferredSize(new java.awt.Dimension(120, 50));
-        jBGuardar.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        jBGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBGuardarActionPerformed(evt);
             }
         });
@@ -113,10 +119,10 @@ public class RegistrarVestuarios extends javax.swing.JFrame
                 .addGap(80, 80, 80)
                 .addGroup(jPVestuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPVestuarioLayout.createSequentialGroup()
-                        .addGroup(jPVestuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPVestuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLClave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLSexo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLColor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPVestuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTFColor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -223,14 +229,44 @@ public class RegistrarVestuarios extends javax.swing.JFrame
         objVestuariosDatosEncapsulados.setsDescripcion(jTFDescripcion.getText());
         objVestuariosDatosEncapsulados.setScolor(jTFColor.getText());
         objVestuariosDatosEncapsulados.setcSexo(jCSexo.getSelectedItem().toString().charAt(0));
-        if (objVestuariosModelo.registrarVestuarios(objVestuariosDatosEncapsulados)) 
+        if(jTFDescripcion.getText().equals("") || jTFColor.getText().equals(""))
         {
-                objMensajes.exito(objFrame);
+            Mensajes.falla(objFrame, "Error, Hay campos vacios");
         }else
         {
+            if (objVestuariosModelo.registrarVestuarios(objVestuariosDatosEncapsulados)) 
+            {
+                objMensajes.exito(objFrame);
+            }else
+            {
                 objMensajes.falla(objFrame);
-        }   
+            }  
+        }
+       
+         
     }//GEN-LAST:event_jBGuardarActionPerformed
+
+    private void jTFDescripcionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFDescripcionKeyTyped
+        char c;
+        c=evt.getKeyChar();
+        if(!Character.isLetter(c)&& !Character.isDigit(c) && c!=KeyEvent.VK_SPACE && c!=KeyEvent.VK_BACK_SPACE)
+        {
+            evt.consume();
+            getToolkit().beep();  
+            
+        }
+    }//GEN-LAST:event_jTFDescripcionKeyTyped
+
+    private void jTFColorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFColorKeyTyped
+        char c;
+        c=evt.getKeyChar();
+        if(!Character.isLetter(c) && c!=KeyEvent.VK_SPACE && c!=KeyEvent.VK_BACK_SPACE)
+        {
+            evt.consume();
+            getToolkit().beep(); 
+            Mensajes.falla(this, "Error, No puede ingresar numeros.");
+        }
+    }//GEN-LAST:event_jTFColorKeyTyped
 
     public static void main(String args[])
     {

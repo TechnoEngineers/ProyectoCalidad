@@ -9,7 +9,9 @@
  */
 package Vista;
 
+import Vista.mensajes.Mensajes;
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 
 public class Vestuarios extends javax.swing.JFrame
 {
@@ -27,8 +29,7 @@ public class Vestuarios extends javax.swing.JFrame
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         jBConsultarVestuario = new javax.swing.JButton();
         jBRegistrarVestuario = new javax.swing.JButton();
@@ -54,14 +55,25 @@ public class Vestuarios extends javax.swing.JFrame
         jPVestuario.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Consultar datos del vestuario", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
 
         jTFBuscarVestuario.setPreferredSize(new java.awt.Dimension(59, 30));
+        jTFBuscarVestuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTFBuscarVestuarioActionPerformed(evt);
+            }
+        });
+        jTFBuscarVestuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTFBuscarVestuarioKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFBuscarVestuarioKeyTyped(evt);
+            }
+        });
 
         jTVestuario.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][]
-            {
+            new Object [][] {
 
             },
-            new String []
-            {
+            new String [] {
                 "Clave", "Descripción", "Tipo", "Sexo", "Color", "Opciones"
             }
         ));
@@ -141,6 +153,25 @@ public class Vestuarios extends javax.swing.JFrame
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTFBuscarVestuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFBuscarVestuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFBuscarVestuarioActionPerformed
+
+    private void jTFBuscarVestuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFBuscarVestuarioKeyPressed
+        
+    }//GEN-LAST:event_jTFBuscarVestuarioKeyPressed
+
+    private void jTFBuscarVestuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFBuscarVestuarioKeyTyped
+        char c;
+        c=evt.getKeyChar();
+        if(!Character.isLetter(c)&& !Character.isDigit(c) && c!=KeyEvent.VK_SPACE && c!=KeyEvent.VK_BACK_SPACE)
+        {
+            evt.consume();
+            getToolkit().beep();  
+            Mensajes.falla(this, "Error, No puede ingresar caracteres especiales.");
+        }
+    }//GEN-LAST:event_jTFBuscarVestuarioKeyTyped
 
     /**
      * @param args the command line arguments
