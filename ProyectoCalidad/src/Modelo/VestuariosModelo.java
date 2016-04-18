@@ -13,9 +13,13 @@ import java.sql.Connection;
 import java.sql.Statement;
 import Ayuda.DatosConexion;
 import Vista.mensajes.Mensajes;
+import java.awt.HeadlessException;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 public class VestuariosModelo
 {
@@ -51,4 +55,44 @@ public class VestuariosModelo
             return false;
         }
     }
+    
+    public DefaultTableModel mostrarVestuarios(String sBuscar)
+    {
+        String campos[] =
+        {
+            "Id", "Tipo", "Descripcion", "Color", "Seco", "Opciones"
+        };
+
+        JFrame jf = new JFrame();
+        String registros[] = new String[6];
+        DefaultTableModel objDtm = new DefaultTableModel(null, campos);
+
+        try
+        {
+
+            Connection cConnection = DatosConexion.conectaDB();
+            Statement st = cConnection.createStatement();
+            ResultSet rs = st.executeQuery("select idvestuario,tipo,descripcion,color,sexo from vestuarios where descripcion like '%" + sBuscar + "%' order by descripcion");
+            while (rs.next())
+            {
+
+                registros[0] = rs.getString("idvestuario");
+                registros[1] = rs.getString("tipo");
+                registros[2] = rs.getString("descripcion");
+                registros[3] = rs.getString("color");
+                registros[4] = rs.getString("sexo");
+                registros[5] = "Editar";
+
+                objDtm.addRow(registros);
+
+            }
+            return objDtm;
+        } catch (SQLException | HeadlessException e)
+        {
+            Mensajes.falla(jf);
+            return objDtm;
+        }
+
+    }
+    
 }

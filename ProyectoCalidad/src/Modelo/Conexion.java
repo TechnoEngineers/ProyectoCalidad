@@ -31,20 +31,24 @@ public class Conexion
         String error = "No se pudo cargar el driver Mysql";
         String url = "jdbc:mysql://"+host+"/"+NomBD;
         
+        //Mensajes Mensaje=new Mensajes();
         try {
             Class.forName(driver).newInstance();//Carga el driver de MySQL
         } catch (Exception e) {
             // Ocurrió un error al registrar el driver 
             System.out.println(error);
+            //Mensajes.falla(MensajeConexion,error);
         }
 
         try{
             // De esta forma se obtiene la conexi¢n 
             con = DriverManager.getConnection(url, usuario, passw);
             System.out.println("Conexi¢n establecida con " + host + " a la Base de Datos " + NomBD);
+            //  Mensajes.exito(MensajeConexion);
         }catch(SQLException sqle){
             // Ocurrió un error con la conexi¢n 
             System.out.println("Error con la conexi¢n a la base de datos:");
+            //  Mensajes.falla(MensajeConexion);
         } 
         
       return con; //Se regresa la conexion

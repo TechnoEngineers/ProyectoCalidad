@@ -9,16 +9,45 @@
  */
 package Vista;
 
+import Modelo.VestuariosModelo;
 import Vista.mensajes.Mensajes;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+import javax.swing.JFrame;
+import javax.swing.table.DefaultTableModel;
 
 public class Vestuarios extends javax.swing.JFrame
 {
+    
+    DefaultTableModel objjTVestuario;
 
     public Vestuarios()
     {
         initComponents();
+        this.mostrar("");
+    }
+    
+    private void mostrar(String sBuscar)
+    {
+        JFrame jf = new JFrame();
+        try
+        {
+            VestuariosModelo objVestuariosModelo = new VestuariosModelo();
+            objjTVestuario = objVestuariosModelo.mostrarVestuarios(sBuscar);
+            jTVestuario.setModel(objjTVestuario);
+            this.ocultarColumnas();
+
+        } catch (Exception e)
+        {
+            Mensajes.falla(jf);
+        }
+    }
+    
+    private void ocultarColumnas()
+    {
+        jTVestuario.getColumnModel().getColumn(0).setMaxWidth(0);
+        jTVestuario.getColumnModel().getColumn(0).setMinWidth(0);
+        jTVestuario.getColumnModel().getColumn(0).setPreferredWidth(0);
     }
 
 
@@ -29,7 +58,8 @@ public class Vestuarios extends javax.swing.JFrame
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         jBConsultarVestuario = new javax.swing.JButton();
         jBRegistrarVestuario = new javax.swing.JButton();
@@ -55,26 +85,33 @@ public class Vestuarios extends javax.swing.JFrame
         jPVestuario.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Consultar datos del vestuario", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
 
         jTFBuscarVestuario.setPreferredSize(new java.awt.Dimension(59, 30));
-        jTFBuscarVestuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jTFBuscarVestuario.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 jTFBuscarVestuarioActionPerformed(evt);
             }
         });
-        jTFBuscarVestuario.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        jTFBuscarVestuario.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 jTFBuscarVestuarioKeyPressed(evt);
             }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
+            public void keyTyped(java.awt.event.KeyEvent evt)
+            {
                 jTFBuscarVestuarioKeyTyped(evt);
             }
         });
 
         jTVestuario.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+            new Object [][]
+            {
 
             },
-            new String [] {
-                "Clave", "Descripción", "Tipo", "Sexo", "Color", "Opciones"
+            new String []
+            {
+
             }
         ));
         jSVestuario.setViewportView(jTVestuario);
@@ -159,12 +196,12 @@ public class Vestuarios extends javax.swing.JFrame
     }//GEN-LAST:event_jTFBuscarVestuarioActionPerformed
 
     private void jTFBuscarVestuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFBuscarVestuarioKeyPressed
-        
+        this.mostrar(jTFBuscarVestuario.getText());
     }//GEN-LAST:event_jTFBuscarVestuarioKeyPressed
 
     private void jTFBuscarVestuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFBuscarVestuarioKeyTyped
         char c;
-        c=evt.getKeyChar();
+        c=evt.getKeyChar();        
         if(!Character.isLetter(c)&& !Character.isDigit(c) && c!=KeyEvent.VK_SPACE && c!=KeyEvent.VK_BACK_SPACE)
         {
             evt.consume();
