@@ -36,9 +36,7 @@ public class VerificarPreguntas extends javax.swing.JFrame
 
         jPanel1 = new javax.swing.JPanel();
         jLFLugarNacimiento = new javax.swing.JLabel();
-        jTFCiudadNacimiento = new javax.swing.JTextField();
-        jLFCorreo = new javax.swing.JLabel();
-        jTFCorreo = new javax.swing.JTextField();
+        jTFRespuestaSecreta = new javax.swing.JTextField();
         jBPreguntasSeguras = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -52,30 +50,20 @@ public class VerificarPreguntas extends javax.swing.JFrame
         jPanel1.setBackground(new java.awt.Color(233, 188, 0));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Recuperar contraseña", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
 
-        jLFLugarNacimiento.setText("Ciudad de nacimiento:");
+        jLFLugarNacimiento.setText("Respuesta secreta:");
 
-        jTFCiudadNacimiento.addKeyListener(new java.awt.event.KeyAdapter()
-        {
-            public void keyPressed(java.awt.event.KeyEvent evt)
-            {
-                jTFCiudadNacimientoKeyPressed(evt);
-            }
-        });
-
-        jLFCorreo.setText("Correo de registro:");
-
-        jTFCorreo.addActionListener(new java.awt.event.ActionListener()
+        jTFRespuestaSecreta.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                jTFCorreoActionPerformed(evt);
+                jTFRespuestaSecretaActionPerformed(evt);
             }
         });
-        jTFCorreo.addKeyListener(new java.awt.event.KeyAdapter()
+        jTFRespuestaSecreta.addKeyListener(new java.awt.event.KeyAdapter()
         {
             public void keyPressed(java.awt.event.KeyEvent evt)
             {
-                jTFCorreoKeyPressed(evt);
+                jTFRespuestaSecretaKeyPressed(evt);
             }
         });
 
@@ -134,7 +122,7 @@ public class VerificarPreguntas extends javax.swing.JFrame
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 81, Short.MAX_VALUE)
                         .addComponent(jLabel2)
                         .addGap(135, 135, 135))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -150,21 +138,21 @@ public class VerificarPreguntas extends javax.swing.JFrame
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(77, 77, 77)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jLFCorreo)
-                                            .addComponent(jLFLugarNacimiento)
-                                            .addComponent(jTFCorreo)
-                                            .addComponent(jTFCiudadNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addGap(18, 18, 18)
-                                            .addComponent(jBPreguntasSeguras, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLFLugarNacimiento)
+                                        .addGap(54, 54, 54))
                                     .addComponent(jLabel3)))
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(206, 206, 206)
+                        .addGap(113, 113, 113)
+                        .addComponent(jTFRespuestaSecreta, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(182, 182, 182)
+                        .addComponent(jBPreguntasSeguras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(216, 216, 216)
                         .addComponent(cancelar)))
-                .addGap(0, 83, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -179,16 +167,12 @@ public class VerificarPreguntas extends javax.swing.JFrame
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLFLugarNacimiento)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTFCiudadNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLFCorreo)
+                .addComponent(jTFRespuestaSecreta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTFCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jBPreguntasSeguras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jBPreguntasSeguras, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cancelar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addContainerGap())
         );
@@ -215,20 +199,14 @@ public class VerificarPreguntas extends javax.swing.JFrame
 
         while (ValidaDatosIngreso.bUsuarioValido != true)
         {
-            recuperarContrasenia.validaCadenaAlfanumerica(jTFCiudadNacimiento.getText(), "ciudad", "ciudad"); //Usuario de 5 digitos o más, pero no más de 100. Y letras con numeros.
+            recuperarContrasenia.validaCadenaAlfanumerica(jTFRespuestaSecreta.getText(), "respuesta secreta", "respuesta secreta"); //Usuario de 5 digitos o más, pero no más de 100. Y letras con numeros.
             break;
         }
-        objUsuariosDatosEncapsulados.setsCiudad(jTFCiudadNacimiento.getText());
-        while (ValidaDatosIngreso.bCorreoValido != true)
+        objUsuariosDatosEncapsulados.setsRespuestaSecreta(jTFRespuestaSecreta.getText());
+        
+        if (ValidaDatosIngreso.bUsuarioValido != false)
         {
-            recuperarContrasenia.validaCorreo(jTFCorreo.getText());
-            break;
-        }
-        objUsuariosDatosEncapsulados.setsEmail(jTFCorreo.getText());
-
-        int iResultado = UsuariosModelo.verificarPreguntas(objUsuariosDatosEncapsulados);
-        if (ValidaDatosIngreso.iCadenaInvalida == 0)
-        {
+            int iResultado = UsuariosModelo.verificarPreguntas(objUsuariosDatosEncapsulados);
             if (iResultado == 0)
             {
                 //Mensajes.exito(objFrame);
@@ -241,31 +219,17 @@ public class VerificarPreguntas extends javax.swing.JFrame
                 Mensajes.falla(objFrame);
             }
         }
-        ValidaDatosIngreso.bCorreoValido = false;
         ValidaDatosIngreso.bUsuarioValido = false;
-        Manipular.limpiaCajas(jTFCiudadNacimiento, jTFCorreo);
+        Manipular.limpiaCajas(jTFRespuestaSecreta);
     }//GEN-LAST:event_jBPreguntasSegurasActionPerformed
 
-    private void jTFCorreoKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFCorreoKeyPressed
-    {//GEN-HEADEREND:event_jTFCorreoKeyPressed
+    private void jTFRespuestaSecretaKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFRespuestaSecretaKeyPressed
+    {//GEN-HEADEREND:event_jTFRespuestaSecretaKeyPressed
         if (evt.getKeyChar() == '\n')
         {
-            Manipular.cambioObj(jBPreguntasSeguras);
+            Manipular.cambioObj(jTFRespuestaSecreta);
         }
-    }//GEN-LAST:event_jTFCorreoKeyPressed
-
-    private void jTFCiudadNacimientoKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFCiudadNacimientoKeyPressed
-    {//GEN-HEADEREND:event_jTFCiudadNacimientoKeyPressed
-        if (evt.getKeyChar() == '\n')
-        {
-            Manipular.cambioObj(jTFCorreo);
-        }
-    }//GEN-LAST:event_jTFCiudadNacimientoKeyPressed
-
-    private void jTFCorreoActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jTFCorreoActionPerformed
-    {//GEN-HEADEREND:event_jTFCorreoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTFCorreoActionPerformed
+    }//GEN-LAST:event_jTFRespuestaSecretaKeyPressed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton1ActionPerformed
     {//GEN-HEADEREND:event_jButton1ActionPerformed
@@ -285,6 +249,11 @@ public class VerificarPreguntas extends javax.swing.JFrame
         mandaVUsuario.setVisible(true);
         dispose();
     }//GEN-LAST:event_RegresarActionPerformed
+
+    private void jTFRespuestaSecretaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jTFRespuestaSecretaActionPerformed
+    {//GEN-HEADEREND:event_jTFRespuestaSecretaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFRespuestaSecretaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -339,13 +308,11 @@ public class VerificarPreguntas extends javax.swing.JFrame
     private javax.swing.JButton cancelar;
     private javax.swing.JButton jBPreguntasSeguras;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLFCorreo;
     private javax.swing.JLabel jLFLugarNacimiento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTFCiudadNacimiento;
-    private javax.swing.JTextField jTFCorreo;
+    private javax.swing.JTextField jTFRespuestaSecreta;
     // End of variables declaration//GEN-END:variables
 }

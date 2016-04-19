@@ -54,7 +54,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="81" max="32767" attributes="0"/>
                           <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
                       </Group>
@@ -74,17 +74,9 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
-                                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="jLFCorreo" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLFLugarNacimiento" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jTFCorreo" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="jTFCiudadNacimiento" alignment="0" min="-2" pref="178" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                              <Component id="jBPreguntasSeguras" min="-2" pref="140" max="-2" attributes="0"/>
-                                          </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="jLFLugarNacimiento" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="jLabel3" alignment="1" min="-2" max="-2" attributes="0"/>
                                   </Group>
@@ -93,11 +85,19 @@
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="206" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
+                          <Component id="jTFRespuestaSecreta" min="-2" pref="264" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="182" max="-2" attributes="0"/>
+                          <Component id="jBPreguntasSeguras" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="216" max="-2" attributes="0"/>
                           <Component id="cancelar" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="0" pref="83" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -115,16 +115,12 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jLFLugarNacimiento" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jTFCiudadNacimiento" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jLFCorreo" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTFRespuestaSecreta" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jTFCorreo" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jBPreguntasSeguras" min="-2" max="-2" attributes="0"/>
+                  <Component id="jBPreguntasSeguras" min="-2" pref="33" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="cancelar" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="22" max="32767" attributes="0"/>
+                  <EmptySpace pref="107" max="32767" attributes="0"/>
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -134,23 +130,13 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLFLugarNacimiento">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Ciudad de nacimiento:"/>
+            <Property name="text" type="java.lang.String" value="Respuesta secreta:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTFCiudadNacimiento">
+        <Component class="javax.swing.JTextField" name="jTFRespuestaSecreta">
           <Events>
-            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTFCiudadNacimientoKeyPressed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLFCorreo">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Correo de registro:"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="jTFCorreo">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTFCorreoActionPerformed"/>
-            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTFCorreoKeyPressed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTFRespuestaSecretaActionPerformed"/>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTFRespuestaSecretaKeyPressed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jBPreguntasSeguras">

@@ -203,7 +203,7 @@ public class Login extends javax.swing.JFrame
             usuario.validaCadenaAlfanumerica(jTFNombre.getText(), "usuario", "usuario"); //Usuario de 5 digitos o más, pero no más de 100. Y letras con numeros.
             break;
         }
-        objUsuariosDatosEncapsulados.setNombreUsuario(ValidaDatosIngreso.sCadenaSinEspacios); //Se manda el usuario sin espacios al inicio y final.
+        objUsuariosDatosEncapsulados.setUsuario(ValidaDatosIngreso.sCadenaSinEspacios); //Se manda el usuario sin espacios al inicio y final.
         while (ValidaDatosIngreso.bContraseniaValida != true) 
         {
             usuario.validaContrasenia(jPFContrasena.getText()); //Valida que sea mayor o igual a 4 digitos y menor que 101.
@@ -230,7 +230,7 @@ public class Login extends javax.swing.JFrame
             ValidaDatosIngreso.bCajaContraseniaVacia = true; //Se limpian variables.
             ValidaDatosIngreso.bUsuarioValido = false;
             ValidaDatosIngreso.bContraseniaValida = false;
-            objUsuariosDatosEncapsulados.setNombreUsuario(ValidaDatosIngreso.sCadenaSinEspacios); //Se manda el usuario sin espacios al inicio y final.
+            objUsuariosDatosEncapsulados.setUsuario(ValidaDatosIngreso.sCadenaSinEspacios); //Se manda el usuario sin espacios al inicio y final.
             objUsuariosDatosEncapsulados.setContrasena(null);
             if(bUsuarioContraseña==true)
             {
