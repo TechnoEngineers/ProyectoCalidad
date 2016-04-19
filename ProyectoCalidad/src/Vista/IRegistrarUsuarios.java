@@ -13,12 +13,12 @@ package Vista;
  *
  * @author DELL
  */
-public class IRegistrarBailarines extends javax.swing.JPanel {
+public class IRegistrarUsuarios extends javax.swing.JPanel {
 
     /**
      * Creates new form IAltaBailarines
      */
-    public IRegistrarBailarines() {
+    public IRegistrarUsuarios() {
         initComponents();
     }
 
@@ -29,7 +29,8 @@ public class IRegistrarBailarines extends javax.swing.JPanel {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         jBregistrarBailarines = new javax.swing.JButton();
         jBconsultarBailarines = new javax.swing.JButton();
@@ -49,7 +50,7 @@ public class IRegistrarBailarines extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         jTFciudad = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jCBestado = new javax.swing.JComboBox<>();
+        jCBestado = new javax.swing.JComboBox<String>();
         jLabel10 = new javax.swing.JLabel();
         jTFcodigoPostal = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
@@ -67,9 +68,9 @@ public class IRegistrarBailarines extends javax.swing.JPanel {
         jLabel17 = new javax.swing.JLabel();
         jTFnacimiento = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
-        jCBsexo = new javax.swing.JComboBox<>();
+        jCBsexo = new javax.swing.JComboBox<String>();
         jLabel19 = new javax.swing.JLabel();
-        jCBestadoCivil = new javax.swing.JComboBox<>();
+        jCBestadoCivil = new javax.swing.JComboBox<String>();
         jLabel20 = new javax.swing.JLabel();
         jTFpasaporte = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
@@ -118,7 +119,7 @@ public class IRegistrarBailarines extends javax.swing.JPanel {
         jLabel42 = new javax.swing.JLabel();
         jTFpregunta = new javax.swing.JTextField();
         jLabel43 = new javax.swing.JLabel();
-        jCBbailadoAntes = new javax.swing.JComboBox<>();
+        jCBbailadoAntes = new javax.swing.JComboBox<String>();
         jLabel44 = new javax.swing.JLabel();
         jTFtipoBaile = new javax.swing.JTextField();
         jLabel45 = new javax.swing.JLabel();
@@ -136,8 +137,10 @@ public class IRegistrarBailarines extends javax.swing.JPanel {
         jBregistrarBailarines.setMaximumSize(new java.awt.Dimension(123, 23));
         jBregistrarBailarines.setMinimumSize(new java.awt.Dimension(123, 23));
         jBregistrarBailarines.setPreferredSize(new java.awt.Dimension(120, 50));
-        jBregistrarBailarines.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jBregistrarBailarines.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 jBregistrarBailarinesActionPerformed(evt);
             }
         });
@@ -146,8 +149,10 @@ public class IRegistrarBailarines extends javax.swing.JPanel {
         jBconsultarBailarines.setMaximumSize(new java.awt.Dimension(123, 23));
         jBconsultarBailarines.setMinimumSize(new java.awt.Dimension(123, 23));
         jBconsultarBailarines.setPreferredSize(new java.awt.Dimension(120, 50));
-        jBconsultarBailarines.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jBconsultarBailarines.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 jBconsultarBailarinesActionPerformed(evt);
             }
         });
@@ -160,14 +165,18 @@ public class IRegistrarBailarines extends javax.swing.JPanel {
 
         jLabel4.setText("Apellido Materno");
 
-        jTFnombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jTFnombre.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 jTFnombreActionPerformed(evt);
             }
         });
 
-        jTFapellidoPaterno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jTFapellidoPaterno.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 jTFapellidoPaternoActionPerformed(evt);
             }
         });
@@ -182,7 +191,7 @@ public class IRegistrarBailarines extends javax.swing.JPanel {
 
         jLabel9.setText("Estado: ");
 
-        jCBestado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jCBestado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel10.setText("Código Postal: ");
 
@@ -190,16 +199,20 @@ public class IRegistrarBailarines extends javax.swing.JPanel {
 
         jLabel12.setText("Telefono Casa: ");
 
-        jTFtelefonoCasa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jTFtelefonoCasa.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 jTFtelefonoCasaActionPerformed(evt);
             }
         });
 
         jLabel13.setText("Telefono Oficina: ");
 
-        jTFtelefonoOficina.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jTFtelefonoOficina.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 jTFtelefonoOficinaActionPerformed(evt);
             }
         });
@@ -345,16 +358,18 @@ public class IRegistrarBailarines extends javax.swing.JPanel {
 
         jLabel18.setText("Sexo: ");
 
-        jCBsexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jCBsexo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel19.setText("Estado Civil: ");
 
-        jCBestadoCivil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jCBestadoCivil.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel20.setText("Pasaporte (S/N): ");
 
-        jTFpasaporte.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jTFpasaporte.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 jTFpasaporteActionPerformed(evt);
             }
         });
@@ -496,8 +511,10 @@ public class IRegistrarBailarines extends javax.swing.JPanel {
 
         jLabel38.setText("Dolor Muscular: ");
 
-        jTFdolorMuscular.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jTFdolorMuscular.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 jTFdolorMuscularActionPerformed(evt);
             }
         });
@@ -652,15 +669,17 @@ public class IRegistrarBailarines extends javax.swing.JPanel {
 
         jLabel42.setText("¿Cómo se entero de la posibilidad de entrar al ballet? ");
 
-        jTFpregunta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jTFpregunta.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 jTFpreguntaActionPerformed(evt);
             }
         });
 
         jLabel43.setText("¿Ha bailado antes?");
 
-        jCBbailadoAntes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jCBbailadoAntes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel44.setText("¿Qué tipo de Baile?");
 
