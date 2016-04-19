@@ -1,0 +1,81 @@
+CREATE DATABASE TRAJIN;
+
+USE TRAJIN;
+
+CREATE TABLE usuarios(idusuario int PRIMARY KEY auto_increment,
+						 tipodeusuario char(1),
+						 username varchar(30),
+						 contrasenia varchar(50),
+						 status int
+						 fechaingreso date,
+						 expediente int,
+						 nombre varchar(30),
+						 apellidopaterno varchar(50),
+						 apellidomaterno varchar(50),
+						 edad int,
+						 sexo char(1),
+						 calle varchar(100),
+						 numero int,
+						 colonia varchar(100),
+						 ciudad varchar(50),
+						 estado varchar(50),
+						 cp int,
+						 telcelular int,
+						 telcasa int,
+						 teloficina int,
+						 correo varchar(100),
+						 fechanac date,
+						 lugarnacimiento varchar(100),
+						 estadocivil char(1),
+						 pasaporte varchar(50),
+						 vigenciapasaporte date,
+						 nocartillamilitar int,
+						 estatura double,
+						 responsable varchar(50),
+						 tiposanguineo varchar(5),
+						 alergias varchar(250),
+						 enfermedades varchar(250),
+						 nombremedicocabecera varchar(100),
+						 telmedicocabecera int,
+						 medicaciondiarrea varchar(30),
+						 medicaciondolorcabeza varchar(30),
+						 medicaciondolorestomago varchar(30),
+						 medicaciondolormuscular varchar(30),
+						 medicaciongripa varchar(30),
+						 medicacionotro varchar(30),
+						 formadeenterarse varchar(50),
+						 baila varchar(50),
+						 baile varchar(50),
+						 lugardondebailaba varchar(50),
+						 tiempoquebailo varchar(30),
+						 respuestasecreta varchar(30),
+						 comentario varchar(250));
+
+CREATE TABLE horariosusuarios(idhorariousuario int PRIMARY KEY auto_increment,
+						 idusuario int,
+						 dia varchar(10),
+						 horainicio varchar(5) ,
+						 horafin varchar(5),
+						 FOREIGN KEY(idusuario) REFERENCES usuarios(idusuario));
+
+CREATE TABLE vestuarios(idvestuario int PRIMARY KEY auto_increment,
+						 tipo char(1),
+						 descripcion varchar(250),
+						 color varchar(50),
+						 sexo char(1));
+
+CREATE TABLE inventarios(idinventario int PRIMARY KEY auto_increment,
+						 idvestuario int,
+						 cantidad int,
+						 piezasdaniadas int,
+						 piezasasignadas int,
+						 clavevestuario int,
+						 FOREIGN KEY(idvestuario) REFERENCES vestuarios(idvestuario));
+
+CREATE TABLE vestuariousuario(idvestuariousuario int PRIMARY KEY auto_increment,
+						 idusuario int,
+						 idinventario int,
+						 FOREIGN KEY(idusuario) REFERENCES usuarios(idusuario),
+						 FOREIGN KEY(idinventario) REFERENCES inventarios(idinventario));
+
+
