@@ -58,8 +58,6 @@ public class ConsultarVestuarios extends javax.swing.JPanel
         jSVestuario = new javax.swing.JScrollPane();
         jTVestuario = new javax.swing.JTable();
 
-        jLBuscarVestuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Buscar.png"))); // NOI18N
-
         jTFBuscarVestuario.setPreferredSize(new java.awt.Dimension(59, 30));
         jTFBuscarVestuario.addActionListener(new java.awt.event.ActionListener()
         {

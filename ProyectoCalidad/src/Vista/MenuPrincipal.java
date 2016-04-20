@@ -16,7 +16,6 @@ import javax.swing.JMenuBar;
  */
 public class MenuPrincipal extends javax.swing.JFrame
 {
-    
 
     /**
      * Creates new form PantallaPrincipal
@@ -38,6 +37,7 @@ public class MenuPrincipal extends javax.swing.JFrame
     {
 
         jPanelInformacion = new javax.swing.JPanel();
+        jPanelConsultarVestuarios = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -46,7 +46,7 @@ public class MenuPrincipal extends javax.swing.JFrame
         jMenu2 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        jMIConsultarVestuarios = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         jSeparator3 = new javax.swing.JPopupMenu.Separator();
@@ -67,17 +67,20 @@ public class MenuPrincipal extends javax.swing.JFrame
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanelInformacion.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelInformacion.setLayout(new java.awt.CardLayout());
 
-        javax.swing.GroupLayout jPanelInformacionLayout = new javax.swing.GroupLayout(jPanelInformacion);
-        jPanelInformacion.setLayout(jPanelInformacionLayout);
-        jPanelInformacionLayout.setHorizontalGroup(
-            jPanelInformacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jPanelConsultarVestuariosLayout = new javax.swing.GroupLayout(jPanelConsultarVestuarios);
+        jPanelConsultarVestuarios.setLayout(jPanelConsultarVestuariosLayout);
+        jPanelConsultarVestuariosLayout.setHorizontalGroup(
+            jPanelConsultarVestuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 702, Short.MAX_VALUE)
         );
-        jPanelInformacionLayout.setVerticalGroup(
-            jPanelInformacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jPanelConsultarVestuariosLayout.setVerticalGroup(
+            jPanelConsultarVestuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 541, Short.MAX_VALUE)
         );
+
+        jPanelInformacion.add(jPanelConsultarVestuarios, "card2");
 
         jMenuBar1.setBackground(new java.awt.Color(57, 110, 176));
         jMenuBar1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -113,8 +116,15 @@ public class MenuPrincipal extends javax.swing.JFrame
         jMenu2.add(jMenuItem3);
         jMenu2.add(jSeparator2);
 
-        jMenuItem4.setText("Consultas");
-        jMenu2.add(jMenuItem4);
+        jMIConsultarVestuarios.setText("Consultas");
+        jMIConsultarVestuarios.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                jMIConsultarVestuariosActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMIConsultarVestuarios);
 
         jMenuBar1.add(jMenu2);
 
@@ -209,6 +219,17 @@ public class MenuPrincipal extends javax.swing.JFrame
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem12ActionPerformed
 
+    private void jMIConsultarVestuariosActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jMIConsultarVestuariosActionPerformed
+    {//GEN-HEADEREND:event_jMIConsultarVestuariosActionPerformed
+        ConsultarVestuarios objConsultarVestuarios = new ConsultarVestuarios();
+        objConsultarVestuarios.setSize(800, 600);
+        objConsultarVestuarios.setLocation(1, 1);
+        jPanelInformacion.removeAll();
+        jPanelInformacion.add(objConsultarVestuarios, BorderLayout.CENTER);
+        jPanelInformacion.revalidate();
+        jPanelInformacion.repaint();
+    }//GEN-LAST:event_jMIConsultarVestuariosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -229,20 +250,16 @@ public class MenuPrincipal extends javax.swing.JFrame
                     break;
                 }
             }
-        }
-        catch (ClassNotFoundException ex)
+        } catch (ClassNotFoundException ex)
         {
             java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        catch (InstantiationException ex)
+        } catch (InstantiationException ex)
         {
             java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        catch (IllegalAccessException ex)
+        } catch (IllegalAccessException ex)
         {
             java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        catch (javax.swing.UnsupportedLookAndFeelException ex)
+        } catch (javax.swing.UnsupportedLookAndFeelException ex)
         {
             java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
@@ -267,6 +284,7 @@ public class MenuPrincipal extends javax.swing.JFrame
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem jMIConsultarVestuarios;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -280,12 +298,12 @@ public class MenuPrincipal extends javax.swing.JFrame
     private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JPanel jPanelConsultarVestuarios;
     private javax.swing.JPanel jPanelInformacion;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
