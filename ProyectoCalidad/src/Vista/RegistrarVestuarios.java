@@ -23,24 +23,31 @@ public class RegistrarVestuarios extends javax.swing.JFrame
     public RegistrarVestuarios()
     {
         initComponents();
-         Color colorBoton=new Color(244, 208, 60);
-        Color colorRegistrar=new Color(81,176,32);
-        Color colorCancelar=new Color(226,57,50);
-        Color colorBarra=new Color (255,188,1);
+        Color colorBoton = new Color(244, 208, 60);
+        Color colorRegistrar = new Color(81, 176, 32);
+        Color colorCancelar = new Color(226, 57, 50);
+        Color colorBarra = new Color(255, 188, 1);
         jBRegistrarVestuario.setBackground(colorBoton);
         jBGuardar.setBackground(colorRegistrar);
         jBCancelar.setBackground(colorCancelar);
         //UIManager.put("jMBarraHerramientas.selectionBackground",new Color(245,29,29));
-       jMBarraHerramientas.setOpaque(true);
+        jMBarraHerramientas.setOpaque(true);
         //
         jMBarraHerramientas.getAccessibleContext().getAccessibleComponent().setBackground(colorBarra);
-       jMBarraHerramientas.getAccessibleContext().getAccessibleComponent().setForeground(colorBarra);
-       jMBarraHerramientas.setBackground(colorBarra);
+        jMBarraHerramientas.getAccessibleContext().getAccessibleComponent().setForeground(colorBarra);
+        jMBarraHerramientas.setBackground(colorBarra);
+    }
+
+    public void limpiarCampos()
+    {
+        jTFDescripcion.setText("");
+        jTFColor.setText("");
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         jBConsultarVestuario = new javax.swing.JButton();
         jBRegistrarVestuario = new javax.swing.JButton();
@@ -64,11 +71,20 @@ public class RegistrarVestuarios extends javax.swing.JFrame
 
         jBConsultarVestuario.setText("Consultar Vestuario");
         jBConsultarVestuario.setPreferredSize(new java.awt.Dimension(120, 50));
+        jBConsultarVestuario.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                jBConsultarVestuarioActionPerformed(evt);
+            }
+        });
 
         jBRegistrarVestuario.setText("Registrar Vestuario");
         jBRegistrarVestuario.setPreferredSize(new java.awt.Dimension(120, 50));
-        jBRegistrarVestuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jBRegistrarVestuario.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 jBRegistrarVestuarioActionPerformed(evt);
             }
         });
@@ -80,8 +96,10 @@ public class RegistrarVestuarios extends javax.swing.JFrame
         jLDescripcion.setPreferredSize(new java.awt.Dimension(61, 30));
 
         jTFDescripcion.setPreferredSize(new java.awt.Dimension(59, 30));
-        jTFDescripcion.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
+        jTFDescripcion.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyTyped(java.awt.event.KeyEvent evt)
+            {
                 jTFDescripcionKeyTyped(evt);
             }
         });
@@ -90,8 +108,10 @@ public class RegistrarVestuarios extends javax.swing.JFrame
         jLColor.setPreferredSize(new java.awt.Dimension(29, 30));
 
         jTFColor.setPreferredSize(new java.awt.Dimension(59, 30));
-        jTFColor.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
+        jTFColor.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyTyped(java.awt.event.KeyEvent evt)
+            {
                 jTFColorKeyTyped(evt);
             }
         });
@@ -113,8 +133,10 @@ public class RegistrarVestuarios extends javax.swing.JFrame
         jBGuardar.setMaximumSize(new java.awt.Dimension(120, 50));
         jBGuardar.setMinimumSize(new java.awt.Dimension(120, 50));
         jBGuardar.setPreferredSize(new java.awt.Dimension(120, 50));
-        jBGuardar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jBGuardar.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 jBGuardarActionPerformed(evt);
             }
         });
@@ -124,6 +146,13 @@ public class RegistrarVestuarios extends javax.swing.JFrame
         jBCancelar.setMaximumSize(new java.awt.Dimension(120, 50));
         jBCancelar.setMinimumSize(new java.awt.Dimension(120, 50));
         jBCancelar.setPreferredSize(new java.awt.Dimension(120, 50));
+        jBCancelar.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                jBCancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPVestuarioLayout = new javax.swing.GroupLayout(jPVestuario);
         jPVestuario.setLayout(jPVestuarioLayout);
@@ -236,70 +265,84 @@ public class RegistrarVestuarios extends javax.swing.JFrame
     {//GEN-HEADEREND:event_jBGuardarActionPerformed
         VestuariosModelo objVestuariosModelo = new VestuariosModelo();
         Mensajes objMensajes = new Mensajes();
-        JFrame objFrame=new JFrame();
-        
-        
-        VestuariosDatosEncapsulados objVestuariosDatosEncapsulados=new VestuariosDatosEncapsulados();
+        JFrame objFrame = new JFrame();
+
+        VestuariosDatosEncapsulados objVestuariosDatosEncapsulados = new VestuariosDatosEncapsulados();
         objVestuariosDatosEncapsulados.setcTipo(jCTipo.getSelectedItem().toString().charAt(0));
         objVestuariosDatosEncapsulados.setsDescripcion(jTFDescripcion.getText());
         objVestuariosDatosEncapsulados.setScolor(jTFColor.getText());
         objVestuariosDatosEncapsulados.setcSexo(jCSexo.getSelectedItem().toString().charAt(0));
-        if(jTFDescripcion.getText().equals("") || jTFColor.getText().equals(""))
+        if (jTFDescripcion.getText().equals("") || jTFColor.getText().equals(""))
         {
             Mensajes.falla(objFrame, "Error, Hay campos vacios");
-        }else
+        } else
         {
-            if (objVestuariosModelo.registrarVestuarios(objVestuariosDatosEncapsulados)) 
+            if (objVestuariosModelo.registrarVestuarios(objVestuariosDatosEncapsulados))
             {
                 objMensajes.exito(objFrame);
-            }else
+                this.limpiarCampos();
+            } else
             {
                 objMensajes.falla(objFrame);
-            }  
+            }
         }
-       
-         
+
+
     }//GEN-LAST:event_jBGuardarActionPerformed
 
     private void jTFDescripcionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFDescripcionKeyTyped
         char c;
-        c=evt.getKeyChar();
-        if(jTFDescripcion.getText().length()<=249)
+        c = evt.getKeyChar();
+        if (jTFDescripcion.getText().length() <= 249)
         {
-            if(!Character.isLetter(c)&& !Character.isDigit(c) && c!=KeyEvent.VK_SPACE && c!=KeyEvent.VK_BACK_SPACE)
+            if (!Character.isLetter(c) && !Character.isDigit(c) && c != KeyEvent.VK_SPACE && c != KeyEvent.VK_BACK_SPACE)
             {
-               evt.consume();
-               getToolkit().beep();
+                evt.consume();
+                getToolkit().beep();
             }
-        }else
+        } else
         {
             evt.consume();
             getToolkit().beep();
         }
-             
-            
-       
-        
+
+
     }//GEN-LAST:event_jTFDescripcionKeyTyped
 
     private void jTFColorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFColorKeyTyped
         char c;
-        c=evt.getKeyChar();
-        if(jTFColor.getText().length()<=4)
+        c = evt.getKeyChar();
+        if (jTFColor.getText().length() <= 4)
         {
-            if(!Character.isLetter(c) && c!=KeyEvent.VK_SPACE && c!=KeyEvent.VK_BACK_SPACE)
+            if (!Character.isLetter(c) && c != KeyEvent.VK_SPACE && c != KeyEvent.VK_BACK_SPACE)
             {
                 evt.consume();
-                getToolkit().beep(); 
+                getToolkit().beep();
                 Mensajes.falla(this, "Error, No puede ingresar numeros y/o caracteres");
             }
-        }else
+        } else
         {
             evt.consume();
-            getToolkit().beep();   
+            getToolkit().beep();
         }
-        
+
     }//GEN-LAST:event_jTFColorKeyTyped
+
+    private void jBCancelarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jBCancelarActionPerformed
+    {//GEN-HEADEREND:event_jBCancelarActionPerformed
+        PantallaPrincipal objPantallaPrincipal = new PantallaPrincipal();
+        objPantallaPrincipal.setVisible(true);
+        this.dispose();
+        this.pack();
+    }//GEN-LAST:event_jBCancelarActionPerformed
+
+    private void jBConsultarVestuarioActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jBConsultarVestuarioActionPerformed
+    {//GEN-HEADEREND:event_jBConsultarVestuarioActionPerformed
+        Vestuarios objVestuarios = new Vestuarios();
+        objVestuarios.setVisible(true);
+        this.dispose();
+        this.pack();
+    }//GEN-LAST:event_jBConsultarVestuarioActionPerformed
 
     public static void main(String args[])
     {
