@@ -5,6 +5,9 @@
  */
 package Vista;
 
+import Controlador.Manipular;
+import Controlador.ValidaDatosIngreso;
+
 public class RegistroUsuarios extends javax.swing.JPanel
 {
     static RegistroUsuarios CVE = new RegistroUsuarios();
@@ -24,8 +27,7 @@ public class RegistroUsuarios extends javax.swing.JPanel
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         jLabel41 = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
@@ -45,7 +47,7 @@ public class RegistroUsuarios extends javax.swing.JPanel
         jLabel8 = new javax.swing.JLabel();
         jTFciudad = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jCBestado = new javax.swing.JComboBox<String>();
+        jCBestado = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
         jTFcodigoPostal = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
@@ -63,9 +65,9 @@ public class RegistroUsuarios extends javax.swing.JPanel
         jLabel17 = new javax.swing.JLabel();
         jTFnacimiento = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
-        jCBsexo = new javax.swing.JComboBox<String>();
+        jCBsexo = new javax.swing.JComboBox<>();
         jLabel19 = new javax.swing.JLabel();
-        jCBestadoCivil = new javax.swing.JComboBox<String>();
+        jCBestadoCivil = new javax.swing.JComboBox<>();
         jLabel20 = new javax.swing.JLabel();
         jTFpasaporte = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
@@ -111,7 +113,7 @@ public class RegistroUsuarios extends javax.swing.JPanel
         jLabel42 = new javax.swing.JLabel();
         jTFpregunta = new javax.swing.JTextField();
         jLabel43 = new javax.swing.JLabel();
-        jCBbailadoAntes = new javax.swing.JComboBox<String>();
+        jCBbailadoAntes = new javax.swing.JComboBox<>();
         jLabel44 = new javax.swing.JLabel();
         jTFtipoBaile = new javax.swing.JTextField();
         jLabel45 = new javax.swing.JLabel();
@@ -154,60 +156,107 @@ public class RegistroUsuarios extends javax.swing.JPanel
 
         jLabel4.setText("Apellido Materno");
 
-        jTFnombre.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        jTFnombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTFnombreActionPerformed(evt);
             }
         });
+        jTFnombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTFnombreKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFnombreKeyTyped(evt);
+            }
+        });
 
-        jTFapellidoPaterno.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        jTFapellidoPaterno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTFapellidoPaternoActionPerformed(evt);
+            }
+        });
+        jTFapellidoPaterno.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTFapellidoPaternoKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFapellidoPaternoKeyTyped(evt);
+            }
+        });
+
+        jTFapellidoMaterno.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTFapellidoMaternoKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFapellidoMaternoKeyTyped(evt);
             }
         });
 
         jLabel5.setText("Calle: ");
 
+        jTFcalle.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTFcalleKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFcalleKeyTyped(evt);
+            }
+        });
+
         jLabel6.setText("Número: ");
+
+        jTFnumero.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTFnumeroKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFnumeroKeyTyped(evt);
+            }
+        });
 
         jLabel7.setText("Colonia: ");
 
-        jTFcolonia.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        jTFcolonia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTFcoloniaActionPerformed(evt);
+            }
+        });
+        jTFcolonia.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTFcoloniaKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFcoloniaKeyTyped(evt);
             }
         });
 
         jLabel8.setText("Ciudad: ");
 
+        jTFciudad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFciudadKeyTyped(evt);
+            }
+        });
+
         jLabel9.setText("Estado: ");
 
-        jCBestado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Aguascalientes", "Baja California", "Baja California Sur", "Campeche", "Chiapas", "Chihuahua", "Coahuila", "Colima", "Distrito Federal", "Durango", "Estado de México", "Guanajuato", "Guerrero", "Hidalgo", "Jalisco", "Michoacán", "Morelos", "Nayarit", "Nuevo León", "Oaxaca", "Puebla", "Querétaro", "Quintana Roo", "San Luis Potosí", "Sinaloa", "Sonora", "Tabasco", "Tamaulipas", "Tlaxcala", "Veracruz", "Yucatán", "Zacatecas" }));
+        jCBestado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aguascalientes", "Baja California", "Baja California Sur", "Campeche", "Chiapas", "Chihuahua", "Coahuila", "Colima", "Distrito Federal", "Durango", "Estado de México", "Guanajuato", "Guerrero", "Hidalgo", "Jalisco", "Michoacán", "Morelos", "Nayarit", "Nuevo León", "Oaxaca", "Puebla", "Querétaro", "Quintana Roo", "San Luis Potosí", "Sinaloa", "Sonora", "Tabasco", "Tamaulipas", "Tlaxcala", "Veracruz", "Yucatán", "Zacatecas" }));
 
         jLabel10.setText("Código Postal: ");
 
         jLabel12.setText("Telefono Casa: ");
 
-        jTFtelefonoCasa.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        jTFtelefonoCasa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTFtelefonoCasaActionPerformed(evt);
             }
         });
 
         jLabel13.setText("Telefono Oficina: ");
 
-        jTFtelefonoOficina.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        jTFtelefonoOficina.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTFtelefonoOficinaActionPerformed(evt);
             }
         });
@@ -217,20 +266,16 @@ public class RegistroUsuarios extends javax.swing.JPanel
         jLabel1.setText("Status:");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Activo", "Inactivo", "Vetado" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
             }
         });
 
         jLabel48.setText("Edad");
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
             }
         });
@@ -368,18 +413,16 @@ public class RegistroUsuarios extends javax.swing.JPanel
 
         jLabel18.setText("Sexo: ");
 
-        jCBsexo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jCBsexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel19.setText("Estado Civil: ");
 
-        jCBestadoCivil.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jCBestadoCivil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel20.setText("Pasaporte (S/N): ");
 
-        jTFpasaporte.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        jTFpasaporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTFpasaporteActionPerformed(evt);
             }
         });
@@ -510,10 +553,8 @@ public class RegistroUsuarios extends javax.swing.JPanel
 
         jLabel38.setText("Dolor Muscular: ");
 
-        jTFdolorMuscular.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        jTFdolorMuscular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTFdolorMuscularActionPerformed(evt);
             }
         });
@@ -648,17 +689,15 @@ public class RegistroUsuarios extends javax.swing.JPanel
 
         jLabel42.setText("¿Cómo se entero de la posibilidad de entrar al ballet? ");
 
-        jTFpregunta.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        jTFpregunta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTFpreguntaActionPerformed(evt);
             }
         });
 
         jLabel43.setText("¿Ha bailado antes?");
 
-        jCBbailadoAntes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jCBbailadoAntes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel44.setText("¿Qué tipo de Baile?");
 
@@ -736,15 +775,13 @@ public class RegistroUsuarios extends javax.swing.JPanel
         jLabel55.setText("Inventario:");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][]
-            {
+            new Object [][] {
                 {null},
                 {null},
                 {null},
                 {null}
             },
-            new String []
-            {
+            new String [] {
                 "Title 1"
             }
         ));
@@ -753,15 +790,13 @@ public class RegistroUsuarios extends javax.swing.JPanel
         jLabel56.setText("Lo que le queda");
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][]
-            {
+            new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null}
             },
-            new String []
-            {
+            new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
@@ -816,18 +851,14 @@ public class RegistroUsuarios extends javax.swing.JPanel
 
         jLabel52.setText("Contraseña");
 
-        jTextField4.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField4ActionPerformed(evt);
             }
         });
 
-        jTextField5.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField5ActionPerformed(evt);
             }
         });
@@ -884,15 +915,13 @@ public class RegistroUsuarios extends javax.swing.JPanel
         jTabbedPane1.addTab("Cuenta", jPanel7);
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][]
-            {
+            new Object [][] {
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null}
             },
-            new String []
-            {
+            new String [] {
                 "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"
             }
         ));
@@ -998,6 +1027,85 @@ public class RegistroUsuarios extends javax.swing.JPanel
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField5ActionPerformed
 
+    private void jTFnombreKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFnombreKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyChar()=='\n' || evt.getKeyChar()=='\t' ||evt.getKeyChar()==77 )
+        {
+           Manipular.cambioObj(jTFapellidoPaterno); 
+        }
+    }//GEN-LAST:event_jTFnombreKeyPressed
+
+    private void jTFnombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFnombreKeyTyped
+        /* TODO add your handling code here: */ ValidaDatosIngreso.cadena(evt);
+    }//GEN-LAST:event_jTFnombreKeyTyped
+
+    private void jTFapellidoPaternoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFapellidoPaternoKeyTyped
+        /* TODO add your handling code here: */ ValidaDatosIngreso.cadena(evt);
+    }//GEN-LAST:event_jTFapellidoPaternoKeyTyped
+
+    private void jTFapellidoPaternoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFapellidoPaternoKeyPressed
+        /* TODO add your handling code here:*/
+        if (evt.getKeyChar()=='\n' || evt.getKeyChar()=='\t' ||evt.getKeyChar()==77 )
+        {
+           Manipular.cambioObj(jTFapellidoMaterno); 
+        }
+    }//GEN-LAST:event_jTFapellidoPaternoKeyPressed
+
+    private void jTFapellidoMaternoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFapellidoMaternoKeyTyped
+        /* TODO add your handling code here:*/ ValidaDatosIngreso.cadena(evt);
+    }//GEN-LAST:event_jTFapellidoMaternoKeyTyped
+
+    private void jTFapellidoMaternoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFapellidoMaternoKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyChar()=='\n' || evt.getKeyChar()=='\t' ||evt.getKeyChar()==77 )
+        {
+           Manipular.cambioObj(jTFcalle); 
+        }
+        
+    }//GEN-LAST:event_jTFapellidoMaternoKeyPressed
+
+    private void jTFcalleKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFcalleKeyTyped
+        /* TODO add your handling code here: */ ValidaDatosIngreso.cadena(evt);
+    }//GEN-LAST:event_jTFcalleKeyTyped
+
+    private void jTFcalleKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFcalleKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyChar()=='\n' || evt.getKeyChar()=='\t' ||evt.getKeyChar()==77 )
+        {
+           Manipular.cambioObj(jTFnumero); 
+        }
+       
+    }//GEN-LAST:event_jTFcalleKeyPressed
+
+    private void jTFnumeroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFnumeroKeyTyped
+        /* TODO add your handling code here:*/ ValidaDatosIngreso.entero(evt);
+    }//GEN-LAST:event_jTFnumeroKeyTyped
+
+    private void jTFnumeroKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFnumeroKeyPressed
+        /* TODO add your handling code here: */ 
+        if (evt.getKeyChar()=='\n' || evt.getKeyChar()=='\t' ||evt.getKeyChar()==77 )
+        {
+           Manipular.cambioObj(jTFcolonia); 
+        }
+    }//GEN-LAST:event_jTFnumeroKeyPressed
+
+    private void jTFcoloniaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFcoloniaKeyTyped
+        /* TODO add your handling code here: */ ValidaDatosIngreso.cadena(evt);
+    }//GEN-LAST:event_jTFcoloniaKeyTyped
+
+    private void jTFcoloniaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFcoloniaKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyChar()=='\n' || evt.getKeyChar()=='\t' ||evt.getKeyChar()==77 )
+        {
+          Manipular.cambioObj(jTFciudad);
+        }
+    }//GEN-LAST:event_jTFcoloniaKeyPressed
+
+    private void jTFciudadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFciudadKeyTyped
+        /* TODO add your handling code here:*/ ValidaDatosIngreso.cadena(evt);
+    }//GEN-LAST:event_jTFciudadKeyTyped
+
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> jCBbailadoAntes;
