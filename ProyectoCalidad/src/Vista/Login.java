@@ -194,7 +194,7 @@ public class Login extends javax.swing.JFrame
     private void jBAccederActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jBAccederActionPerformed
     {//GEN-HEADEREND:event_jBAccederActionPerformed
         ValidaDatosIngreso usuario = new ValidaDatosIngreso(); 
-        PantallaPrincipal mandaInicio = new PantallaPrincipal();
+        MenuPrincipal mandaInicio = new MenuPrincipal();
         JFrame objFrame = new JFrame("Dialogo de mensajes"); //Se crea las ventanas emergentes.
         UsuariosDatosEncapsulados objUsuariosDatosEncapsulados = new UsuariosDatosEncapsulados();
 

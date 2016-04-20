@@ -7,6 +7,8 @@ package Vista;
 
 import java.awt.BorderLayout;
 import Vista.MenuPrincipal;
+import java.awt.Color;
+import javax.swing.JMenuBar;
 
 /**
  *
@@ -21,6 +23,7 @@ public class MenuPrincipal extends javax.swing.JFrame
      */
     public MenuPrincipal()
     {
+        
         initComponents();
     }
 
@@ -256,8 +259,12 @@ public class MenuPrincipal extends javax.swing.JFrame
                 main.setExtendedState(MAXIMIZED_BOTH);
                 main.setVisible(true);
             }
+            
+            
         });
+        
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
