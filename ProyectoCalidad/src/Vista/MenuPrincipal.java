@@ -33,8 +33,7 @@ public class MenuPrincipal extends javax.swing.JFrame
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         jPanelInformacion = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -79,10 +78,20 @@ public class MenuPrincipal extends javax.swing.JFrame
         jMenu1.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/usuarios2.png"))); // NOI18N
 
         jMenuItem1.setText("Altas");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem1);
         jMenu1.add(jSeparator1);
 
         jMenuItem2.setText("Consultas");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem2);
 
         jMenuBar1.add(jMenu1);
@@ -92,10 +101,8 @@ public class MenuPrincipal extends javax.swing.JFrame
         jMenu2.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/vestuarios2.png"))); // NOI18N
 
         jMRegistrarVestuarios.setText("Altas");
-        jMRegistrarVestuarios.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        jMRegistrarVestuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMRegistrarVestuariosActionPerformed(evt);
             }
         });
@@ -103,10 +110,8 @@ public class MenuPrincipal extends javax.swing.JFrame
         jMenu2.add(jSeparator2);
 
         jMIConsultarVestuarios.setText("Consultas");
-        jMIConsultarVestuarios.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        jMIConsultarVestuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMIConsultarVestuariosActionPerformed(evt);
             }
         });
@@ -162,10 +167,8 @@ public class MenuPrincipal extends javax.swing.JFrame
         jMenu6.add(jSeparator6);
 
         jMenuItem12.setText("Consultas");
-        jMenuItem12.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem12ActionPerformed(evt);
             }
         });
@@ -181,14 +184,14 @@ public class MenuPrincipal extends javax.swing.JFrame
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanelInformacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanelInformacion, javax.swing.GroupLayout.DEFAULT_SIZE, 626, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanelInformacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanelInformacion, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -221,6 +224,32 @@ public class MenuPrincipal extends javax.swing.JFrame
         jPanelInformacion.revalidate();
         jPanelInformacion.repaint();
     }//GEN-LAST:event_jMIConsultarVestuariosActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        RegistroUsuarios RU = new RegistroUsuarios();
+        RU.setSize(800, 600);
+        RU.setLocation(1, 1);
+        
+        jPanelInformacion.removeAll();
+        jPanelInformacion.add(RU, BorderLayout.CENTER);
+        jPanelInformacion.revalidate();
+        jPanelInformacion.repaint();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        IConsultaUsuarios CU = new IConsultaUsuarios();
+        CU.setSize(800,600);
+        CU.setLocation(1,1);
+        
+        jPanelInformacion.removeAll();
+        jPanelInformacion.add(CU, BorderLayout.CENTER);
+        jPanelInformacion.revalidate();
+        jPanelInformacion.repaint();
+        
+        
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments

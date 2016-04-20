@@ -78,8 +78,6 @@ public class RegistroUsuarios extends javax.swing.JPanel
         jTFcartilla = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
         jTFestatura = new javax.swing.JTextField();
-        jLabel25 = new javax.swing.JLabel();
-        jTFtalla = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
         jTFaccidente = new javax.swing.JTextField();
         jLabel27 = new javax.swing.JLabel();
@@ -234,6 +232,9 @@ public class RegistroUsuarios extends javax.swing.JPanel
         jLabel8.setText("Ciudad: ");
 
         jTFciudad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTFciudadKeyPressed(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTFciudadKeyTyped(evt);
             }
@@ -242,8 +243,22 @@ public class RegistroUsuarios extends javax.swing.JPanel
         jLabel9.setText("Estado: ");
 
         jCBestado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aguascalientes", "Baja California", "Baja California Sur", "Campeche", "Chiapas", "Chihuahua", "Coahuila", "Colima", "Distrito Federal", "Durango", "Estado de México", "Guanajuato", "Guerrero", "Hidalgo", "Jalisco", "Michoacán", "Morelos", "Nayarit", "Nuevo León", "Oaxaca", "Puebla", "Querétaro", "Quintana Roo", "San Luis Potosí", "Sinaloa", "Sonora", "Tabasco", "Tamaulipas", "Tlaxcala", "Veracruz", "Yucatán", "Zacatecas" }));
+        jCBestado.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jCBestadoKeyPressed(evt);
+            }
+        });
 
         jLabel10.setText("Código Postal: ");
+
+        jTFcodigoPostal.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTFcodigoPostalKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFcodigoPostalKeyTyped(evt);
+            }
+        });
 
         jLabel12.setText("Telefono Casa: ");
 
@@ -252,12 +267,28 @@ public class RegistroUsuarios extends javax.swing.JPanel
                 jTFtelefonoCasaActionPerformed(evt);
             }
         });
+        jTFtelefonoCasa.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTFtelefonoCasaKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFtelefonoCasaKeyTyped(evt);
+            }
+        });
 
         jLabel13.setText("Telefono Oficina: ");
 
         jTFtelefonoOficina.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTFtelefonoOficinaActionPerformed(evt);
+            }
+        });
+        jTFtelefonoOficina.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTFtelefonoOficinaKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFtelefonoOficinaKeyTyped(evt);
             }
         });
 
@@ -271,12 +302,25 @@ public class RegistroUsuarios extends javax.swing.JPanel
                 jComboBox1ActionPerformed(evt);
             }
         });
+        jComboBox1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jComboBox1KeyPressed(evt);
+            }
+        });
 
         jLabel48.setText("Edad");
 
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
+            }
+        });
+        jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField2KeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField2KeyTyped(evt);
             }
         });
 
@@ -311,19 +355,15 @@ public class RegistroUsuarios extends javax.swing.JPanel
                                         .addComponent(jTFapellidoMaterno, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel6Layout.createSequentialGroup()
                                         .addGap(8, 8, 8)
-                                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel10)
-                                            .addComponent(jTFtelefonoCasa, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(jLabel10))
                                     .addComponent(jLabel6)
                                     .addGroup(jPanel6Layout.createSequentialGroup()
                                         .addComponent(jTFnumero, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(jPanel6Layout.createSequentialGroup()
-                                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jTFcodigoPostal, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(jLabel12))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jLabel12)
+                                                .addGap(27, 27, 27)
                                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addComponent(jLabel1)
                                                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -347,7 +387,11 @@ public class RegistroUsuarios extends javax.swing.JPanel
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel14)
-                                    .addComponent(jTFtelefonoCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(jTFtelefonoCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel6Layout.createSequentialGroup()
+                                        .addComponent(jTFcodigoPostal, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jTFtelefonoCasa, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addContainerGap(56, Short.MAX_VALUE))))
         );
         jPanel6Layout.setVerticalGroup(
@@ -389,11 +433,11 @@ public class RegistroUsuarios extends javax.swing.JPanel
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTFtelefonoCasa, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jCBestado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jTFcodigoPostal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jCBestado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTFtelefonoCasa, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
@@ -411,13 +455,32 @@ public class RegistroUsuarios extends javax.swing.JPanel
 
         jLabel17.setText("Lugar de Nacimiento: ");
 
+        jTFnacimiento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTFnacimientoKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFnacimientoKeyTyped(evt);
+            }
+        });
+
         jLabel18.setText("Sexo: ");
 
-        jCBsexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jCBsexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Femenino", "Masculino" }));
+        jCBsexo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jCBsexoKeyPressed(evt);
+            }
+        });
 
         jLabel19.setText("Estado Civil: ");
 
-        jCBestadoCivil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jCBestadoCivil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Soltero", "Casado", "Divorciado", "Viudo" }));
+        jCBestadoCivil.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jCBestadoCivilKeyPressed(evt);
+            }
+        });
 
         jLabel20.setText("Pasaporte (S/N): ");
 
@@ -426,16 +489,40 @@ public class RegistroUsuarios extends javax.swing.JPanel
                 jTFpasaporteActionPerformed(evt);
             }
         });
+        jTFpasaporte.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTFpasaporteKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFpasaporteKeyTyped(evt);
+            }
+        });
 
         jLabel21.setText("Vigencia: ");
 
+        jTFvigencia.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTFvigenciaKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFvigenciaKeyTyped(evt);
+            }
+        });
+
         jLabel22.setText("No. Cartilla Militar: ");
 
-        jLabel23.setText("Liberda (S/N): ");
+        jTFcartillaMilitar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTFcartillaMilitarKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFcartillaMilitarKeyTyped(evt);
+            }
+        });
+
+        jLabel23.setText("Liberada (S/N): ");
 
         jLabel24.setText("Estatura: ");
-
-        jLabel25.setText("Talla: ");
 
         jLabel26.setText("En caso de accidente avisar a: ");
 
@@ -447,48 +534,52 @@ public class RegistroUsuarios extends javax.swing.JPanel
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jTFestatura, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jTFpasaporte, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTFvigencia, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTFcartillaMilitar))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel20)
+                                    .addComponent(jLabel16))
+                                .addGap(41, 41, 41)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTFnacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel21)
+                                    .addComponent(jLabel17))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel18)
+                                    .addComponent(jLabel22)
+                                    .addComponent(jCBsexo, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTFtalla, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTFaccidente))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jTFpasaporte, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTFvigencia, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTFcartillaMilitar))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel24)
-                        .addGap(83, 83, 83)
-                        .addComponent(jLabel25)
-                        .addGap(102, 102, 102)
-                        .addComponent(jLabel26))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jCBestadoCivil, 0, 143, Short.MAX_VALUE)
+                            .addComponent(jLabel19)
+                            .addComponent(jLabel23)
+                            .addComponent(jTFcartilla))
+                        .addContainerGap(42, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel20)
-                            .addComponent(jLabel16))
-                        .addGap(41, 41, 41)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel24)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel26)
+                                .addGap(104, 104, 104))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jTFestatura, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(89, 89, 89)
+                                .addComponent(jTFaccidente)
+                                .addGap(46, 46, 46)))
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTFnacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel21)
-                            .addComponent(jLabel17))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel18)
-                            .addComponent(jLabel22)
-                            .addComponent(jCBsexo, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jCBestadoCivil, 0, 143, Short.MAX_VALUE)
-                    .addComponent(jLabel19)
-                    .addComponent(jLabel23)
-                    .addComponent(jTFcartilla)
-                    .addComponent(jLabel27)
-                    .addComponent(jTFtelefono2))
-                .addContainerGap(42, Short.MAX_VALUE))
+                            .addComponent(jTFtelefono2, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel27))
+                        .addGap(57, 57, 57))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -519,13 +610,11 @@ public class RegistroUsuarios extends javax.swing.JPanel
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel24)
-                    .addComponent(jLabel25)
                     .addComponent(jLabel26)
                     .addComponent(jLabel27))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTFestatura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTFtalla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTFaccidente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTFtelefono2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 216, Short.MAX_VALUE))
@@ -1105,6 +1194,145 @@ public class RegistroUsuarios extends javax.swing.JPanel
         /* TODO add your handling code here:*/ ValidaDatosIngreso.cadena(evt);
     }//GEN-LAST:event_jTFciudadKeyTyped
 
+    private void jTFciudadKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFciudadKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyChar()=='\n' || evt.getKeyChar()=='\t' ||evt.getKeyChar()==77 )
+        {
+          Manipular.cambioObj(jTextField2);
+        }
+    }//GEN-LAST:event_jTFciudadKeyPressed
+
+    private void jTextField2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyTyped
+        /* TODO add your handling code here:*/ ValidaDatosIngreso.entero(evt);
+    }//GEN-LAST:event_jTextField2KeyTyped
+
+    private void jTextField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyChar()=='\n' || evt.getKeyChar()=='\t' ||evt.getKeyChar()==77 )
+        {
+          Manipular.cambioObj(jCBestado);
+        }
+    }//GEN-LAST:event_jTextField2KeyPressed
+
+    private void jTFtelefonoCasaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFtelefonoCasaKeyTyped
+        /* TODO add your handling code here:*/ ValidaDatosIngreso.entero(evt);
+    }//GEN-LAST:event_jTFtelefonoCasaKeyTyped
+
+    private void jTFtelefonoCasaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFtelefonoCasaKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyChar()=='\n' || evt.getKeyChar()=='\t' ||evt.getKeyChar()==77 )
+        {
+          Manipular.cambioObj(jComboBox1);
+        }
+    }//GEN-LAST:event_jTFtelefonoCasaKeyPressed
+
+    private void jTFcodigoPostalKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFcodigoPostalKeyTyped
+        /* TODO add your handling code here:*/ValidaDatosIngreso.entero(evt);
+    }//GEN-LAST:event_jTFcodigoPostalKeyTyped
+
+    private void jTFcodigoPostalKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFcodigoPostalKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyChar()=='\n' || evt.getKeyChar()=='\t' ||evt.getKeyChar()==77 )
+        {
+          Manipular.cambioObj(jTFtelefonoCasa);
+        }
+    }//GEN-LAST:event_jTFcodigoPostalKeyPressed
+
+    private void jCBestadoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jCBestadoKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyChar()=='\n' || evt.getKeyChar()=='\t' ||evt.getKeyChar()==77 )
+        {
+          Manipular.cambioObj(jTFcodigoPostal);
+        }
+    }//GEN-LAST:event_jCBestadoKeyPressed
+
+    private void jComboBox1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jComboBox1KeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyChar()=='\n' || evt.getKeyChar()=='\t' ||evt.getKeyChar()==77 )
+        {
+          Manipular.cambioObj(jTFtelefonoOficina);
+        }
+    }//GEN-LAST:event_jComboBox1KeyPressed
+
+    private void jTFtelefonoOficinaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFtelefonoOficinaKeyTyped
+        /* TODO add your handling code here:*/ ValidaDatosIngreso.entero(evt);
+    }//GEN-LAST:event_jTFtelefonoOficinaKeyTyped
+
+    private void jTFtelefonoOficinaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFtelefonoOficinaKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyChar()=='\n' || evt.getKeyChar()=='\t' )
+        {
+          Manipular.cambioObj(jTFtelefonoCelular);
+        }
+    }//GEN-LAST:event_jTFtelefonoOficinaKeyPressed
+
+    private void jTFnacimientoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFnacimientoKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFnacimientoKeyTyped
+
+    private void jTFnacimientoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFnacimientoKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyChar()=='\n' )
+        {
+          Manipular.cambioObj(jCBsexo);
+        }
+    }//GEN-LAST:event_jTFnacimientoKeyPressed
+
+    private void jCBsexoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jCBsexoKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyChar()=='\n' )
+        {
+          Manipular.cambioObj(jCBestadoCivil);
+        }
+    }//GEN-LAST:event_jCBsexoKeyPressed
+
+    private void jCBestadoCivilKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jCBestadoCivilKeyPressed
+        // TODO add your handling code here: 
+        if (evt.getKeyChar()=='\n' )
+        {
+          Manipular.cambioObj(jTFpasaporte);
+        }
+    }//GEN-LAST:event_jCBestadoCivilKeyPressed
+
+    private void jTFpasaporteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFpasaporteKeyTyped
+        /* TODO add your handling code here:*/ ValidaDatosIngreso.entero(evt);
+    }//GEN-LAST:event_jTFpasaporteKeyTyped
+
+    private void jTFpasaporteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFpasaporteKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyChar()=='\n' )
+        {
+          Manipular.cambioObj(jTFvigencia);
+        }
+    }//GEN-LAST:event_jTFpasaporteKeyPressed
+
+    private void jTFvigenciaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFvigenciaKeyTyped
+        /* TODO add your handling code here:*/ 
+    }//GEN-LAST:event_jTFvigenciaKeyTyped
+
+    private void jTFvigenciaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFvigenciaKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyChar()=='\n' )
+        {
+          Manipular.cambioObj(jTFcartillaMilitar);
+        }
+    }//GEN-LAST:event_jTFvigenciaKeyPressed
+
+    private void jTFcartillaMilitarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFcartillaMilitarKeyTyped
+        /* TODO add your handling code here:*/ ValidaDatosIngreso.entero(evt);
+    }//GEN-LAST:event_jTFcartillaMilitarKeyTyped
+
+    private void jTFcartillaMilitarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFcartillaMilitarKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyChar()=='\n' )
+        {
+          Manipular.cambioObj(jTFcartilla);
+        }
+    }//GEN-LAST:event_jTFcartillaMilitarKeyPressed
+    
+    
+    
+    
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1128,7 +1356,6 @@ public class RegistroUsuarios extends javax.swing.JPanel
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel29;
@@ -1207,7 +1434,6 @@ public class RegistroUsuarios extends javax.swing.JPanel
     private javax.swing.JTextField jTFpasaporte;
     private javax.swing.JTextField jTFperiodo;
     private javax.swing.JTextField jTFpregunta;
-    private javax.swing.JTextField jTFtalla;
     private javax.swing.JTextField jTFtelefono2;
     private javax.swing.JTextField jTFtelefonoCasa;
     private javax.swing.JTextField jTFtelefonoCelular;

@@ -260,5 +260,11 @@ public class ValidaDatosIngreso
            evt.setKeyChar((char)8);
         }
     }
+      public static void fecha(KeyEvent evt ){
+        if (((evt.getKeyChar()<'0'|| evt.getKeyChar()>'9')) && ((evt.getKeyChar()!='\b' && evt.getKeyChar()=='/')))
+        {
+           evt.setKeyChar((char)8);
+        }
+    }
 
 }
