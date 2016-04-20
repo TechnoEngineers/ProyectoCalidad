@@ -6,7 +6,7 @@ CREATE TABLE usuarios(idusuario int PRIMARY KEY auto_increment,
 						 tipodeusuario char(1),
 						 username varchar(30),
 						 contrasenia varchar(50),
-						 status int
+						 status int,
 						 fechaingreso date,
 						 expediente int,
 						 nombre varchar(30),

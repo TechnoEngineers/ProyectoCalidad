@@ -227,7 +227,7 @@ public class RecuperarContrasena extends javax.swing.JFrame
             break;
         }
 
-        objUsuariosDatosEncapsulados.setNombreUsuario(jPFUsuario.getText());
+        objUsuariosDatosEncapsulados.setUsuario(jPFUsuario.getText());
         if (ValidaDatosIngreso.bUsuarioValido == true)
         {
             Login mandaLogin = new Login();

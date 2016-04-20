@@ -16,7 +16,7 @@ package Modelo;
 
 public class UsuariosDatosEncapsulados
 {
-    private String sNombreUsuario;
+    private String sUsuario;
     private String sContrasena;
     private int iTipoUsuario;
     private int iStatus;
@@ -62,6 +62,7 @@ public class UsuariosDatosEncapsulados
     private String sAnteriorBallet;
     private String sTiempoQueBailo;
     private String sHorarioDisponible;
+    private String sRespuestaSecreta;
     private String sComentario;
     
     /**
@@ -69,17 +70,17 @@ public class UsuariosDatosEncapsulados
      */
     public UsuariosDatosEncapsulados()
     {
-        sNombreUsuario="";
+        sUsuario="";
         sContrasena="";
     }
     
     /**
      * Recibe valor de usuario y contraseña.
-     * @param sNombreUsuario recibe usuario.
+     * @param sUsuario recibe usuario.
      * @param sContrasena recibe contraseña.
      */
-    public UsuariosDatosEncapsulados(String sNombreUsuario, String sContrasena){
-        this.sNombreUsuario=sNombreUsuario;
+    public UsuariosDatosEncapsulados(String sUsuario, String sContrasena){
+        this.sUsuario=sUsuario;
         this.sContrasena=sContrasena;
     }
     /*
@@ -87,12 +88,12 @@ public class UsuariosDatosEncapsulados
     */
     public String getNombreUsuario() 
     {
-        return sNombreUsuario;
+        return sUsuario;
     }
 
-    public void setNombreUsuario(String sNombreUsuario) 
+    public void setUsuario(String sUsuario) 
     {
-        this.sNombreUsuario = sNombreUsuario;
+        this.sUsuario = sUsuario;
     }
 
     public String getContrasena() {
@@ -553,5 +554,31 @@ public class UsuariosDatosEncapsulados
     {
         this.sComentario = sComentario;
     }
+
+    public UsuariosDatosEncapsulados(String sUsuario)
+    {
+        this.sUsuario = sUsuario;
+    }
+
+    public String getsUsuario()
+    {
+        return sUsuario;
+    }
+
+    public void setsUsuario(String sUsuario)
+    {
+        this.sUsuario = sUsuario;
+    }
+
+    public String getsRespuestaSecreta()
+    {
+        return sRespuestaSecreta;
+    }
+
+    public void setsRespuestaSecreta(String sRespuestaSecreta)
+    {
+        this.sRespuestaSecreta = sRespuestaSecreta;
+    }
+    
     
 }

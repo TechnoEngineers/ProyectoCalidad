@@ -14,10 +14,6 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-/**
- *
- * @author Techno Engineers
- */
 
 public class UsuariosModelo {
     Conexion conexion;
@@ -36,7 +32,7 @@ public class UsuariosModelo {
         Conexion x = new Conexion();
         try
         {
-            return x.Conecta("localhost", "trajin", "root", "diego");
+            return x.Conecta("localhost", "TRAJIN", "root", "123456");
         } catch (Exception ex)
         {
             return null;
@@ -79,10 +75,10 @@ public class UsuariosModelo {
              */
             if(objUsuarios.getContrasena().length()==0)
             {
-               rset = stmt.executeQuery("SELECT nombre FROM usuarios WHERE nombre='"+objUsuarios.getNombreUsuario()+"'");
+               rset = stmt.executeQuery("SELECT username FROM usuarios WHERE username='"+objUsuarios.getNombreUsuario()+"'");
             }else
             {
-               rset = stmt.executeQuery("SELECT nombre FROM usuarios WHERE nombre='"+objUsuarios.getNombreUsuario()+"' AND contrasenia='"+objUsuarios.getContrasena()+"'");
+               rset = stmt.executeQuery("SELECT username,contrasenia FROM usuarios WHERE username='"+objUsuarios.getNombreUsuario()+"' AND contrasenia='"+objUsuarios.getContrasena()+"'");
             }
            
             
@@ -90,7 +86,7 @@ public class UsuariosModelo {
            
             while (rset.next()) 
             {
-                objUsuarios.setNombreUsuario(rset.getString("nombre")); 
+                objUsuarios.setUsuario(rset.getString("username")); 
                 listaArreglos.add(objUsuarios);
             }
             if (listaArreglos.size() > 0) 
@@ -117,13 +113,12 @@ public class UsuariosModelo {
         {
             Connection con = UsuariosModelo.conectaDB(); //Se hace la conexión con la base de datos.
             Statement stmt = con.createStatement();
-            ResultSet rset = stmt.executeQuery("SELECT ciudad,email FROM usuarios WHERE  ciudad='"+objUsuarios.getsCiudad()+"' AND email='"+objUsuarios.getsEmail()+"'"); //Se obtienen los vaores para validad respecto a las preguntas de seguridad.
+            ResultSet rset = stmt.executeQuery("SELECT respuestasecreta FROM usuarios WHERE  respuestasecreta= '"+objUsuarios.getsRespuestaSecreta()+"'"); //Se obtienen los vaores para validad respecto a las preguntas de seguridad.
             ArrayList<UsuariosDatosEncapsulados> listaArreglos = new ArrayList<UsuariosDatosEncapsulados>(); //Crea un arreglo de los datos obtenidos.
            
             while (rset.next())  //Se va a buscar coincidencias dentro del while.
             {
-                objUsuarios.setsLugarNacimiento(rset.getString("ciudad"));
-                objUsuarios.setsEmail(rset.getString("email"));
+                objUsuarios.setsRespuestaSecreta(rset.getString("respuestasecreta"));
                 listaArreglos.add(objUsuarios);
             }
             if (listaArreglos.size() > 0) 

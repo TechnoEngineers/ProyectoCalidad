@@ -122,7 +122,7 @@ public class ValidaDatosIngreso
                         }
                     }
                 }
-                if (sTipoValidacion.equals("ciudad")) //Si el parametro es de ciudad, admite letras y numeros, o solo letras pero no solo numeros.
+                if (sTipoValidacion.equals("respuesta secreta")) //Si el parametro es de ciudad, admite letras y numeros, o solo letras pero no solo numeros.
                 {
                     if (iAlfanumericoMayuscula == 1)
                     {
