@@ -32,7 +32,7 @@ public class UsuariosModelo {
         Conexion x = new Conexion();
         try
         {
-            return x.Conecta("localhost", "TRAJIN", "root", "123456");
+            return x.Conecta("localhost", "TRAJIN", "root", "181189lobo");
         } catch (Exception ex)
         {
             return null;
