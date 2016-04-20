@@ -331,7 +331,7 @@ public class RegistrarVestuarios extends javax.swing.JFrame
 
     private void jBCancelarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jBCancelarActionPerformed
     {//GEN-HEADEREND:event_jBCancelarActionPerformed
-        PantallaPrincipal objPantallaPrincipal = new PantallaPrincipal();
+        MenuPrincipal objPantallaPrincipal = new MenuPrincipal();
         objPantallaPrincipal.setVisible(true);
         this.dispose();
         this.pack();
