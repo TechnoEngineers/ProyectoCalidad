@@ -339,10 +339,10 @@ public class RegistrarVestuarios extends javax.swing.JFrame
 
     private void jBConsultarVestuarioActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jBConsultarVestuarioActionPerformed
     {//GEN-HEADEREND:event_jBConsultarVestuarioActionPerformed
-        Vestuarios objVestuarios = new Vestuarios();
-        objVestuarios.setVisible(true);
-        this.dispose();
-        this.pack();
+//        Vestuarios objVestuarios = new Vestuarios();
+//        objVestuarios.setVisible(true);
+//        this.dispose();
+//        this.pack();
     }//GEN-LAST:event_jBConsultarVestuarioActionPerformed
 
     public static void main(String args[])
