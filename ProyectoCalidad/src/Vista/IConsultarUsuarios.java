@@ -16,6 +16,7 @@ import Modelo.Conexion;
 import Modelo.RegistroUsuarioDatosEncapsulados;
 import Modelo.RegistroUsuarioModelo;
 import Vista.mensajes.Mensajes;
+import java.awt.BorderLayout;
 import java.awt.Toolkit;
 import java.sql.*;
 import javax.swing.JFrame;
@@ -95,8 +96,7 @@ public class IConsultarUsuarios extends javax.swing.JFrame
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
         jBConsultaBailarines = new javax.swing.JButton();
@@ -113,19 +113,15 @@ public class IConsultarUsuarios extends javax.swing.JFrame
         jPanel1.setPreferredSize(new java.awt.Dimension(537, 371));
 
         jBConsultaBailarines.setText("Consultar Bailarines");
-        jBConsultaBailarines.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        jBConsultaBailarines.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBConsultaBailarinesActionPerformed(evt);
             }
         });
 
         jBRegistraBailarines.setText("Registrar Bailarines");
-        jBRegistraBailarines.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        jBRegistraBailarines.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBRegistraBailarinesActionPerformed(evt);
             }
         });
@@ -133,34 +129,27 @@ public class IConsultarUsuarios extends javax.swing.JFrame
         jPConsultaBailarines.setBackground(new java.awt.Color(255, 255, 255));
         jPConsultaBailarines.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 204, 0)));
 
-        jBBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Buscar.png"))); // NOI18N
-        jBBuscar.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        jBBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBBuscarActionPerformed(evt);
             }
         });
 
         jTNombreBailarin.setPreferredSize(new java.awt.Dimension(6, 30));
-        jTNombreBailarin.addKeyListener(new java.awt.event.KeyAdapter()
-        {
-            public void keyTyped(java.awt.event.KeyEvent evt)
-            {
+        jTNombreBailarin.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTNombreBailarinKeyTyped(evt);
             }
         });
 
         jTConsultaBailarines.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][]
-            {
+            new Object [][] {
                 {},
                 {},
                 {},
                 {}
             },
-            new String []
-            {
+            new String [] {
 
             }
         ));
@@ -248,6 +237,14 @@ public class IConsultarUsuarios extends javax.swing.JFrame
     private void jBConsultaBailarinesActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jBConsultaBailarinesActionPerformed
     {//GEN-HEADEREND:event_jBConsultaBailarinesActionPerformed
         // TODO add your handling code here:
+        IConsultaUsuarios ICU = new IConsultaUsuarios();
+        ICU.setSize(537, 371);
+        ICU.setLocation(1, 1);
+        
+        jPConsultaBailarines.removeAll();
+        jPConsultaBailarines.add(ICU, BorderLayout.CENTER);
+        jPConsultaBailarines.revalidate();
+        jPConsultaBailarines.repaint();
     }//GEN-LAST:event_jBConsultaBailarinesActionPerformed
 
     private void jBRegistraBailarinesActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jBRegistraBailarinesActionPerformed

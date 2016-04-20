@@ -3,8 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/JATZIRI/Documents/ProyectoCalidad/ProyectoCalidad/src/Controlador/ValidaDatosIngreso.java</file>
             <file>file:/C:/Users/JATZIRI/Documents/ProyectoCalidad/ProyectoCalidad/src/SQL/BD_usuarios_vestuario.txt</file>
+=======
+            <file>file:/C:/Users/mgool/Documents/Programas/sistemas/ProyectoCalidad/src/Vista/MenuPrincipal.java</file>
+            <file>file:/C:/Users/mgool/Documents/Programas/sistemas/ProyectoCalidad/src/Vista/IRegistrarVestuarios.java</file>
+            <file>file:/C:/Users/mgool/Documents/Programas/sistemas/ProyectoCalidad/src/Vista/RegistrarVestuarios.java</file>
+>>>>>>> 0e6ddb3c8579f5d098656732b662f0ecf5beb7c2
         </group>
     </open-files>
 </project-private>
