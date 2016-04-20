@@ -33,18 +33,16 @@ public class MenuPrincipal extends javax.swing.JFrame
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         jPanelInformacion = new javax.swing.JPanel();
-        jPanelConsultarVestuarios = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        jMRegistrarVestuarios = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
         jMIConsultarVestuarios = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
@@ -69,19 +67,6 @@ public class MenuPrincipal extends javax.swing.JFrame
         jPanelInformacion.setBackground(new java.awt.Color(255, 255, 255));
         jPanelInformacion.setLayout(new java.awt.CardLayout());
 
-        javax.swing.GroupLayout jPanelConsultarVestuariosLayout = new javax.swing.GroupLayout(jPanelConsultarVestuarios);
-        jPanelConsultarVestuarios.setLayout(jPanelConsultarVestuariosLayout);
-        jPanelConsultarVestuariosLayout.setHorizontalGroup(
-            jPanelConsultarVestuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 702, Short.MAX_VALUE)
-        );
-        jPanelConsultarVestuariosLayout.setVerticalGroup(
-            jPanelConsultarVestuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 541, Short.MAX_VALUE)
-        );
-
-        jPanelInformacion.add(jPanelConsultarVestuarios, "card2");
-
         jMenuBar1.setBackground(new java.awt.Color(57, 110, 176));
         jMenuBar1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jMenuBar1.setPreferredSize(new java.awt.Dimension(56, 70));
@@ -93,10 +78,20 @@ public class MenuPrincipal extends javax.swing.JFrame
         jMenu1.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/usuarios2.png"))); // NOI18N
 
         jMenuItem1.setText("Altas");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem1);
         jMenu1.add(jSeparator1);
 
         jMenuItem2.setText("Consultas");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem2);
 
         jMenuBar1.add(jMenu1);
@@ -105,22 +100,18 @@ public class MenuPrincipal extends javax.swing.JFrame
         jMenu2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenu2.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/vestuarios2.png"))); // NOI18N
 
-        jMenuItem3.setText("Altas");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                jMenuItem3ActionPerformed(evt);
+        jMRegistrarVestuarios.setText("Altas");
+        jMRegistrarVestuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMRegistrarVestuariosActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem3);
+        jMenu2.add(jMRegistrarVestuarios);
         jMenu2.add(jSeparator2);
 
         jMIConsultarVestuarios.setText("Consultas");
-        jMIConsultarVestuarios.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        jMIConsultarVestuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMIConsultarVestuariosActionPerformed(evt);
             }
         });
@@ -176,10 +167,8 @@ public class MenuPrincipal extends javax.swing.JFrame
         jMenu6.add(jSeparator6);
 
         jMenuItem12.setText("Consultas");
-        jMenuItem12.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem12ActionPerformed(evt);
             }
         });
@@ -195,24 +184,30 @@ public class MenuPrincipal extends javax.swing.JFrame
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanelInformacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanelInformacion, javax.swing.GroupLayout.DEFAULT_SIZE, 626, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanelInformacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanelInformacion, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jMenuItem3ActionPerformed
-    {//GEN-HEADEREND:event_jMenuItem3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    private void jMRegistrarVestuariosActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jMRegistrarVestuariosActionPerformed
+    {//GEN-HEADEREND:event_jMRegistrarVestuariosActionPerformed
+        RegistrarVestuarios objRegistrarVestuarios = new RegistrarVestuarios();
+        objRegistrarVestuarios.setSize(800, 600);
+        objRegistrarVestuarios.setLocation(1, 1);
+        jPanelInformacion.removeAll();
+        jPanelInformacion.add(objRegistrarVestuarios, BorderLayout.CENTER);
+        jPanelInformacion.revalidate();
+        jPanelInformacion.repaint();
+    }//GEN-LAST:event_jMRegistrarVestuariosActionPerformed
 
     private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jMenuItem12ActionPerformed
     {//GEN-HEADEREND:event_jMenuItem12ActionPerformed
@@ -229,6 +224,32 @@ public class MenuPrincipal extends javax.swing.JFrame
         jPanelInformacion.revalidate();
         jPanelInformacion.repaint();
     }//GEN-LAST:event_jMIConsultarVestuariosActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        RegistroUsuarios RU = new RegistroUsuarios();
+        RU.setSize(800, 600);
+        RU.setLocation(1, 1);
+        
+        jPanelInformacion.removeAll();
+        jPanelInformacion.add(RU, BorderLayout.CENTER);
+        jPanelInformacion.revalidate();
+        jPanelInformacion.repaint();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        IConsultaUsuarios CU = new IConsultaUsuarios();
+        CU.setSize(800,600);
+        CU.setLocation(1,1);
+        
+        jPanelInformacion.removeAll();
+        jPanelInformacion.add(CU, BorderLayout.CENTER);
+        jPanelInformacion.revalidate();
+        jPanelInformacion.repaint();
+        
+        
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -285,6 +306,7 @@ public class MenuPrincipal extends javax.swing.JFrame
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem jMIConsultarVestuarios;
+    private javax.swing.JMenuItem jMRegistrarVestuarios;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -297,13 +319,11 @@ public class MenuPrincipal extends javax.swing.JFrame
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
-    private javax.swing.JPanel jPanelConsultarVestuarios;
     private javax.swing.JPanel jPanelInformacion;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;

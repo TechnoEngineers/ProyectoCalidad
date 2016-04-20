@@ -9,6 +9,12 @@
  */
 package Vista;
 
+import Controlador.Manipular;
+import Modelo.Conexion;
+import Vista.mensajes.Mensajes;
+import java.awt.Toolkit;
+import java.sql.*;
+import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 /**
  *
@@ -16,6 +22,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class IConsultaUsuarios extends javax.swing.JPanel {
 
+    boolean bBandera = false;
     /**
      * Creates new form IConsultaUsuarios
      */
@@ -27,10 +34,79 @@ public class IConsultaUsuarios extends javax.swing.JPanel {
         objModeloTabla.addColumn("NOMBRE");
         objModeloTabla.addColumn("AP. PATERNO");
         objModeloTabla.addColumn("AP. MATERNO");
-        objModeloTabla.addColumn("ESTADO");
         jTConsultaBailarines.setModel(objModeloTabla);
+        
+       /* String datos[] = new String [4];
+        String sql="SELECT idusuario,nombre,apellidopaterno,apellidomaterno FROM usuarios '";
+         
+        try {
+
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            
+            if(rs.next()){
+                
+                datos[0]=rs.getString("idusuario");
+                datos[1]=rs.getString("nombre");
+                datos[2]=rs.getString("apellidopaterno");
+                datos[3]=rs.getString("apellidomaterno");
+                
+                objModeloTabla.addRow(datos);
+            }
+            
+            jTConsultaBailarines.setModel(objModeloTabla);
+
+        } catch (Exception ex) {
+//            Logger.getLogger(Producto.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
     }
 
+    
+    void buscar(){
+    
+        JFrame objFrame=new JFrame();
+        Mensajes objMensajes = new Mensajes();
+        
+        DefaultTableModel objModeloTabla= new DefaultTableModel();
+        objModeloTabla.addColumn("ID");
+        objModeloTabla.addColumn("NOMBRE");
+        objModeloTabla.addColumn("AP. PATERNO");
+        objModeloTabla.addColumn("AP. MATERNO");
+        jTConsultaBailarines.setModel(objModeloTabla);//las agregamos a la tabla
+        
+        String datos[] = new String [4];
+        String sql="SELECT idusuario,nombre,apellidopaterno,apellidomaterno FROM usuarios WHERE nombre= '" + jTNombreBailarin.getText() +"'";
+         
+        try {
+
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            
+            if(rs.next()){
+              
+                bBandera = true;
+                
+                datos[0]=rs.getString("idusuario");
+                datos[1]=rs.getString("nombre");
+                datos[2]=rs.getString("apellidopaterno");
+                datos[3]=rs.getString("apellidomaterno");
+                
+                objModeloTabla.addRow(datos);
+            }else{
+               objMensajes.falla(objFrame);
+            }
+            
+            
+            jTConsultaBailarines.setModel(objModeloTabla);
+
+            
+            
+        } catch (Exception ex) {
+              objMensajes.falla(objFrame);
+//            Logger.getLogger(Producto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -68,9 +144,19 @@ public class IConsultaUsuarios extends javax.swing.JPanel {
         jPConsultaBailarines.setBackground(new java.awt.Color(255, 255, 255));
         jPConsultaBailarines.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 204, 0)));
 
-        jBBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Buscar.png"))); // NOI18N
+        jBBuscar.setText("Buscar");
+        jBBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBBuscarActionPerformed(evt);
+            }
+        });
 
         jTNombreBailarin.setPreferredSize(new java.awt.Dimension(6, 30));
+        jTNombreBailarin.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTNombreBailarinKeyTyped(evt);
+            }
+        });
 
         jTConsultaBailarines.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -149,6 +235,35 @@ public class IConsultaUsuarios extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jBRegistraBailarinesActionPerformed
 
+    private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
+        // TODO add your handling code here:
+        JFrame objFrame=new JFrame();
+        Mensajes objMensajes = new Mensajes();
+        
+        if (jTNombreBailarin.getText().isEmpty()){
+            
+            objMensajes.falla(objFrame);
+            
+        }else{
+        
+            buscar();
+            Manipular.limpiaCajas(jTNombreBailarin);
+            if(bBandera == true){
+               objMensajes.exito(objFrame);
+            }
+            con.desconectar(conn);
+        }
+    }//GEN-LAST:event_jBBuscarActionPerformed
+
+    private void jTNombreBailarinKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTNombreBailarinKeyTyped
+        // TODO add your handling code here:
+        if(!Character.isAlphabetic(evt.getKeyChar()) && !Character.isISOControl(evt.getKeyChar()))
+        {
+                 Toolkit.getDefaultToolkit().beep();
+                 evt.consume();
+        }
+    }//GEN-LAST:event_jTNombreBailarinKeyTyped
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBBuscar;
@@ -159,4 +274,7 @@ public class IConsultaUsuarios extends javax.swing.JPanel {
     private javax.swing.JTable jTConsultaBailarines;
     private javax.swing.JTextField jTNombreBailarin;
     // End of variables declaration//GEN-END:variables
+    //variables globales
+    Conexion con = new Conexion();
+    Connection conn = con.Conecta("localhost", "trajin", "root", "123456");
 }

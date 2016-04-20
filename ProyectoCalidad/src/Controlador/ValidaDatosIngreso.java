@@ -13,6 +13,7 @@ package Controlador;
  *
  * @author angelcareaga
  */
+import java.awt.event.KeyEvent;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
@@ -236,6 +237,34 @@ public class ValidaDatosIngreso
             }
         }
         return bCorreoValido; //Regresa el valor, el correo puede ser falso o verdadero.
+    }
+    
+    
+    
+     public static void entero (KeyEvent evt ){
+        if ((evt.getKeyChar()<'0'|| evt.getKeyChar()>'9')&& (evt.getKeyChar()!='\b'))
+        {
+           evt.setKeyChar((char)8);
+        }
+    }
+    
+     public static void cadena (KeyEvent evt ){
+        if (((evt.getKeyChar()<'a'|| evt.getKeyChar()>'z') && (evt.getKeyChar()<'A'|| evt.getKeyChar()>'Z'))&& ((evt.getKeyChar()!='\b' && evt.getKeyChar()!='ñ' && evt.getKeyChar()!='Ñ'&& evt.getKeyChar()!='á' && evt.getKeyChar()!='Á'&& evt.getKeyChar()!='é' && evt.getKeyChar()!='É' && evt.getKeyChar()!='í' && evt.getKeyChar()!='Í' && evt.getKeyChar()!='ó' && evt.getKeyChar()!='Ó' && evt.getKeyChar()!='ú' && evt.getKeyChar()!='Ú' && evt.getKeyChar()!='ü'&& evt.getKeyChar()!=' ')))
+        {
+           evt.setKeyChar((char)8);
+        }
+    }
+      public static void flotante (KeyEvent evt ){
+        if (((evt.getKeyChar()<'0'|| evt.getKeyChar()>'9')) && ((evt.getKeyChar()!='\b' && evt.getKeyChar()!='.')))
+        {
+           evt.setKeyChar((char)8);
+        }
+    }
+      public static void fecha(KeyEvent evt ){
+        if (((evt.getKeyChar()<'0'|| evt.getKeyChar()>'9')) && ((evt.getKeyChar()!='\b' && evt.getKeyChar()=='/')))
+        {
+           evt.setKeyChar((char)8);
+        }
     }
 
 }

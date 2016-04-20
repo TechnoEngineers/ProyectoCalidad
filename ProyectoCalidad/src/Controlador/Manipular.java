@@ -8,8 +8,9 @@
  * VerificarUsuario: 
  */
 package Controlador;
-
+//Cambio gio
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JTextField;
 /**
  * Realiza la manipulación de las cajas de texto.
@@ -47,7 +48,14 @@ public class Manipular
                 {
                     JButton btn= (JButton) obj[i];
                     btn.setEnabled(b);
-                }
+                } else
+                    {
+                        if(obj[i] instanceof JComboBox)
+                        {
+                            JComboBox cb= (JComboBox) obj[i];
+                            cb.setEnabled(b);
+                         }
+                    }
             }
         }
     }
@@ -83,7 +91,15 @@ public class Manipular
                     JButton jb= (JButton)obj;
                     Manipular.deshabilitaObj(true,jb );
                     jb.requestFocus();
-                }
+                } else
+                    {
+                        if(obj instanceof JComboBox)
+                        {
+                            JComboBox jcb= (JComboBox)obj;
+                            Manipular.deshabilitaObj(true,jcb );
+                            jcb.requestFocus();
+                        }
+                    }
             }
                 
         }
