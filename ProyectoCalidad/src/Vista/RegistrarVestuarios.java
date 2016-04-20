@@ -9,6 +9,7 @@
  */
 package Vista;
 
+import Controlador.Manipular;
 import Modelo.VestuariosDatosEncapsulados;
 import Modelo.VestuariosModelo;
 import Vista.mensajes.Mensajes;
@@ -46,8 +47,7 @@ public class RegistrarVestuarios extends javax.swing.JFrame
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         jBConsultarVestuario = new javax.swing.JButton();
         jBRegistrarVestuario = new javax.swing.JButton();
@@ -71,20 +71,16 @@ public class RegistrarVestuarios extends javax.swing.JFrame
 
         jBConsultarVestuario.setText("Consultar Vestuario");
         jBConsultarVestuario.setPreferredSize(new java.awt.Dimension(120, 50));
-        jBConsultarVestuario.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        jBConsultarVestuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBConsultarVestuarioActionPerformed(evt);
             }
         });
 
         jBRegistrarVestuario.setText("Registrar Vestuario");
         jBRegistrarVestuario.setPreferredSize(new java.awt.Dimension(120, 50));
-        jBRegistrarVestuario.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        jBRegistrarVestuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBRegistrarVestuarioActionPerformed(evt);
             }
         });
@@ -96,10 +92,8 @@ public class RegistrarVestuarios extends javax.swing.JFrame
         jLDescripcion.setPreferredSize(new java.awt.Dimension(61, 30));
 
         jTFDescripcion.setPreferredSize(new java.awt.Dimension(59, 30));
-        jTFDescripcion.addKeyListener(new java.awt.event.KeyAdapter()
-        {
-            public void keyTyped(java.awt.event.KeyEvent evt)
-            {
+        jTFDescripcion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTFDescripcionKeyTyped(evt);
             }
         });
@@ -108,10 +102,8 @@ public class RegistrarVestuarios extends javax.swing.JFrame
         jLColor.setPreferredSize(new java.awt.Dimension(29, 30));
 
         jTFColor.setPreferredSize(new java.awt.Dimension(59, 30));
-        jTFColor.addKeyListener(new java.awt.event.KeyAdapter()
-        {
-            public void keyTyped(java.awt.event.KeyEvent evt)
-            {
+        jTFColor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTFColorKeyTyped(evt);
             }
         });
@@ -133,10 +125,8 @@ public class RegistrarVestuarios extends javax.swing.JFrame
         jBGuardar.setMaximumSize(new java.awt.Dimension(120, 50));
         jBGuardar.setMinimumSize(new java.awt.Dimension(120, 50));
         jBGuardar.setPreferredSize(new java.awt.Dimension(120, 50));
-        jBGuardar.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        jBGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBGuardarActionPerformed(evt);
             }
         });
@@ -146,10 +136,8 @@ public class RegistrarVestuarios extends javax.swing.JFrame
         jBCancelar.setMaximumSize(new java.awt.Dimension(120, 50));
         jBCancelar.setMinimumSize(new java.awt.Dimension(120, 50));
         jBCancelar.setPreferredSize(new java.awt.Dimension(120, 50));
-        jBCancelar.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        jBCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBCancelarActionPerformed(evt);
             }
         });
@@ -295,11 +283,18 @@ public class RegistrarVestuarios extends javax.swing.JFrame
         c = evt.getKeyChar();
         if (jTFDescripcion.getText().length() <= 249)
         {
-            if (!Character.isLetter(c) && !Character.isDigit(c) && c != KeyEvent.VK_SPACE && c != KeyEvent.VK_BACK_SPACE)
+            if (evt.getKeyChar() == '\n')
             {
-                evt.consume();
-                getToolkit().beep();
+                Manipular.cambioObj(jCTipo);
+            }else
+            {
+                 if (!Character.isLetter(c) && !Character.isDigit(c) && c != KeyEvent.VK_SPACE && c != KeyEvent.VK_BACK_SPACE)
+                {
+                    evt.consume();
+                    getToolkit().beep();
+                }
             }
+           
         } else
         {
             evt.consume();
@@ -312,13 +307,19 @@ public class RegistrarVestuarios extends javax.swing.JFrame
     private void jTFColorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFColorKeyTyped
         char c;
         c = evt.getKeyChar();
-        if (jTFColor.getText().length() <= 4)
+        if (jTFColor.getText().length() <= 49)
         {
-            if (!Character.isLetter(c) && c != KeyEvent.VK_SPACE && c != KeyEvent.VK_BACK_SPACE)
+            if (evt.getKeyChar() == '\n')
             {
-                evt.consume();
-                getToolkit().beep();
-                Mensajes.falla(this, "Error, No puede ingresar numeros y/o caracteres");
+                Manipular.cambioObj(jBGuardar);
+            }else
+            {
+                if (!Character.isLetter(c) && c != KeyEvent.VK_SPACE && c != KeyEvent.VK_BACK_SPACE)
+                {
+                    evt.consume();
+                    getToolkit().beep();
+                    Mensajes.falla(this, "Error, No puede ingresar numeros y/o caracteres");
+                }
             }
         } else
         {
