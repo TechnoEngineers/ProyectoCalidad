@@ -39,7 +39,7 @@ public class Login extends javax.swing.JFrame
     public Login()
     {
         initComponents();
-        
+        jTFNombre.requestFocusInWindow();
         //Tomo el tamaño de la pantalla
         Dimension pantallaTamano = Toolkit.getDefaultToolkit().getScreenSize();
         //Al ancho de la pantalla lo divido en 2 y le resto la mitad del ancho de mi ventana, con eso queda centrada en el eje X, para el eje Y es lo mismo pero con el alto:
@@ -110,7 +110,7 @@ public class Login extends javax.swing.JFrame
         });
 
         jBAcceder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Login/Login/Entrar.png"))); // NOI18N
-        jBAcceder.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBAcceder.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jBAcceder.setPreferredSize(new java.awt.Dimension(120, 50));
         jBAcceder.addActionListener(new java.awt.event.ActionListener()
         {
@@ -123,7 +123,7 @@ public class Login extends javax.swing.JFrame
         jLRecuperarContrasena.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLRecuperarContrasena.setText("¿Olvidaste tu contraseña?");
         jLRecuperarContrasena.setToolTipText("");
-        jLRecuperarContrasena.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLRecuperarContrasena.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLRecuperarContrasena.addMouseListener(new java.awt.event.MouseAdapter()
         {
             public void mouseClicked(java.awt.event.MouseEvent evt)
@@ -133,7 +133,7 @@ public class Login extends javax.swing.JFrame
         });
 
         AyudaLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Login/Login/Ayuda.png"))); // NOI18N
-        AyudaLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        AyudaLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         AyudaLogin.addMouseListener(new java.awt.event.MouseAdapter()
         {
             public void mouseClicked(java.awt.event.MouseEvent evt)
