@@ -255,6 +255,7 @@ public class RecuperarContrasena extends javax.swing.JFrame
                 break;
             }
             objUsuariosDatosEncapsulados.setContrasena(jPFRepitaContrasena.getText());
+            
             if (ValidaDatosIngreso.bContraseniaValida != false)
             {
 
