@@ -15,6 +15,8 @@ import javax.swing.JFrame;
 import Modelo.UsuariosModelo;
 import Modelo.UsuariosDatosEncapsulados;
 import Vista.mensajes.Mensajes;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 
 /**
  * Recupera la contraseña del usuario.
@@ -31,6 +33,11 @@ public class RecuperarContrasena extends javax.swing.JFrame
     public RecuperarContrasena()
     {
         initComponents();
+        //Tomo el tamaño de la pantalla
+        Dimension pantallaTamano = Toolkit.getDefaultToolkit().getScreenSize();
+        //Al ancho de la pantalla lo divido en 2 y le resto la mitad del ancho de mi ventana, con eso queda centrada en el eje X, para el eje Y es lo mismo pero con el alto:
+        this.setLocation((pantallaTamano.width/2)-(this.getWidth()/2), (pantallaTamano.height/2)-(this.getHeight()/2)); 
+        setResizable(false);
     }
 
     /**
@@ -60,6 +67,7 @@ public class RecuperarContrasena extends javax.swing.JFrame
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(208, 208, 208));
 
@@ -218,8 +226,8 @@ public class RecuperarContrasena extends javax.swing.JFrame
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

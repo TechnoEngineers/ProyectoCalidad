@@ -73,6 +73,7 @@ public class ValidaDatosIngreso
         if (sCadenaSinEspacios.length() <= 0) //Valida que la cadena no este vacía.
         {
             JOptionPane.showMessageDialog(jPanel, "Falta " + sOtraValidacion + ", intentelo de nuevo.", "Mensaje", JOptionPane.ERROR_MESSAGE);
+            bUsuarioValido=false;
         } else
         {
             if (sCadenaSinEspacios.length() >= 5 && sCadenaSinEspacios.length() <= 100) 

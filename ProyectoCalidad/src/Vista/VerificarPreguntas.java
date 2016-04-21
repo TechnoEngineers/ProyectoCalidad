@@ -14,6 +14,8 @@ import Controlador.ValidaDatosIngreso;
 import Modelo.UsuariosDatosEncapsulados;
 import Modelo.UsuariosModelo;
 import Vista.mensajes.Mensajes;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import javax.swing.JFrame;
 
 public class VerificarPreguntas extends javax.swing.JFrame
@@ -22,6 +24,11 @@ public class VerificarPreguntas extends javax.swing.JFrame
     public VerificarPreguntas()
     {
         initComponents();
+        //Tomo el tamaño de la pantalla
+        Dimension pantallaTamano = Toolkit.getDefaultToolkit().getScreenSize();
+        //Al ancho de la pantalla lo divido en 2 y le resto la mitad del ancho de mi ventana, con eso queda centrada en el eje X, para el eje Y es lo mismo pero con el alto:
+        this.setLocation((pantallaTamano.width/2)-(this.getWidth()/2), (pantallaTamano.height/2)-(this.getHeight()/2)); 
+        setResizable(false);
     }
 
     /**
@@ -47,6 +54,7 @@ public class VerificarPreguntas extends javax.swing.JFrame
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(208, 208, 208));
 
@@ -195,7 +203,9 @@ public class VerificarPreguntas extends javax.swing.JFrame
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel4)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
