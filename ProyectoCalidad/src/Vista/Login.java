@@ -56,19 +56,30 @@ public class Login extends javax.swing.JFrame
         jPFContrasena = new javax.swing.JPasswordField();
         jBAcceder = new javax.swing.JButton();
         jLRecuperarContrasena = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         AyudaLogin = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(233, 188, 0));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Inicio de sesión", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(208, 208, 208));
 
+        jLNombre.setFont(new java.awt.Font("Segoe UI", 1, 19)); // NOI18N
         jLNombre.setText("Usuario: ");
 
+        jLContrasena.setFont(new java.awt.Font("Segoe UI", 1, 19)); // NOI18N
         jLContrasena.setText("Contraseña: ");
 
+        jTFNombre.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jTFNombre.setForeground(new java.awt.Color(51, 51, 51));
+        jTFNombre.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                jTFNombreActionPerformed(evt);
+            }
+        });
         jTFNombre.addKeyListener(new java.awt.event.KeyAdapter()
         {
             public void keyPressed(java.awt.event.KeyEvent evt)
@@ -77,6 +88,8 @@ public class Login extends javax.swing.JFrame
             }
         });
 
+        jPFContrasena.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jPFContrasena.setForeground(new java.awt.Color(51, 51, 51));
         jPFContrasena.addKeyListener(new java.awt.event.KeyAdapter()
         {
             public void keyPressed(java.awt.event.KeyEvent evt)
@@ -85,7 +98,8 @@ public class Login extends javax.swing.JFrame
             }
         });
 
-        jBAcceder.setText("Acceder");
+        jBAcceder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Login/Login/Entrar.png"))); // NOI18N
+        jBAcceder.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jBAcceder.setPreferredSize(new java.awt.Dimension(120, 50));
         jBAcceder.addActionListener(new java.awt.event.ActionListener()
         {
@@ -95,8 +109,10 @@ public class Login extends javax.swing.JFrame
             }
         });
 
+        jLRecuperarContrasena.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLRecuperarContrasena.setText("¿Olvidaste tu contraseña?");
         jLRecuperarContrasena.setToolTipText("");
+        jLRecuperarContrasena.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLRecuperarContrasena.addMouseListener(new java.awt.event.MouseAdapter()
         {
             public void mouseClicked(java.awt.event.MouseEvent evt)
@@ -105,10 +121,8 @@ public class Login extends javax.swing.JFrame
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Logo.png"))); // NOI18N
-        jLabel1.setText("jLabel1");
-
-        AyudaLogin.setText("Ayuda");
+        AyudaLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Login/Login/Ayuda.png"))); // NOI18N
+        AyudaLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         AyudaLogin.addMouseListener(new java.awt.event.MouseAdapter()
         {
             public void mouseClicked(java.awt.event.MouseEvent evt)
@@ -116,9 +130,18 @@ public class Login extends javax.swing.JFrame
                 AyudaLoginMouseClicked(evt);
             }
         });
+        AyudaLogin.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                AyudaLoginActionPerformed(evt);
+            }
+        });
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 8)); // NOI18N
-        jLabel2.setText("Copyright 2013 by Techno Engineers. All rights reserved.");
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel2.setText("Copyright 2016 by Techno Engineers. All rights reserved.");
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Logo.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -126,62 +149,75 @@ public class Login extends javax.swing.JFrame
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(206, 206, 206)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLContrasena)
-                                    .addComponent(jLNombre)
-                                    .addComponent(jTFNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jBAcceder, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
-                                        .addComponent(jPFContrasena, javax.swing.GroupLayout.Alignment.LEADING))
-                                    .addComponent(jLRecuperarContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(170, 170, 170)
-                                .addComponent(jLabel2))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(96, 96, 96)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 82, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(AyudaLogin)))
+                        .addComponent(AyudaLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGap(90, 90, 90)
+                                    .addComponent(jLabel2))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGap(138, 138, 138)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addGap(35, 35, 35)
+                                            .addComponent(jBAcceder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jLContrasena)
+                                        .addComponent(jLNombre)
+                                        .addComponent(jPFContrasena, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                                        .addComponent(jTFNombre)))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(150, 150, 150)
+                .addComponent(jLRecuperarContrasena)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(AyudaLogin)
-                .addGap(17, 17, 17)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addContainerGap()
+                .addComponent(AyudaLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(jLabel3)
+                .addGap(31, 31, 31)
                 .addComponent(jLNombre)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTFNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTFNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLContrasena)
-                .addGap(4, 4, 4)
-                .addComponent(jPFContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jBAcceder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPFContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jBAcceder, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLRecuperarContrasena)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addContainerGap())
         );
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Login/Login/Iniciar sesión.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -285,6 +321,16 @@ public class Login extends javax.swing.JFrame
         //dispose();
     }//GEN-LAST:event_AyudaLoginMouseClicked
 
+    private void AyudaLoginActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_AyudaLoginActionPerformed
+    {//GEN-HEADEREND:event_AyudaLoginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AyudaLoginActionPerformed
+
+    private void jTFNombreActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jTFNombreActionPerformed
+    {//GEN-HEADEREND:event_jTFNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFNombreActionPerformed
+
     /**
      * Se hace visible la interfaz del login.
      * @param args the command line arguments
@@ -339,6 +385,7 @@ public class Login extends javax.swing.JFrame
     private javax.swing.JLabel jLRecuperarContrasena;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPasswordField jPFContrasena;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTFNombre;
