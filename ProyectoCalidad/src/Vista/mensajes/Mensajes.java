@@ -38,4 +38,11 @@ public class Mensajes
     {
         return JOptionPane.showConfirmDialog(jf, s);
     }
+    public static void msj(JFrame jf , String s)
+    {
+        if(jf== null)
+        {
+            System.out.println("");
+        }
+    }
 }

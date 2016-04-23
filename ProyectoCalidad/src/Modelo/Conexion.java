@@ -13,7 +13,7 @@ import java.sql.*;
 
 public class Conexion
 {
-    Connection con = null;//variable tipo conexion
+    public Connection con = null;//variable tipo conexion
     
     /**
      * Conecta con la base de datos MySQL
