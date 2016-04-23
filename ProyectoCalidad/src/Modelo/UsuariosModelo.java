@@ -140,7 +140,7 @@ public class UsuariosModelo {
      public static int recuperarContrasenia(UsuariosDatosEncapsulados objUsuarios)
     {
         Connection con = UsuariosModelo.conectaDB(); //Conecta a la base de datos.
-        String sSQL = "UPDATE usuarios SET contrasenia=? WHERE nombre=?"; //Actualiza la contraseña en la base de datos.
+        String sSQL = "UPDATE usuarios SET contrasenia=? WHERE username=?"; //Actualiza la contraseña en la base de datos.
         try {
             PreparedStatement pst=con.prepareStatement(sSQL); 
             pst.setString(1,objUsuarios.getContrasena()); //Obtiene contraseña.

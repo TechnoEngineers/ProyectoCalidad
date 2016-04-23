@@ -1,7 +1,6 @@
 CREATE DATABASE TRAJIN;
 
 USE TRAJIN;
-
 CREATE TABLE usuarios(idusuario int PRIMARY KEY auto_increment,
 						 tipodeusuario char(1),
 						 username varchar(30),

@@ -114,10 +114,9 @@ public class IConsultaUsuarios extends javax.swing.JPanel {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
-        jBConsultaBailarines = new javax.swing.JButton();
-        jBRegistraBailarines = new javax.swing.JButton();
         jPConsultaBailarines = new javax.swing.JPanel();
         jBBuscar = new javax.swing.JButton();
         jTNombreBailarin = new javax.swing.JTextField();
@@ -127,45 +126,37 @@ public class IConsultaUsuarios extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(537, 371));
 
-        jBConsultaBailarines.setText("Consultar Bailarines");
-        jBConsultaBailarines.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBConsultaBailarinesActionPerformed(evt);
-            }
-        });
-
-        jBRegistraBailarines.setText("Registrar Bailarines");
-        jBRegistraBailarines.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBRegistraBailarinesActionPerformed(evt);
-            }
-        });
-
         jPConsultaBailarines.setBackground(new java.awt.Color(255, 255, 255));
         jPConsultaBailarines.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 204, 0)));
 
         jBBuscar.setText("Buscar");
-        jBBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jBBuscar.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 jBBuscarActionPerformed(evt);
             }
         });
 
         jTNombreBailarin.setPreferredSize(new java.awt.Dimension(6, 30));
-        jTNombreBailarin.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
+        jTNombreBailarin.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyTyped(java.awt.event.KeyEvent evt)
+            {
                 jTNombreBailarinKeyTyped(evt);
             }
         });
 
         jTConsultaBailarines.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+            new Object [][]
+            {
                 {},
                 {},
                 {},
                 {}
             },
-            new String [] {
+            new String []
+            {
 
             }
         ));
@@ -203,37 +194,18 @@ public class IConsultaUsuarios extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(132, 132, 132)
-                        .addComponent(jBConsultaBailarines)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jBRegistraBailarines))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jPConsultaBailarines, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addGap(24, 24, 24)
+                .addComponent(jPConsultaBailarines, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(77, 77, 77)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBConsultaBailarines, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBRegistraBailarines, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(145, 145, 145)
                 .addComponent(jPConsultaBailarines, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(26, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jBConsultaBailarinesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBConsultaBailarinesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jBConsultaBailarinesActionPerformed
-
-    private void jBRegistraBailarinesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBRegistraBailarinesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jBRegistraBailarinesActionPerformed
 
     private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
         // TODO add your handling code here:
@@ -267,8 +239,6 @@ public class IConsultaUsuarios extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBBuscar;
-    private javax.swing.JButton jBConsultaBailarines;
-    private javax.swing.JButton jBRegistraBailarines;
     private javax.swing.JPanel jPConsultaBailarines;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTConsultaBailarines;

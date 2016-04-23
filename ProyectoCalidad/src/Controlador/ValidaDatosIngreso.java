@@ -73,6 +73,7 @@ public class ValidaDatosIngreso
         if (sCadenaSinEspacios.length() <= 0) //Valida que la cadena no este vacía.
         {
             JOptionPane.showMessageDialog(jPanel, "Falta " + sOtraValidacion + ", intentelo de nuevo.", "Mensaje", JOptionPane.ERROR_MESSAGE);
+            bUsuarioValido=false;
         } else
         {
             if (sCadenaSinEspacios.length() >= 5 && sCadenaSinEspacios.length() <= 100) 
@@ -123,7 +124,7 @@ public class ValidaDatosIngreso
                         }
                     }
                 }
-                if (sTipoValidacion.equals("respuesta secreta")) //Si el parametro es de ciudad, admite letras y numeros, o solo letras pero no solo numeros.
+                if (sTipoValidacion.equals("respuestasecreta")) //Si el parametro es de ciudad, admite letras y numeros, o solo letras pero no solo numeros.
                 {
                     if (iAlfanumericoMayuscula == 1)
                     {
@@ -133,6 +134,7 @@ public class ValidaDatosIngreso
                     {
                         if (iAlfanumericoMinuscula == 1)
                         {
+                            System.out.println("hola");
                             iCadenaInvalida = 0; //Si es cadena alfanumerica y cumple con los requisitos de ciudad entonces la cadena es valida.
                             bUsuarioValido = true; //La cadena es valida, asigna el valor de true.
                         } else

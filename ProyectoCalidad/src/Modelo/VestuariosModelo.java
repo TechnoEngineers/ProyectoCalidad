@@ -60,7 +60,7 @@ public class VestuariosModelo
     {
         String campos[] =
         {
-            "Id", "Tipo", "Descripcion", "Color", "Seco", "Opciones"
+            "Id", "Tipo", "Descripcion", "Color", "Sexo", "Opciones"
         };
 
         JFrame jf = new JFrame();

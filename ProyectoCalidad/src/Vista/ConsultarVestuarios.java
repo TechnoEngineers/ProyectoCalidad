@@ -25,6 +25,7 @@ public class ConsultarVestuarios extends javax.swing.JPanel
     {
         initComponents();
         this.mostrar("");
+        jTVestuario.setEnabled(false);
     }
 
     private void mostrar(String sBuscar)
@@ -59,18 +60,15 @@ public class ConsultarVestuarios extends javax.swing.JPanel
         jTVestuario = new javax.swing.JTable();
 
         jTFBuscarVestuario.setPreferredSize(new java.awt.Dimension(59, 30));
-        jTFBuscarVestuario.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                jTFBuscarVestuarioActionPerformed(evt);
-            }
-        });
         jTFBuscarVestuario.addKeyListener(new java.awt.event.KeyAdapter()
         {
             public void keyPressed(java.awt.event.KeyEvent evt)
             {
                 jTFBuscarVestuarioKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt)
+            {
+                jTFBuscarVestuarioKeyReleased(evt);
             }
             public void keyTyped(java.awt.event.KeyEvent evt)
             {
@@ -118,11 +116,6 @@ public class ConsultarVestuarios extends javax.swing.JPanel
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTFBuscarVestuarioActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jTFBuscarVestuarioActionPerformed
-    {//GEN-HEADEREND:event_jTFBuscarVestuarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTFBuscarVestuarioActionPerformed
-
     private void jTFBuscarVestuarioKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFBuscarVestuarioKeyPressed
     {//GEN-HEADEREND:event_jTFBuscarVestuarioKeyPressed
         this.mostrar(jTFBuscarVestuario.getText());
@@ -132,13 +125,18 @@ public class ConsultarVestuarios extends javax.swing.JPanel
     {//GEN-HEADEREND:event_jTFBuscarVestuarioKeyTyped
         char c;
         c = evt.getKeyChar();
-        if (!Character.isLetter(c) && !Character.isDigit(c) && c != KeyEvent.VK_SPACE && c != KeyEvent.VK_BACK_SPACE)
+        if (!Character.isLetter(c) && !Character.isDigit(c) && c != KeyEvent.VK_SPACE && c != KeyEvent.VK_BACK_SPACE && c != KeyEvent.VK_ENTER)
         {
             evt.consume();
             getToolkit().beep();
             Mensajes.falla(jf, "Error, No puede ingresar caracteres especiales.");
         }
     }//GEN-LAST:event_jTFBuscarVestuarioKeyTyped
+
+    private void jTFBuscarVestuarioKeyReleased(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFBuscarVestuarioKeyReleased
+    {//GEN-HEADEREND:event_jTFBuscarVestuarioKeyReleased
+       this.mostrar(jTFBuscarVestuario.getText());
+    }//GEN-LAST:event_jTFBuscarVestuarioKeyReleased
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLBuscarVestuario;
