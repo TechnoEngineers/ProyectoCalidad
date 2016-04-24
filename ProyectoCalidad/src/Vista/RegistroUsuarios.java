@@ -12,7 +12,7 @@ public class RegistroUsuarios extends javax.swing.JPanel
 {
     static RegistroUsuarios CVE = new RegistroUsuarios();
 
-    /**
+    /**:C
      * Creates new form RegistroUsuariosDatosPersonales
      */
     public RegistroUsuarios()
