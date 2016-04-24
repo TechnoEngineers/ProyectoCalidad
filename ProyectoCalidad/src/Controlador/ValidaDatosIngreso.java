@@ -20,6 +20,7 @@ import java.util.regex.Pattern;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 /**
@@ -305,7 +306,33 @@ public class ValidaDatosIngreso
             evt.setKeyChar((char) 8);
         }
     }
-
+    
+    public static boolean verificaBlancos(Object... arr)
+    {
+        for (int i = 0; i < arr.length; i++)
+        {
+            if (arr[i] instanceof JTextField)
+            {
+                JTextField jf = (JTextField) arr[i];
+                if (jf.getText().equals(""))
+                {
+                    Mensajes.falla(null, "No puedes dejar espacios en blanco");
+                    jf.requestFocus();
+                    return true;
+                }
+            }else if(arr[i] instanceof JPasswordField)
+            {
+                JPasswordField jpf= (JPasswordField) arr[i];
+                if (jpf.getText().equals(""))
+                {
+                    Mensajes.falla(null, "No puedes dejar espacios en blanco en contraseña");
+                    jpf.requestFocus();
+                    return true;
+                }
+            }  
+        }
+        return false;
+    }
 }
 
 

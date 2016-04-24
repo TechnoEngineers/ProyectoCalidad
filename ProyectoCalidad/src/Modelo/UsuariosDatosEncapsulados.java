@@ -2,7 +2,7 @@
  * Techno Engineers
  * Usuarios
  * 10/04/2016 -- Autorizo: Oscar de Paz Feliciano // Lider de proyecto
- * Modificaciones: Miguel Ángel Careaga Gómez // Desarrollo. [17/04/2016]
+ * Modificaciones: Jonathan Rojas Simon // Desarrollo. [17/04/2016]
  * Sirve para encapsular los datos de la tabla "usuarios" en la base de datos
  * Numero de metodos en el codigo: 0
  * Interfaces: 
@@ -16,9 +16,9 @@ package Modelo;
 
 public class UsuariosDatosEncapsulados
 {
+    private char cTipoUsuario;
     private String sUsuario;
     private String sContrasena;
-    private int iTipoUsuario;
     private int iStatus;
     private String sFechaIngreso;
     private int iExpediente;
@@ -39,11 +39,11 @@ public class UsuariosDatosEncapsulados
     private String sEmail;
     private String sFechaNacimiento;
     private String sLugarNacimiento;
-    private String sEstadoCivil;
-    private int iPasaporteSN;
+    private char cEstadoCivil;
+    private String sPasaporteSN;
     private String sVigenciaPasaporte;
     private int iNoCartillaMilitar;
-    private int iEstatura;
+    private double dEstatura;
     private String sTalla;
     private String sResponsable;
     private String sTipoSanguineo;
@@ -51,13 +51,14 @@ public class UsuariosDatosEncapsulados
     private String sEnfermedades;
     private String sNombreMedicoCabecera;
     private int iTelMedicoDeCabecera;
+    private String sMedicacionDiarrea;
     private String sMedicacionDolorDeCabeza;
     private String sMedicacionDolorDeEstomago;
     private String sMedicacionDolorMuscular;
     private String sMedicacionGripa;
     private String sMedicacionOtro;
     private String sFormaDeEnterarse;
-    private char cBaila;
+    private String sBaila;
     private String sBaile;
     private String sAnteriorBallet;
     private String sTiempoQueBailo;
@@ -105,14 +106,14 @@ public class UsuariosDatosEncapsulados
         this.sContrasena = sContrasena;
     }
 
-    public int getiTipoUsuario()
+    public char getcTipoUsuario()
     {
-        return iTipoUsuario;
+        return cTipoUsuario;
     }
 
-    public void setiTipoUsuario(int iTipoUsuario)
+    public void setcTipoUsuario(char cTipoUsuario)
     {
-        this.iTipoUsuario = iTipoUsuario;
+        this.cTipoUsuario = cTipoUsuario;
     }
 
     public int getiStatus()
@@ -315,24 +316,24 @@ public class UsuariosDatosEncapsulados
         this.sLugarNacimiento = sLugarNacimiento;
     }
 
-    public String getsEstadoCivil()
+    public char getcEstadoCivil()
     {
-        return sEstadoCivil;
+        return cEstadoCivil;
     }
 
-    public void setsEstadoCivil(String sEstadoCivil)
+    public void setcEstadoCivil(char cEstadoCivil)
     {
-        this.sEstadoCivil = sEstadoCivil;
+        this.cEstadoCivil = cEstadoCivil;
     }
 
-    public int getiPasaporteSN()
+    public String getsPasaporteSN()
     {
-        return iPasaporteSN;
+        return sPasaporteSN;
     }
 
-    public void setiPasaporteSN(int iPasaporteSN)
+    public void setsPasaporteSN(String sPasaporteSN)
     {
-        this.iPasaporteSN = iPasaporteSN;
+        this.sPasaporteSN = sPasaporteSN;
     }
 
     public String getsVigenciaPasaporte()
@@ -355,14 +356,14 @@ public class UsuariosDatosEncapsulados
         this.iNoCartillaMilitar = iNoCartillaMilitar;
     }
 
-    public int getiEstatura()
+    public double getdEstatura()
     {
-        return iEstatura;
+        return dEstatura;
     }
 
-    public void setiEstatura(int iEstatura)
+    public void setdEstatura(double dEstatura)
     {
-        this.iEstatura = iEstatura;
+        this.dEstatura = dEstatura;
     }
 
     public String getsTalla()
@@ -495,14 +496,14 @@ public class UsuariosDatosEncapsulados
         this.sFormaDeEnterarse = sFormaDeEnterarse;
     }
 
-    public char getcBaila()
+    public String getsBaila()
     {
-        return cBaila;
+        return sBaila;
     }
 
-    public void setcBaila(char cBaila)
+    public void setsBaila(String sBaila)
     {
-        this.cBaila = cBaila;
+        this.sBaila = sBaila;
     }
 
     public String getsBaile()
@@ -578,6 +579,16 @@ public class UsuariosDatosEncapsulados
     public void setsRespuestaSecreta(String sRespuestaSecreta)
     {
         this.sRespuestaSecreta = sRespuestaSecreta;
+    }
+
+    public String getsMedicacionDiarrea()
+    {
+        return sMedicacionDiarrea;
+    }
+
+    public void setsMedicacionDiarrea(String sMedicacionDiarrea)
+    {
+        this.sMedicacionDiarrea = sMedicacionDiarrea;
     }
     
     
