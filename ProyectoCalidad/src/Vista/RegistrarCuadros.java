@@ -4,7 +4,7 @@
  * 23/04/2016 -- Autorizo: Oscar De Paz Feliciano
  * Registro de cuadros: 
  * Sirve para dar de alta a los cuadros o estados
- * Numero de metodos en el codigo: 0
+ * Numero de metodos en el código: 9
  * Interfaces: 
  */
 package Vista;
@@ -170,7 +170,7 @@ public class RegistrarCuadros extends javax.swing.JFrame
 
     private void jTFNombreCuadroKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFNombreCuadroKeyTyped
     {//GEN-HEADEREND:event_jTFNombreCuadroKeyTyped
-        ValidaDatosIngreso.cadenaN(evt);
+        ValidaDatosIngreso.cadena(evt);
         int ilimite=49;
         if (jTFNombreCuadro.getText().length() == ilimite)
         {
