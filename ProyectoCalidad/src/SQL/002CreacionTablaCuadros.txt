@@ -1,0 +1,2 @@
+CREATE TABLE cuadros(idcuadro int PRIMARY KEY auto_increment,
+		     nombre varchar(50),tiempocambio int);
