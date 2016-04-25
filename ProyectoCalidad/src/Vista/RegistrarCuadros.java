@@ -41,8 +41,7 @@ public class RegistrarCuadros extends javax.swing.JFrame
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         jLNombreCuadro = new javax.swing.JLabel();
         jTFNombreCuadro = new javax.swing.JTextField();
@@ -58,14 +57,11 @@ public class RegistrarCuadros extends javax.swing.JFrame
         jLNombreCuadro.setText("Nombre de cuadro:");
 
         jTFNombreCuadro.setPreferredSize(new java.awt.Dimension(6, 30));
-        jTFNombreCuadro.addKeyListener(new java.awt.event.KeyAdapter()
-        {
-            public void keyPressed(java.awt.event.KeyEvent evt)
-            {
+        jTFNombreCuadro.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTFNombreCuadroKeyPressed(evt);
             }
-            public void keyTyped(java.awt.event.KeyEvent evt)
-            {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTFNombreCuadroKeyTyped(evt);
             }
         });
@@ -74,14 +70,11 @@ public class RegistrarCuadros extends javax.swing.JFrame
 
         jTFTiempo.setEnabled(false);
         jTFTiempo.setPreferredSize(new java.awt.Dimension(6, 30));
-        jTFTiempo.addKeyListener(new java.awt.event.KeyAdapter()
-        {
-            public void keyPressed(java.awt.event.KeyEvent evt)
-            {
+        jTFTiempo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTFTiempoKeyPressed(evt);
             }
-            public void keyTyped(java.awt.event.KeyEvent evt)
-            {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTFTiempoKeyTyped(evt);
             }
         });
@@ -89,27 +82,21 @@ public class RegistrarCuadros extends javax.swing.JFrame
         jBAceptar.setText("Aceptar");
         jBAceptar.setEnabled(false);
         jBAceptar.setPreferredSize(new java.awt.Dimension(120, 50));
-        jBAceptar.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        jBAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBAceptarActionPerformed(evt);
             }
         });
-        jBAceptar.addKeyListener(new java.awt.event.KeyAdapter()
-        {
-            public void keyPressed(java.awt.event.KeyEvent evt)
-            {
+        jBAceptar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
                 jBAceptarKeyPressed(evt);
             }
         });
 
         jBCancelar.setText("Cancelar");
         jBCancelar.setPreferredSize(new java.awt.Dimension(120, 50));
-        jBCancelar.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        jBCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBCancelarActionPerformed(evt);
             }
         });
