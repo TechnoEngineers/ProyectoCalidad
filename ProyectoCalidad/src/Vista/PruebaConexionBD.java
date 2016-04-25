@@ -21,7 +21,7 @@ public class PruebaConexionBD {
         // TODO code application logic here
         
         Conexion con = new Conexion();
-        con.Conecta("localhost", "trajin", "root", "123456"); //mandamos traer el metodo para verificar conexion
+        con.Conecta("localhost", "trajin", "root", "181189lobo"); //mandamos traer el metodo para verificar conexion
  
     }
     
